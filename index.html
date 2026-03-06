@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智能股票推荐 - 数据分析决策系统</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>智能股票推荐 - 实时访问统计</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -30,7 +29,6 @@
             padding-bottom: 70px;
         }
 
-        /* 导航栏 */
         .nav {
             background: var(--card);
             padding: 16px 20px;
@@ -48,14 +46,12 @@
             gap: 8px;
         }
 
-        /* 容器 */
         .container {
             max-width: 1000px;
             margin: 20px auto;
             padding: 0 15px;
         }
 
-        /* 大盘卡片 */
         .market {
             background: var(--card);
             border-radius: 12px;
@@ -87,7 +83,6 @@
         .up { color: var(--up); }
         .down { color: var(--down); }
 
-        /* 股票列表 */
         .stock-list {
             background: var(--card);
             border-radius: 12px;
@@ -124,7 +119,7 @@
             margin-left: 8px;
         }
 
-        /* 访客统计底部栏 */
+        /* 实时访客统计栏 */
         .visitor-footer {
             position: fixed;
             bottom: 0;
@@ -146,7 +141,6 @@
             gap: 6px;
         }
 
-        /* 响应式 */
         @media (max-width: 600px) {
             .market { gap: 10px; }
             .visitor-footer { gap: 15px; font-size: 13px; }
@@ -156,15 +150,11 @@
 
 <body>
 
-    <!-- 导航 -->
     <div class="nav">
         <h1><i class="fas fa-chart-line"></i> 智能股票推荐分析系统</h1>
     </div>
 
-    <!-- 内容区 -->
     <div class="container">
-
-        <!-- 大盘指数 -->
         <div class="market">
             <div class="item">
                 <div class="label">上证指数</div>
@@ -187,10 +177,8 @@
             </div>
         </div>
 
-        <!-- 股票推荐列表 -->
         <div class="stock-list">
             <div class="list-header">🔥 今日精选股票推荐</div>
-
             <div class="stock">
                 <div class="stock-left">
                     <span class="stock-name">贵州茅台</span>
@@ -199,7 +187,6 @@
                 </div>
                 <div class="up">+2.14%</div>
             </div>
-
             <div class="stock">
                 <div class="stock-left">
                     <span class="stock-name">宁德时代</span>
@@ -208,7 +195,6 @@
                 </div>
                 <div class="up">+1.56%</div>
             </div>
-
             <div class="stock">
                 <div class="stock-left">
                     <span class="stock-name">中兴通讯</span>
@@ -217,7 +203,6 @@
                 </div>
                 <div class="up">+3.21%</div>
             </div>
-
             <div class="stock">
                 <div class="stock-left">
                     <span class="stock-name">中国平安</span>
@@ -226,7 +211,6 @@
                 </div>
                 <div class="down">-0.45%</div>
             </div>
-
             <div class="stock">
                 <div class="stock-left">
                     <span class="stock-name">招商银行</span>
@@ -236,16 +220,44 @@
                 <div class="up">+0.78%</div>
             </div>
         </div>
-
     </div>
 
-    <!-- 底部访客统计 -->
+    <!-- 实时访客统计展示 -->
     <div class="visitor-footer">
-        <span><i class="fas fa-eye"></i> 总访问：1,289 次</span>
-        <span><i class="fas fa-calendar-day"></i> 今日访客：146 人</span>
-        <span><i class="fas fa-user"></i> 当前在线：23 人</span>
-        <span><i class="fas fa-clock"></i> 最后更新：2026-03-06</span>
+        <span><i class="fas fa-eye"></i> 总访问：<span id="total">0</span> 次</span>
+        <span><i class="fas fa-calendar-day"></i> 今日访客：<span id="today">0</span> 人</span>
+        <span><i class="fas fa-users"></i> 在线访客：<span id="online">1</span> 人</span>
+        <span><i class="fas fa-clock"></i> 更新时间：<span id="time"></span></span>
     </div>
 
+    <script>
+        // ========== 实时访问统计核心代码 ==========
+        function updateVisitor() {
+            let today = new Date().toISOString().split('T')[0];
+            let lastDate = localStorage.getItem('lastDate');
+
+            // 总访问
+            let total = Number(localStorage.getItem('totalVisits') || 0) + 1;
+            localStorage.setItem('totalVisits', total);
+
+            // 今日访问（每天自动重置）
+            let todayVisits;
+            if (lastDate !== today) {
+                todayVisits = 1;
+                localStorage.setItem('lastDate', today);
+            } else {
+                todayVisits = Number(localStorage.getItem('todayVisits') || 0) + 1;
+            }
+            localStorage.setItem('todayVisits', todayVisits);
+
+            // 显示
+            document.getElementById('total').innerText = total.toLocaleString();
+            document.getElementById('today').innerText = todayVisits;
+            document.getElementById('time').innerText = new Date().toLocaleString();
+        }
+
+        // 执行统计
+        updateVisitor();
+    </script>
 </body>
 </html>
