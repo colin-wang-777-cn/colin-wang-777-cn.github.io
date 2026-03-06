@@ -3,432 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数据分析项目 - 访客统计系统</title>
-    <!-- 引入图表库 -->
+    <title>智能股票推荐 - 数据分析决策系统</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- 引入图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         }
 
         :root {
+            --up: #00B42A;
+            --down: #F53F3F;
             --primary: #165DFF;
-            --secondary: #36CFC9;
-            --dark: #1D2129;
-            --light: #F2F3F5;
+            --bg: #F7F8FA;
+            --card: #ffffff;
+            --text: #1D2129;
             --gray: #86909C;
-            --success: #00B42A;
-            --warning: #FF7D00;
         }
 
         body {
-            background-color: #F7F8FA;
-            color: var(--dark);
-            line-height: 1.6;
+            background: var(--bg);
+            color: var(--text);
+            padding-bottom: 70px;
         }
 
         /* 导航栏 */
-        .navbar {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
+        .nav {
+            background: var(--card);
+            padding: 16px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
             top: 0;
             z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        .logo {
+        .nav h1 {
+            font-size: 20px;
             color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 700;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* 主容器 */
+        /* 容器 */
         .container {
-            max-width: 1400px;
-            margin: 80px auto 30px;
-            padding: 0 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
-        /* 页面标题 */
-        .page-header {
-            margin: 30px 0;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            color: var(--dark);
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-
-        .page-header p {
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        /* 统计卡片区域 */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 25px;
+        /* 大盘卡片 */
+        .market {
+            background: var(--card);
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-card .icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .stat-card h3 {
-            color: var(--gray);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .stat-card .number {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 5px 0;
-            color: var(--dark);
-        }
-
-        .stat-card .trend {
-            font-size: 0.9rem;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* 图表区域 */
-        .charts-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
+            flex-wrap: wrap;
             gap: 20px;
-            margin-bottom: 30px;
+            justify-content: space-between;
         }
 
-        .chart-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        .item {
+            flex: 1;
+            min-width: 120px;
         }
 
-        .chart-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--dark);
+        .item .label {
+            font-size: 14px;
+            color: var(--gray);
         }
 
-        /* 项目展示区 */
-        .projects-section {
-            margin-top: 40px;
+        .item .value {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 4px 0;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            padding-left: 10px;
-            border-left: 4px solid var(--primary);
-        }
+        .up { color: var(--up); }
+        .down { color: var(--down); }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
-            background: white;
+        /* 股票列表 */
+        .stock-list {
+            background: var(--card);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
-        .project-card:hover {
-            transform: translateY(-8px);
+        .list-header {
+            padding: 16px 20px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
         }
 
-        .project-img {
-            height: 180px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        .stock {
+            padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stock:last-child { border-bottom: none; }
+
+        .stock-left { flex: 1; }
+        .stock-name { font-weight: 600; }
+        .stock-code { color: var(--gray); font-size: 13px; }
+        .stock-tip {
+            font-size: 12px;
+            background: #FFF7CC;
+            color: #FF7D00;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        /* 访客统计底部栏 */
+        .visitor-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+            padding: 12px 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .visitor-footer span {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
+            gap: 6px;
         }
 
-        .project-info {
-            padding: 20px;
-        }
-
-        .project-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-
-        .project-info p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .project-tag {
-            display: inline-block;
-            padding: 4px 10px;
-            background: var(--light);
-            color: var(--primary);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-        }
-
-        /* 页脚 */
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: var(--gray);
-            background: white;
-            margin-top: 50px;
-        }
-
-        /* 响应式适配 */
-        @media (max-width: 992px) {
-            .charts-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .page-header h1 {
-                font-size: 1.8rem;
-            }
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .market { gap: 10px; }
+            .visitor-footer { gap: 15px; font-size: 13px; }
         }
     </style>
 </head>
+
 <body>
 
-<!-- 导航栏 -->
-<nav class="navbar">
-    <div class="logo">
-        <i class="fas fa-chart-line"></i>
-        Data Analytics
-    </div>
-    <div class="nav-links">
-        <a href="#stats">访客统计</a>
-        <a href="#charts">数据图表</a>
-        <a href="#projects">项目展示</a>
-        <a href="#about">关于我们</a>
-    </div>
-</nav>
-
-<!-- 主内容区 -->
-<div class="container">
-    <div class="page-header">
-        <h1>数据分析项目 · 实时访客统计系统</h1>
-        <p>全方位监控网站访问数据，助力业务决策分析</p>
+    <!-- 导航 -->
+    <div class="nav">
+        <h1><i class="fas fa-chart-line"></i> 智能股票推荐分析系统</h1>
     </div>
 
-    <!-- 访客统计卡片 -->
-    <section id="stats" class="stats-grid">
-        <div class="stat-card">
-            <div class="icon" style="color: var(--primary);">
-                <i class="fas fa-users"></i>
+    <!-- 内容区 -->
+    <div class="container">
+
+        <!-- 大盘指数 -->
+        <div class="market">
+            <div class="item">
+                <div class="label">上证指数</div>
+                <div class="value up">3086.24</div>
+                <div class="up">+1.25%</div>
             </div>
-            <h3>总访问访客</h3>
-            <div class="number">12,854</div>
-            <div class="trend" style="color: var(--success);">
-                <i class="fas fa-arrow-up"></i> 较上月 +12.4%
+            <div class="item">
+                <div class="label">深证成指</div>
+                <div class="value up">9642.57</div>
+                <div class="up">+0.87%</div>
+            </div>
+            <div class="item">
+                <div class="label">创业板指</div>
+                <div class="value down">1896.32</div>
+                <div class="down">-0.32%</div>
+            </div>
+            <div class="item">
+                <div class="label">上涨/下跌</div>
+                <div class="value">3214/1658</div>
             </div>
         </div>
 
-        <div class="stat-card">
-            <div class="icon" style="color: var(--secondary);">
-                <i class="fas fa-calendar-day"></i>
-            </div>
-            <h3>今日访客</h3>
-            <div class="number">368</div>
-            <div class="trend" style="color: var(--success);">
-                <i class="fas fa-arrow-up"></i> 较昨日 +8.7%
-            </div>
-        </div>
+        <!-- 股票推荐列表 -->
+        <div class="stock-list">
+            <div class="list-header">🔥 今日精选股票推荐</div>
 
-        <div class="stat-card">
-            <div class="icon" style="color: var(--success);">
-                <i class="fas fa-wifi"></i>
-            </div>
-            <h3>当前在线</h3>
-            <div class="number">42</div>
-            <div class="trend" style="color: var(--success);">
-                <i class="fas fa-check"></i> 实时在线
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="icon" style="color: var(--warning);">
-                <i class="fas fa-globe"></i>
-            </div>
-            <h3>访问来源</h3>
-            <div class="number">8 个</div>
-            <div class="trend" style="color: var(--gray);">
-                搜索引擎 / 直接访问
-            </div>
-        </div>
-    </section>
-
-    <!-- 数据图表区域 -->
-    <section id="charts" class="charts-grid">
-        <div class="chart-card">
-            <h2 class="chart-title">近30天访问趋势</h2>
-            <canvas id="trendChart" height="250"></canvas>
-        </div>
-
-        <div class="chart-card">
-            <h2 class="chart-title">访问设备分布</h2>
-            <canvas id="deviceChart" height="250"></canvas>
-        </div>
-    </section>
-
-    <!-- 数据分析项目展示 -->
-    <section id="projects" class="projects-section">
-        <h2 class="section-title">数据分析项目展示</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-chart-pie"></i>
+            <div class="stock">
+                <div class="stock-left">
+                    <span class="stock-name">贵州茅台</span>
+                    <span class="stock-code">600519</span>
+                    <span class="stock-tip">长线价值</span>
                 </div>
-                <div class="project-info">
-                    <h3>用户行为分析系统</h3>
-                    <p>分析用户页面浏览、点击、停留时长等核心行为数据</p>
-                    <div class="project-tag">数据挖掘</div>
-                    <div class="project-tag">用户分析</div>
-                </div>
+                <div class="up">+2.14%</div>
             </div>
 
-            <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-chart-bar"></i>
+            <div class="stock">
+                <div class="stock-left">
+                    <span class="stock-name">宁德时代</span>
+                    <span class="stock-code">300750</span>
+                    <span class="stock-tip">成长潜力</span>
                 </div>
-                <div class="project-info">
-                    <h3>业务数据可视化平台</h3>
-                    <p>整合多维度业务数据，生成可视化报表与实时监控</p>
-                    <div class="project-tag">可视化</div>
-                    <div class="project-tag">实时监控</div>
-                </div>
+                <div class="up">+1.56%</div>
             </div>
 
-            <div class="project-card">
-                <div class="project-img">
-                    <i class="fas fa-chart-line"></i>
+            <div class="stock">
+                <div class="stock-left">
+                    <span class="stock-name">中兴通讯</span>
+                    <span class="stock-code">000063</span>
+                    <span class="stock-tip">科技主线</span>
                 </div>
-                <div class="project-info">
-                    <h3>流量来源分析工具</h3>
-                    <p>精准统计网站流量来源渠道，分析转化与留存效果</p>
-                    <div class="project-tag">流量分析</div>
-                    <div class="project-tag">SEO监控</div>
+                <div class="up">+3.21%</div>
+            </div>
+
+            <div class="stock">
+                <div class="stock-left">
+                    <span class="stock-name">中国平安</span>
+                    <span class="stock-code">601318</span>
+                    <span class="stock-tip">低估值</span>
                 </div>
+                <div class="down">-0.45%</div>
+            </div>
+
+            <div class="stock">
+                <div class="stock-left">
+                    <span class="stock-name">招商银行</span>
+                    <span class="stock-code">600036</span>
+                    <span class="stock-tip">稳健防御</span>
+                </div>
+                <div class="up">+0.78%</div>
             </div>
         </div>
-    </section>
-</div>
 
-<!-- 页脚 -->
-<footer>
-    <p>© 2027 数据分析项目 | 实时访客统计系统</p>
-</footer>
+    </div>
 
-<script>
-    // 模拟访客统计数据（可替换为真实接口数据）
-    document.addEventListener('DOMContentLoaded', function() {
-        // 近30天访问趋势图表
-        const trendCtx = document.getElementById('trendChart').getContext('2d');
-        new Chart(trendCtx, {
-            type: 'line',
-            data: {
-                labels: ['1日', '5日', '10日', '15日', '20日', '25日', '30日'],
-                datasets: [{
-                    label: '访问人数',
-                    data: [210, 280, 350, 320, 400, 380, 420],
-                    borderColor: '#165DFF',
-                    backgroundColor: 'rgba(22, 93, 255, 0.1)',
-                    tension: 0.4,
-                    fill: true
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false }
-                }
-            }
-        });
+    <!-- 底部访客统计 -->
+    <div class="visitor-footer">
+        <span><i class="fas fa-eye"></i> 总访问：1,289 次</span>
+        <span><i class="fas fa-calendar-day"></i> 今日访客：146 人</span>
+        <span><i class="fas fa-user"></i> 当前在线：23 人</span>
+        <span><i class="fas fa-clock"></i> 最后更新：2026-03-06</span>
+    </div>
 
-        // 设备分布饼图
-        const deviceCtx = document.getElementById('deviceChart').getContext('2d');
-        new Chart(deviceCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['手机端', '电脑端', '平板端'],
-                datasets: [{
-                    data: [68, 25, 7],
-                    backgroundColor: ['#165DFF', '#36CFC9', '#FF7D00']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { position: 'bottom' }
-                }
-            }
-        });
-    });
-</script>
 </body>
 </html>
