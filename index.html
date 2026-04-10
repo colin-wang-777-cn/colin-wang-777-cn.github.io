@@ -310,11 +310,10 @@
         });
 
         // 点击菜单后自动关闭手机端侧边栏
-        document.querySelectorAll('.sidebar-link, .submenu-link').forEach(item => {
+        document.querySelectorAll('.sidebar-link:not(button)').forEach(item => {
             item.addEventListener('click', () => {
                 if(window.innerWidth < 768) {
                     sidebar.classList.add('-translate-x-full');
-                    document.body.style.overflow = ''; // 恢复滚动
                 }
             });
         });
