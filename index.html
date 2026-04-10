@@ -1,263 +1,536 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智能股票推荐 - 实时访问统计</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Professional Financial Analysis Network - Precise Insight, Empower Decision-Making</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Microsoft YaHei", "Source Han Sans", sans-serif;
         }
-
-        :root {
-            --up: #00B42A;
-            --down: #F53F3F;
-            --primary: #165DFF;
-            --bg: #F7F8FA;
-            --card: #ffffff;
-            --text: #1D2129;
-            --gray: #86909C;
-        }
-
+        /* Global Styles */
         body {
-            background: var(--bg);
-            color: var(--text);
-            padding-bottom: 70px;
+            background-color: #fff;
+            color: #333333;
+            line-height: 1.5;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Responsive Adaptation */
+        @media (max-width: 1200px) {
+            .container {
+                width: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            .service-list, .advantage-list {
+                flex-direction: column;
+            }
+            .nav-middle {
+                display: none;
+            }
+            .nav-hamburger {
+                display: block;
+            }
         }
 
-        .nav {
-            background: var(--card);
-            padding: 16px 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
+        /* Top Navigation Bar */
+        .navbar {
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to right, #E6F2FF, #D1E7FF);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 999;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1E88E5;
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo i {
+            margin-right: 8px;
+            font-size: 28px;
+        }
+        .nav-slogan {
+            font-size: 12px;
+            color: #666666;
+            margin-top: 4px;
+        }
+        .nav-middle {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-middle a {
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-middle a:hover {
+            color: #1E88E5;
+            font-weight: bold;
+        }
+        .nav-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .nav-btn {
+            font-size: 14px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .login-btn {
+            border: 1px solid #1E88E5;
+            color: #1E88E5;
+        }
+        .login-btn:hover {
+            background-color: #E6F2FF;
+        }
+        .consult-btn {
+            background-color: #1E88E5;
+            color: #fff;
+        }
+        .consult-btn:hover {
+            background-color: #1976D2;
+        }
+        .nav-hamburger {
+            display: none;
+            font-size: 24px;
+            color: #1E88E5;
+            cursor: pointer;
         }
 
-        .nav h1 {
+        /* Banner Section */
+        .banner {
+            margin-top: 80px;
+            background-color: #F0F7FF;
+            padding: 80px 0;
+            text-align: center;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231e88e5' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .banner-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1E88E5;
+            margin-bottom: 20px;
+        }
+        .banner-subtitle {
+            font-size: 18px;
+            color: #666666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .banner-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .banner-btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-experience {
+            background-color: #1E88E5;
+            color: #fff;
+        }
+        .btn-experience:hover {
+            background-color: #1976D2;
+        }
+        .btn-more {
+            border: 1px solid #1E88E5;
+            color: #1E88E5;
+            background-color: transparent;
+        }
+        .btn-more:hover {
+            background-color: #E6F2FF;
+        }
+
+        /* Core Services Section */
+        .service {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #E6F2FF;
+        }
+        .service-list {
+            display: flex;
+            gap: 30px;
+        }
+        .service-card {
+            background-color: #fff;
+            border: 1px solid #E6F2FF;
+            border-radius: 8px;
+            padding: 30px;
+            flex: 1;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            background-color: #F8FBFF;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .service-icon {
+            font-size: 40px;
+            color: #1E88E5;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+        .service-card p {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* Website Advantages Section */
+        .advantage {
+            padding: 80px 0;
+            background-color: #F0F7FF;
+        }
+        .advantage-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .advantage-item {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .advantage-icon {
+            font-size: 40px;
+            color: #1E88E5;
+            flex-shrink: 0;
+        }
+        .advantage-content h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        .advantage-content p {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* Closing Introduction Section */
+        .closing {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #fff;
+        }
+        .closing-slogan {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1E88E5;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        .closing-desc {
+            font-size: 14px;
+            color: #666666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .closing-btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            background-color: #1E88E5;
+            color: #fff;
+            border: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .closing-btn:hover {
+            background-color: #1976D2;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #E6F2FF;
+            padding: 40px 0;
+            color: #666666;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-logo {
             font-size: 20px;
-            color: var(--primary);
+            font-weight: bold;
+            color: #1E88E5;
+            margin-bottom: 10px;
+        }
+        .footer-slogan {
+            font-size: 12px;
+        }
+        .footer-middle {
+            display: flex;
+            gap: 30px;
+        }
+        .footer-middle a {
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        .footer-middle a:hover {
+            color: #1E88E5;
+        }
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-contact {
+            font-size: 14px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        .market {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
-        }
-
-        .item {
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .item .label {
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        .item .value {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 4px 0;
-        }
-
-        .up { color: var(--up); }
-        .down { color: var(--down); }
-
-        .stock-list {
-            background: var(--card);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-
-        .list-header {
-            padding: 16px 20px;
-            background: var(--primary);
-            color: white;
-            font-weight: 600;
-        }
-
-        .stock {
-            padding: 16px 20px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .stock:last-child { border-bottom: none; }
-
-        .stock-left { flex: 1; }
-        .stock-name { font-weight: 600; }
-        .stock-code { color: var(--gray); font-size: 13px; }
-        .stock-tip {
+        .footer-copyright {
+            text-align: center;
             font-size: 12px;
-            background: #FFF7CC;
-            color: #FF7D00;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 8px;
+            color: #999999;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #D1E7FF;
         }
 
-        /* 实时访客统计栏 */
-        .visitor-footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: #fff;
-            padding: 12px 20px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .visitor-footer span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        @media (max-width: 600px) {
-            .market { gap: 10px; }
-            .visitor-footer { gap: 15px; font-size: 13px; }
+        /* Icon Import (Font Awesome) */
+        .icon {
+            font-family: "FontAwesome";
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-
-    <div class="nav">
-        <h1><i class="fas fa-chart-line"></i> 智能股票推荐分析系统</h1>
-    </div>
-
-    <div class="container">
-        <div class="market">
-            <div class="item">
-                <div class="label">上证指数</div>
-                <div class="value up">3086.24</div>
-                <div class="up">+1.25%</div>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-left">
+                <a href="#" class="nav-logo">
+                    <i class="fas fa-chart-line icon"></i>
+                    Jinxi Zhitou
+                </a>
+                <div class="nav-slogan">Professional Financial Analysis · Empower Value Decision-Making</div>
             </div>
-            <div class="item">
-                <div class="label">深证成指</div>
-                <div class="value up">9642.57</div>
-                <div class="up">+0.87%</div>
+            <div class="nav-middle">
+                <a href="#">Home</a>
+                <a href="#">Market Analysis</a>
+                <a href="#">Research Report Interpretation</a>
+                <a href="#">Data Center</a>
+                <a href="#">Intelligent Tools</a>
+                <a href="#">About Us</a>
             </div>
-            <div class="item">
-                <div class="label">创业板指</div>
-                <div class="value down">1896.32</div>
-                <div class="down">-0.32%</div>
-            </div>
-            <div class="item">
-                <div class="label">上涨/下跌</div>
-                <div class="value">3214/1658</div>
+            <div class="nav-right">
+                <a href="#" class="nav-btn login-btn">Login/Register</a>
+                <a href="#" class="nav-btn consult-btn">Online Consultation</a>
+                <div class="nav-hamburger">
+                    <i class="fas fa-bars icon"></i>
+                </div>
             </div>
         </div>
+    </nav>
 
-        <div class="stock-list">
-            <div class="list-header">🔥 今日精选股票推荐</div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">贵州茅台</span>
-                    <span class="stock-code">600519</span>
-                    <span class="stock-tip">长线价值</span>
-                </div>
-                <div class="up">+2.14%</div>
-            </div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">宁德时代</span>
-                    <span class="stock-code">300750</span>
-                    <span class="stock-tip">成长潜力</span>
-                </div>
-                <div class="up">+1.56%</div>
-            </div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">中兴通讯</span>
-                    <span class="stock-code">000063</span>
-                    <span class="stock-tip">科技主线</span>
-                </div>
-                <div class="up">+3.21%</div>
-            </div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">中国平安</span>
-                    <span class="stock-code">601318</span>
-                    <span class="stock-tip">低估值</span>
-                </div>
-                <div class="down">-0.45%</div>
-            </div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">招商银行</span>
-                    <span class="stock-code">600036</span>
-                    <span class="stock-tip">稳健防御</span>
-                </div>
-                <div class="up">+0.78%</div>
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="container">
+            <h1 class="banner-title">Precisely Insight Financial Trends, Scientifically Layout Wealth Future</h1>
+            <p class="banner-subtitle">Integrate global financial data, provide comprehensive and multi-dimensional market analysis, research report interpretation and decision support to help individuals and institutions layout efficiently</p>
+            <div class="banner-btns">
+                <button class="banner-btn btn-experience">Experience Now</button>
+                <button class="banner-btn btn-more">Learn More</button>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- 实时访客统计展示 -->
-    <div class="visitor-footer">
-        <span><i class="fas fa-eye"></i> 总访问：<span id="total">0</span> 次</span>
-        <span><i class="fas fa-calendar-day"></i> 今日访客：<span id="today">0</span> 人</span>
-        <span><i class="fas fa-users"></i> 在线访客：<span id="online">1</span> 人</span>
-        <span><i class="fas fa-clock"></i> 更新时间：<span id="time"></span></span>
-    </div>
+    <!-- Core Services Section -->
+    <section class="service">
+        <div class="container">
+            <h2 class="section-title">Core Services · Professional Empowerment</h2>
+            <div class="service-list">
+                <div class="service-card">
+                    <i class="fas fa-chart-bar service-icon icon"></i>
+                    <h3>Real-Time Market · Precise Research</h3>
+                    <p>Cover multiple categories such as stocks, funds, futures, and foreign exchange, update market data in real time, and provide precise research and judgment suggestions combined with technical indicators and market sentiment.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-alt service-icon icon"></i>
+                    <h3>In-Depth Research Reports · Extract Essence</h3>
+                    <p>Integrate research reports from leading securities companies and institutions, simplify complexity, extract core viewpoints and investment logic, save decision-making time, and lower information thresholds.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cogs service-icon icon"></i>
+                    <h3>Intelligent Assistance · Scientific Decision-Making</h3>
+                    <p>Provide intelligent tools such as data query, risk assessment, and portfolio optimization, combined with big data algorithms, to customize personalized investment assistance plans for users.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Advantages Section -->
+    <section class="advantage">
+        <div class="container">
+            <h2 class="section-title">Our Advantages · Trustworthy</h2>
+            <div class="advantage-list">
+                <div class="advantage-item">
+                    <i class="fas fa-users advantage-icon icon"></i>
+                    <div class="advantage-content">
+                        <h3>Senior Analyst Team</h3>
+                        <p>The core team all have more than 10 years of experience in the financial industry, covering multiple fields, with both theoretical and practical experience, ensuring the professionalism and accuracy of the analysis.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <i class="fas fa-database advantage-icon icon"></i>
+                    <div class="advantage-content">
+                        <h3>Comprehensive Data Coverage</h3>
+                        <p>Connect to global mainstream financial data interfaces, update market conditions, financial reports, and macroeconomic data in real time, providing solid data support for analysis and rejecting subjective assumptions.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <i class="fas fa-bolt advantage-icon icon"></i>
+                    <div class="advantage-content">
+                        <h3>Simple and Easy to Use · Efficient and Convenient</h3>
+                        <p>The interface is simple and intuitive, easy to operate, no complex operations required, beginners can get started quickly, and obtain the required financial analysis information anytime and anywhere.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <i class="fas fa-shield-alt advantage-icon icon"></i>
+                    <div class="advantage-content">
+                        <h3>Safe and Compliant · Privacy Protection</h3>
+                        <p>Strictly follow financial industry compliance standards, adopt encryption technology, comprehensively protect user privacy and data security, and make users more assured to use.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Introduction Section -->
+    <section class="closing">
+        <div class="container">
+            <p class="closing-slogan">Insight into trends with professionalism, empower decision-making with data, we are committed to becoming your most reliable financial analysis partner</p>
+            <p class="closing-desc">Whether you are an individual investor, an enterprise institution, or a financial practitioner, we can provide you with accurate, efficient and professional financial analysis services to help you seize market opportunities and avoid investment risks.</p>
+            <button class="closing-btn">Register Now · Start Professional Analysis Journey</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <div class="footer-logo">Jinxi Zhitou</div>
+                    <div class="footer-slogan">Professional Financial Analysis · Empower Value Decision-Making</div>
+                </div>
+                <div class="footer-middle">
+                    <a href="#">Home</a>
+                    <a href="#">Service Introduction</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">User Agreement</a>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-contact">
+                        <i class="fas fa-phone icon"></i>
+                        <span>Consultation Hotline: 400-XXXX-XXXX</span>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fas fa-envelope icon"></i>
+                        <span>Email: service@jinxizhitou.com</span>
+                    </div>
+                    <div class="footer-contact">
+                        <i class="fab fa-weixin icon"></i>
+                        <span>WeChat Official Account: Jinxi Zhitou</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">©2024 Jinxi Zhitou Financial Analysis Network. All Rights Reserved | ICP Filing No.: Yue ICP Bei XXXXXXX</div>
+        </div>
+    </footer>
 
     <script>
-        // ========== 实时访问统计核心代码 ==========
-        function updateVisitor() {
-            let today = new Date().toISOString().split('T')[0];
-            let lastDate = localStorage.getItem('lastDate');
-
-            // 总访问
-            let total = Number(localStorage.getItem('totalVisits') || 0) + 1;
-            localStorage.setItem('totalVisits', total);
-
-            // 今日访问（每天自动重置）
-            let todayVisits;
-            if (lastDate !== today) {
-                todayVisits = 1;
-                localStorage.setItem('lastDate', today);
-            } else {
-                todayVisits = Number(localStorage.getItem('todayVisits') || 0) + 1;
+        // Mobile Hamburger Menu Interaction (Simple Implementation)
+        const hamburger = document.querySelector('.nav-hamburger');
+        const navMiddle = document.querySelector('.nav-middle');
+        hamburger.addEventListener('click', () => {
+            navMiddle.style.display = navMiddle.style.display === 'flex' ? 'none' : 'flex';
+            if (navMiddle.style.display === 'flex') {
+                navMiddle.style.flexDirection = 'column';
+                navMiddle.style.position = 'absolute';
+                navMiddle.style.top = '70px';
+                navMiddle.style.left = '0';
+                navMiddle.style.right = '0';
+                navMiddle.style.background = '#E6F2FF';
+                navMiddle.style.padding = '20px';
+                navMiddle.style.gap = '15px';
+                navMiddle.style.alignItems = 'center';
             }
-            localStorage.setItem('todayVisits', todayVisits);
-
-            // 显示
-            document.getElementById('total').innerText = total.toLocaleString();
-            document.getElementById('today').innerText = todayVisits;
-            document.getElementById('time').innerText = new Date().toLocaleString();
-        }
-
-        // 执行统计
-        updateVisitor();
+        });
     </script>
 </body>
 </html>
