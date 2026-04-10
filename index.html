@@ -119,16 +119,38 @@
         .gold-border {
             border-color: rgba(255, 215, 0, 0.3) !important;
         }
+
+        /* 移动端适配样式 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100% !important; /* 移动端占满屏幕宽度 */
+                z-index: 9999; /* 确保覆盖其他元素 */
+            }
+            /* 移动端iframe避免被按钮遮挡 */
+            #contentFrame {
+                height: calc(100vh - 60px) !important;
+                margin-top: 60px;
+            }
+            /* 移动端子菜单点击区域优化 */
+            .submenu-link {
+                padding-left: 30px !important;
+            }
+            /* 移动端按钮层级优化 */
+            .mobile-btn {
+                z-index: 9999 !important;
+                top: 10px !important;
+                left: 10px !important;
+            }
+        }
     </style>
 </head>
 <body class="flex flex-col md:flex-row">
     <!-- 左侧侧边栏：黑金白高级商务风格 -->
-    <aside class="sidebar w-64 h-screen hidden md:flex flex-col fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0">
+    <aside class="sidebar w-64 h-screen md:flex flex-col fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0">
         <!-- Logo区域 -->
         <div class="p-6 border-b gold-border">
             <h1 class="text-3xl font-bold logo-text">
                 <span><i class="fa fa-american-sign-language-interpreting mr-5"></i>Vicky</span><span>Pedia</span>
-
             </h1>
             <p class="logo-desc text-sm mt-1">量化交易 与 知识分享</p>
         </div>
@@ -138,7 +160,7 @@
             <ul class="space-y-1">
                 <!-- 首页 -->
                 <li>
-                    <a onclick="loadPage('home')" class="sidebar-link cursor-pointer block px-6 py-3">
+                    <a onclick="loadPage('home', this)" class="sidebar-link cursor-pointer block px-6 py-3">
                         <i class="fa fa-home mr-3"></i>首页
                     </a>
                 </li>
@@ -147,16 +169,16 @@
                 <li>
                     <button id="strategyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-cogs mr-3"></i>美股策略</span>
-                        <i class="fa fa-angle-right arrow-icon"></i>
+                        <i id="arrow-strategy" class="fa fa-angle-right arrow-icon"></i>
                     </button>
                     <ul id="strategySubmenu" class="submenu">
                         <li>
-                            <a onclick="loadPage('trend')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('trend', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                &nbsp&nbsp <i class="fa fa-line-chart mr-3"></i>趋势交易
                             </a>
                         </li>
                         <li>
-                            <a onclick="loadPage('swing')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('swing', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                 &nbsp&nbsp <i class="fa fa-bar-chart mr-3"></i>波段交易
                             </a>
                         </li>
@@ -166,16 +188,16 @@
                 <li>
                     <button id="strategyCNBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-cogs mr-3"></i>A股策略</span>
-                        <i class="fa fa-angle-right arrow-icon"></i>
+                        <i id="arrow-strategy-cn" class="fa fa-angle-right arrow-icon"></i>
                     </button>
                     <ul id="strategyCNSubmenu" class="submenu">
                         <li>
-                            <a onclick="loadPage('trend-cn')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('trend-cn', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                &nbsp&nbsp <i class="fa fa-line-chart mr-3"></i>趋势交易
                             </a>
                         </li>
                         <li>
-                            <a onclick="loadPage('swing-cn')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('swing-cn', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                 &nbsp&nbsp <i class="fa fa-bar-chart mr-3"></i>波段交易
                             </a>
                         </li>
@@ -185,56 +207,55 @@
                 <li>
                     <button id="studyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-book mr-3"></i>金融知识</span>
-                        <i class="fa fa-angle-right arrow-icon"></i>
+                        <i id="arrow-study" class="fa fa-angle-right arrow-icon"></i>
                     </button>
                     <ul id="studySubmenu" class="submenu">
                         <li>
-                            <a onclick="loadPage('w1')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('w1', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                &nbsp&nbsp <i class="fa fa-battery-0 mr-3"></i>第一周
                             </a>
                         </li>
                         <li>
-                            <a onclick="loadPage('w2')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('w2', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                 &nbsp&nbsp <i class="fa fa-battery-1 mr-3"></i>第二周
                             </a>
                         </li>
                         <li>
-                            <a onclick="loadPage('w3')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('w3', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                 &nbsp&nbsp <i class="fa fa-battery-1 mr-3"></i>第三周
                             </a>
                         </li>
                         <li>
-                            <a onclick="loadPage('w4')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('w4', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                 &nbsp&nbsp <i class="fa fa-battery-2 mr-3"></i>第四周
                             </a>
                         </li>           
                         <li>
-                            <a onclick="loadPage('w5')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('w5', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                 &nbsp&nbsp <i class="fa fa-battery-2 mr-3"></i>第五周
                             </a>
                         </li>     
                         <li>
-                            <a onclick="loadPage('w6')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('w6', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                 &nbsp&nbsp <i class="fa fa-battery-3 mr-3"></i>第六周
                             </a>
                         </li>          
                         <li>
-                            <a onclick="loadPage('w7')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('w7', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                 &nbsp&nbsp <i class="fa fa-battery-3 mr-3"></i>第七周
                             </a>
                         </li>     
                         <li>
-                            <a onclick="loadPage('w8')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                            <a onclick="loadPage('w8', this)" class="submenu-link cursor-pointer block px-4 py-2.5">
                                 &nbsp&nbsp <i class="fa fa-battery-4 mr-3"></i>第八周
                             </a>
                         </li>                                                                                                           
                     </ul>
                 </li>
 
-
                 <!-- 联系 -->
                 <li>
-                    <a onclick="loadPage('contact')" class="sidebar-link cursor-pointer block px-6 py-3">
+                    <a onclick="loadPage('contact', this)" class="sidebar-link cursor-pointer block px-6 py-3">
                         <i class="fa fa-user-circle mr-3"></i>关于我们
                     </a>
                 </li>
@@ -261,36 +282,50 @@
     </main>
 
     <script>
-        // 策略二级菜单展开/收起
+        // 策略二级菜单展开/收起（美股）
         const strategyBtn = document.getElementById('strategyBtn');
         const strategySubmenu = document.getElementById('strategySubmenu');
-        const arrowIcon = document.querySelector('.arrow-icon');
-        strategyBtn.addEventListener('click', () => {
+        const arrowIcon = document.getElementById('arrow-strategy');
+        strategyBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // 阻止事件冒泡
             strategySubmenu.classList.toggle('open');
             arrowIcon.classList.toggle('rotate');
         });
-        // 策略二级菜单展开/收起
+
+        // 策略二级菜单展开/收起（A股）
         const strategyCNBtn = document.getElementById('strategyCNBtn');
         const strategyCNSubmenu = document.getElementById('strategyCNSubmenu');
-        const arrowIconCN = document.querySelector('.arrow-icon');
-        strategyCNBtn.addEventListener('click', () => {
+        const arrowIconCN = document.getElementById('arrow-strategy-cn');
+        strategyCNBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // 阻止事件冒泡
             strategyCNSubmenu.classList.toggle('open');
             arrowIconCN.classList.toggle('rotate');
         });        
+
         // 学习二级菜单展开/收起
         const studyBtn = document.getElementById('studyBtn');
         const studySubmenu = document.getElementById('studySubmenu');
-        const arrowIcon2 = document.querySelector('.arrow-icon');
-        studyBtn.addEventListener('click', () => {
+        const arrowIcon2 = document.getElementById('arrow-study');
+        studyBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // 阻止事件冒泡
             studySubmenu.classList.toggle('open');
             arrowIcon2.classList.toggle('rotate');
         });
-        // 手机端菜单控制（无占位空白）
+
+        // 手机端菜单控制
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const sidebar = document.querySelector('.sidebar');
         
-        mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // 阻止事件冒泡
             sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // 点击页面空白处关闭移动端侧边栏
+        document.querySelector('main').addEventListener('click', () => {
+            if(window.innerWidth < 768 && !sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.add('-translate-x-full');
+            }
         });
 
         // 点击菜单后自动关闭手机端侧边栏
@@ -304,57 +339,38 @@
 
         // 页面切换核心功能
         const frame = document.getElementById('contentFrame');
-        function loadPage(type) {
+        function loadPage(type, el) {
             // 移除所有active类
             document.querySelectorAll('.sidebar-link, .submenu-link').forEach(link => {
                 link.classList.remove('active');
             });
             // 给当前点击的菜单添加active类
-            event.target.classList.add('active');
+            el.classList.add('active');
             
             // 加载对应页面
-            if(type === 'study') {
-                frame.src = 'study.html'; // 学习 → 显示study.html
-            } else if(type === 'home') {
-                frame.src = 'home.html';
-            } else if(type === 'trend') {
-                frame.src = 'trend.html';
-            } else if(type === 'swing') {
-                frame.src = 'swing.html';
-            } else if(type === 'contact') {
-                frame.src = 'contact.html';
-            } else if(type === 'trend-cn') {
-                frame.src = 'trend-cn.html';
-            } else if(type === 'swing-cn') {
-                frame.src = 'swing-cn.html';
-            } else if(type === 'contact') {
-                frame.src = 'contact.html';                
-            } else if(type === 'w1') {
-                frame.src = 'w1.html';    
-            } else if(type === 'w2') {
-                frame.src = 'w2.html';   
-            } else if(type === 'w3') {
-                frame.src = 'w3.html';   
-            } else if(type === 'w4') {
-                frame.src = 'w4.html';      
-            } else if(type === 'w5') {
-                frame.src = 'w5.html';      
-            } else if(type === 'w6') {
-                frame.src = 'w6.html';          
-            } else if(type === 'w7') {
-                frame.src = 'w7.html';      
-            } else if(type === 'w8') {
-                frame.src = 'w8.html';                                                              
+            switch(type) {
+                case 'home': frame.src = 'home.html'; break;
+                case 'trend': frame.src = 'trend.html'; break;
+                case 'swing': frame.src = 'swing.html'; break;
+                case 'trend-cn': frame.src = 'trend-cn.html'; break;
+                case 'swing-cn': frame.src = 'swing-cn.html'; break;
+                case 'contact': frame.src = 'contact.html'; break;
+                case 'w1': frame.src = 'w1.html'; break;
+                case 'w2': frame.src = 'w2.html'; break;
+                case 'w3': frame.src = 'w3.html'; break;
+                case 'w4': frame.src = 'w4.html'; break;
+                case 'w5': frame.src = 'w5.html'; break;
+                case 'w6': frame.src = 'w6.html'; break;
+                case 'w7': frame.src = 'w7.html'; break;
+                case 'w8': frame.src = 'w8.html'; break;
+                default: frame.src = 'home.html'; break;
             }
-
         }
 
         // 默认加载首页
         window.onload = () => {
-            loadPage('home');
-            sidebar.classList.remove('hidden');
-            // 给首页添加默认active
-            document.querySelector('.sidebar-link').classList.add('active');
+            const homeLink = document.querySelector('.sidebar-link');
+            loadPage('home', homeLink); // 主动传递首页元素，确保active类生效
         };
     </script>
 </body>
