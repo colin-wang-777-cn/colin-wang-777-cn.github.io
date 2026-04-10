@@ -3,261 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智能股票推荐 - 实时访问统计</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>VickyPedia - 交易学习与策略</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --up: #00B42A;
-            --down: #F53F3F;
-            --primary: #165DFF;
-            --bg: #F7F8FA;
-            --card: #ffffff;
-            --text: #1D2129;
-            --gray: #86909C;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background: var(--bg);
-            color: var(--text);
-            padding-bottom: 70px;
-        }
-
-        .nav {
-            background: var(--card);
-            padding: 16px 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav h1 {
-            font-size: 20px;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        .market {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
-        }
-
-        .item {
-            flex: 1;
-            min-width: 120px;
-        }
-
-        .item .label {
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        .item .value {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 4px 0;
-        }
-
-        .up { color: var(--up); }
-        .down { color: var(--down); }
-
-        .stock-list {
-            background: var(--card);
-            border-radius: 12px;
+            background-color: #f5f5f5;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
-        .list-header {
-            padding: 16px 20px;
-            background: var(--primary);
-            color: white;
-            font-weight: 600;
+        .sidebar {
+            background-color: #222222;
+            transition: all 0.3s ease;
         }
 
-        .stock {
-            padding: 16px 20px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .sidebar-link {
+            transition: all 0.2s ease;
+            position: relative;
         }
 
-        .stock:last-child { border-bottom: none; }
+        .sidebar-link:hover {
+            background-color: #333333;
+            padding-left: 20px;
+        }
 
-        .stock-left { flex: 1; }
-        .stock-name { font-weight: 600; }
-        .stock-code { color: var(--gray); font-size: 13px; }
-        .stock-tip {
-            font-size: 12px;
-            background: #FFF7CC;
-            color: #FF7D00;
-            padding: 2px 6px;
+        .sidebar-link.active {
+            color: #ffffff;
+            font-weight: 500;
+            background-color: #333;
+        }
+
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #2b2b2b;
+        }
+
+        .submenu.open {
+            max-height: 100px;
+        }
+
+        .submenu-link {
+            transition: all 0.2s ease;
+        }
+
+        .submenu-link:hover {
+            background-color: #3a3a3a;
+            padding-left: 35px;
+        }
+
+        .arrow-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .arrow-icon.rotate {
+            transform: rotate(90deg);
+        }
+
+        .main-content {
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
             border-radius: 4px;
-            margin-left: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
 
-        /* 实时访客统计栏 */
-        .visitor-footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: #fff;
-            padding: 12px 20px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .visitor-footer span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        @media (max-width: 600px) {
-            .market { gap: 10px; }
-            .visitor-footer { gap: 15px; font-size: 13px; }
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                z-index: 50;
+                transform: translateX(-100%);
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
         }
     </style>
 </head>
-
-<body>
-
-    <div class="nav">
-        <h1><i class="fas fa-chart-line"></i> 智能股票推荐分析系统</h1>
-    </div>
-
-    <div class="container">
-        <div class="market">
-            <div class="item">
-                <div class="label">上证指数</div>
-                <div class="value up">3086.24</div>
-                <div class="up">+1.25%</div>
-            </div>
-            <div class="item">
-                <div class="label">深证成指</div>
-                <div class="value up">9642.57</div>
-                <div class="up">+0.87%</div>
-            </div>
-            <div class="item">
-                <div class="label">创业板指</div>
-                <div class="value down">1896.32</div>
-                <div class="down">-0.32%</div>
-            </div>
-            <div class="item">
-                <div class="label">上涨/下跌</div>
-                <div class="value">3214/1658</div>
-            </div>
+<body class="flex">
+    <!-- 左侧侧边栏 -->
+    <aside class="sidebar w-64 h-screen flex flex-col fixed left-0 top-0 z-40">
+        <div class="p-6 border-b border-gray-700">
+            <h1 class="text-3xl font-bold text-white">
+                <span class="text-blue-400">Vicky</span><span class="text-white">Pedia</span>
+            </h1>
+            <p class="text-gray-400 text-sm mt-1">交易知识 · 策略分享</p>
         </div>
 
-        <div class="stock-list">
-            <div class="list-header">🔥 今日精选股票推荐</div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">贵州茅台</span>
-                    <span class="stock-code">600519</span>
-                    <span class="stock-tip">长线价值</span>
-                </div>
-                <div class="up">+2.14%</div>
-            </div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">宁德时代</span>
-                    <span class="stock-code">300750</span>
-                    <span class="stock-tip">成长潜力</span>
-                </div>
-                <div class="up">+1.56%</div>
-            </div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">中兴通讯</span>
-                    <span class="stock-code">000063</span>
-                    <span class="stock-tip">科技主线</span>
-                </div>
-                <div class="up">+3.21%</div>
-            </div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">中国平安</span>
-                    <span class="stock-code">601318</span>
-                    <span class="stock-tip">低估值</span>
-                </div>
-                <div class="down">-0.45%</div>
-            </div>
-            <div class="stock">
-                <div class="stock-left">
-                    <span class="stock-name">招商银行</span>
-                    <span class="stock-code">600036</span>
-                    <span class="stock-tip">稳健防御</span>
-                </div>
-                <div class="up">+0.78%</div>
+        <nav class="flex-1 py-4">
+            <ul class="space-y-1">
+                <li>
+                    <a onclick="loadPage('home')" class="sidebar-link cursor-pointer block px-6 py-3 text-gray-300 hover:text-white">
+                        <i class="fa fa-home mr-3"></i>首页
+                    </a>
+                </li>
+
+                <li>
+                    <button id="strategyBtn" class="sidebar-link w-full text-left px-6 py-3 text-gray-300 hover:text-white flex items-center justify-between">
+                        <span><i class="fa fa-line-chart mr-3"></i>策略</span>
+                        <i class="fa fa-angle-right arrow-icon text-gray-500"></i>
+                    </button>
+                    <ul id="strategySubmenu" class="submenu">
+                        <li>
+                            <a onclick="loadPage('trend')" class="submenu-link cursor-pointer block px-6 py-2.5 text-gray-300 hover:text-white">
+                                <i class="fa fa-arrow-up mr-3"></i>趋势交易
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage('swing')" class="submenu-link cursor-pointer block px-6 py-2.5 text-gray-300 hover:text-white">
+                                <i class="fa fa-chart-line mr-3"></i>波段交易
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a onclick="loadPage('study')" class="sidebar-link cursor-pointer block px-6 py-3 text-gray-300 hover:text-white">
+                        <i class="fa fa-book mr-3"></i>学习
+                    </a>
+                </li>
+
+                <li>
+                    <a onclick="loadPage('contact')" class="sidebar-link cursor-pointer block px-6 py-3 text-gray-300 hover:text-white">
+                        <i class="fa fa-envelope mr-3"></i>联系
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="p-6 border-t border-gray-700">
+            <div class="text-gray-400 text-sm space-y-1">
+                <p><i class="fa fa-phone mr-2"></i>contact@vickypedia.com</p>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <!-- 实时访客统计展示 -->
-    <div class="visitor-footer">
-        <span><i class="fas fa-eye"></i> 总访问：<span id="total">0</span> 次</span>
-        <span><i class="fas fa-calendar-day"></i> 今日访客：<span id="today">0</span> 人</span>
-        <span><i class="fas fa-users"></i> 在线访客：<span id="online">1</span> 人</span>
-        <span><i class="fas fa-clock"></i> 更新时间：<span id="time"></span></span>
-    </div>
+    <!-- 右侧内容区（iframe） -->
+    <main class="flex-1 ml-64 h-screen">
+        <button id="mobileMenuBtn" class="md:hidden fixed top-4 left-4 z-50 bg-gray-800 text-white p-2 rounded-lg">
+            <i class="fa fa-bars"></i>
+        </button>
+        
+        <iframe id="contentFrame" class="w-full h-full border-none" src="about:blank"></iframe>
+    </main>
 
     <script>
-        // ========== 实时访问统计核心代码 ==========
-        function updateVisitor() {
-            let today = new Date().toISOString().split('T')[0];
-            let lastDate = localStorage.getItem('lastDate');
+        // 菜单展开收起
+        const strategyBtn = document.getElementById('strategyBtn');
+        const strategySubmenu = document.getElementById('strategySubmenu');
+        const arrowIcon = document.querySelector('.arrow-icon');
+        strategyBtn.addEventListener('click', () => {
+            strategySubmenu.classList.toggle('open');
+            arrowIcon.classList.toggle('rotate');
+        });
 
-            // 总访问
-            let total = Number(localStorage.getItem('totalVisits') || 0) + 1;
-            localStorage.setItem('totalVisits', total);
+        // 移动端菜单
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.querySelector('.sidebar');
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
 
-            // 今日访问（每天自动重置）
-            let todayVisits;
-            if (lastDate !== today) {
-                todayVisits = 1;
-                localStorage.setItem('lastDate', today);
-            } else {
-                todayVisits = Number(localStorage.getItem('todayVisits') || 0) + 1;
+        // 核心：点击切换页面
+        const frame = document.getElementById('contentFrame');
+        function loadPage(type) {
+            if(type === 'study') {
+                // 点击学习 → 加载 test.html
+                frame.src = 'test.html';
+            } else if(type === 'home') {
+                frame.src = 'home.html'; // 你可以自己建一个首页
+            } else if(type === 'trend') {
+                frame.src = 'trend.html';
+            } else if(type === 'swing') {
+                frame.src = 'swing.html';
+            } else if(type === 'contact') {
+                frame.src = 'contact.html';
             }
-            localStorage.setItem('todayVisits', todayVisits);
 
-            // 显示
-            document.getElementById('total').innerText = total.toLocaleString();
-            document.getElementById('today').innerText = todayVisits;
-            document.getElementById('time').innerText = new Date().toLocaleString();
+            // 关闭移动端菜单
+            if(window.innerWidth <= 768) sidebar.classList.remove('open');
         }
 
-        // 执行统计
-        updateVisitor();
+        // 默认打开首页
+        window.onload = () => {
+            loadPage('home');
+        };
     </script>
 </body>
 </html>
