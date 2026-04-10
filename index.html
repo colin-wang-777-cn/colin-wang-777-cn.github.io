@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>VickyPedia - 交易学习与策略</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -26,6 +26,7 @@
             background-color: #1a1a1a; /* 深黑主背景 */
             transition: all 0.3s ease;
             box-shadow: 2px 0 15px rgba(0,0,0,0.15);
+            z-index: 9999 !important; /* 确保移动端侧边栏在最上层 */
         }
 
         .sidebar-link {
@@ -109,6 +110,7 @@
             background-color: #1a1a1a !important;
             border: 1px solid #F7931A !important;
             outline: none;
+            z-index: 9999 !important; /* 确保按钮在最上层 */
         }
         .mobile-btn:hover {
             background-color: #242424 !important;
@@ -120,27 +122,21 @@
             border-color: rgba(255, 215, 0, 0.3) !important;
         }
 
-        /* 底部邮箱样式优化 */
-        .sidebar-footer {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 4px;
-            color: rgba(255,255,255,0.8);
-            font-size: 12px;
-        }
-        .sidebar-footer a {
-            color: #F7931A;
-            text-decoration: none;
-        }
-        .sidebar-footer a:hover {
-            text-decoration: underline;
+        /* 移动端iframe适配 */
+        @media (max-width: 767px) {
+            #contentFrame {
+                height: 100vh !important;
+                min-height: 100vh;
+            }
+            .sidebar {
+                height: 100vh !important;
+            }
         }
     </style>
 </head>
-<body class="flex flex-col md:flex-row">
+<body class="flex flex-col md:flex-row min-h-screen">
     <!-- 左侧侧边栏：黑金白高级商务风格 -->
-    <aside class="sidebar w-64 h-screen hidden md:flex flex-col fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0">
+    <aside class="sidebar w-64 h-screen fixed left-0 top-0 flex flex-col -translate-x-full md:translate-x-0">
         <!-- Logo区域 -->
         <div class="p-6 border-b gold-border">
             <h1 class="text-3xl font-bold logo-text">
@@ -163,7 +159,7 @@
                 <li>
                     <button id="strategyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-cogs mr-3"></i>美股策略</span>
-                        <i class="fa fa-angle-right arrow-icon"></i>
+                        <i class="fa fa-angle-right arrow-icon strategy-arrow"></i>
                     </button>
                     <ul id="strategySubmenu" class="submenu">
                         <li>
@@ -182,7 +178,7 @@
                 <li>
                     <button id="strategyCNBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-cogs mr-3"></i>A股策略</span>
-                        <i class="fa fa-angle-right arrow-icon"></i>
+                        <i class="fa fa-angle-right arrow-icon strategycn-arrow"></i>
                     </button>
                     <ul id="strategyCNSubmenu" class="submenu">
                         <li>
@@ -201,7 +197,7 @@
                 <li>
                     <button id="studyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-book mr-3"></i>金融知识</span>
-                        <i class="fa fa-angle-right arrow-icon"></i>
+                        <i class="fa fa-angle-right arrow-icon study-arrow"></i>
                     </button>
                     <ul id="studySubmenu" class="submenu">
                         <li>
@@ -256,13 +252,10 @@
             </ul>
         </nav>
 
-        <!-- 底部信息（修复邮箱显示） -->
+        <!-- 底部信息 -->
         <div class="p-6 border-t gold-border">
-            <div class="sidebar-footer">
-                <span>@2026</span>
-                <a href="mailto:vicky.wang100707@gmail.com">
-                    <i class="fa fa-envelope"></i> vicky.wang100707@gmail.com
-                </a>
+            <div class="text-white/80 text-sm space-y-1">
+                <p align="right">@2026 <a href="mailto:vicky.wang100707@gmail.com"><i class="fa fa-envelope mr-1"></i>&nbsp&nbsp&nbsp</a></p>
             </div>
         </div>
     </aside>
@@ -270,7 +263,7 @@
     <!-- 右侧内容区 -->
     <main class="flex-1 w-full min-h-screen md:ml-64 bg-white">
         <!-- 移动端菜单按钮 -->
-        <button id="mobileMenuBtn" class="mobile-btn md:hidden fixed top-4 left-4 z-50 text-white p-2 rounded-lg shadow-md">
+        <button id="mobileMenuBtn" class="mobile-btn md:hidden fixed top-4 left-4 z-9999 text-white p-2 rounded-lg shadow-md">
             <i class="fa fa-bars"></i>
         </button>
         
@@ -279,56 +272,49 @@
     </main>
 
     <script>
-        // 策略二级菜单展开/收起
+        // 策略二级菜单展开/收起（美股）
         const strategyBtn = document.getElementById('strategyBtn');
         const strategySubmenu = document.getElementById('strategySubmenu');
-        const arrowIcon1 = strategyBtn.querySelector('.arrow-icon');
+        const arrowIcon = document.querySelector('.strategy-arrow');
         strategyBtn.addEventListener('click', () => {
             strategySubmenu.classList.toggle('open');
-            arrowIcon1.classList.toggle('rotate');
+            arrowIcon.classList.toggle('rotate');
         });
 
-        // A股策略二级菜单展开/收起（修复箭头指向错误）
+        // 策略二级菜单展开/收起（A股）
         const strategyCNBtn = document.getElementById('strategyCNBtn');
         const strategyCNSubmenu = document.getElementById('strategyCNSubmenu');
-        const arrowIcon2 = strategyCNBtn.querySelector('.arrow-icon');
+        const arrowIconCN = document.querySelector('.strategycn-arrow');
         strategyCNBtn.addEventListener('click', () => {
             strategyCNSubmenu.classList.toggle('open');
-            arrowIcon2.classList.toggle('rotate');
+            arrowIconCN.classList.toggle('rotate');
         });        
 
-        // 学习二级菜单展开/收起（修复箭头指向错误）
+        // 学习二级菜单展开/收起
         const studyBtn = document.getElementById('studyBtn');
         const studySubmenu = document.getElementById('studySubmenu');
-        const arrowIcon3 = studyBtn.querySelector('.arrow-icon');
+        const arrowIcon2 = document.querySelector('.study-arrow');
         studyBtn.addEventListener('click', () => {
             studySubmenu.classList.toggle('open');
-            arrowIcon3.classList.toggle('rotate');
+            arrowIcon2.classList.toggle('rotate');
         });
 
-        // 手机端菜单控制（无占位空白）
+        // 手机端菜单控制
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const sidebar = document.querySelector('.sidebar');
         
         mobileMenuBtn.addEventListener('click', () => {
             sidebar.classList.toggle('-translate-x-full');
+            // 防止滚动穿透
+            document.body.style.overflow = sidebar.classList.contains('-translate-x-full') ? '' : 'hidden';
         });
 
-        // 修复：仅对二级菜单和非展开型一级菜单添加关闭侧边栏逻辑
-        // 1. 非展开型一级菜单（首页、关于我们）
-        document.querySelectorAll('.sidebar-link:not(button)').forEach(item => {
+        // 点击菜单后自动关闭手机端侧边栏
+        document.querySelectorAll('.sidebar-link, .submenu-link').forEach(item => {
             item.addEventListener('click', () => {
                 if(window.innerWidth < 768) {
                     sidebar.classList.add('-translate-x-full');
-                }
-            });
-        });
-
-        // 2. 二级菜单链接
-        document.querySelectorAll('.submenu-link').forEach(item => {
-            item.addEventListener('click', () => {
-                if(window.innerWidth < 768) {
-                    sidebar.classList.add('-translate-x-full');
+                    document.body.style.overflow = ''; // 恢复滚动
                 }
             });
         });
@@ -336,6 +322,9 @@
         // 页面切换核心功能
         const frame = document.getElementById('contentFrame');
         function loadPage(type) {
+            // 修复event未定义问题
+            if (!event) return;
+            
             // 移除所有active类
             document.querySelectorAll('.sidebar-link, .submenu-link').forEach(link => {
                 link.classList.remove('active');
@@ -344,46 +333,49 @@
             event.target.classList.add('active');
             
             // 加载对应页面
-            if(type === 'study') {
-                frame.src = 'study.html'; // 学习 → 显示study.html
-            } else if(type === 'home') {
-                frame.src = 'home.html';
-            } else if(type === 'trend') {
-                frame.src = 'trend.html';
-            } else if(type === 'swing') {
-                frame.src = 'swing.html';
-            } else if(type === 'contact') {
-                frame.src = 'contact.html';
-            } else if(type === 'trend-cn') {
-                frame.src = 'trend-cn.html';
-            } else if(type === 'swing-cn') {
-                frame.src = 'swing-cn.html';
-            } else if(type === 'w1') {
-                frame.src = 'w1.html';    
-            } else if(type === 'w2') {
-                frame.src = 'w2.html';   
-            } else if(type === 'w3') {
-                frame.src = 'w3.html';   
-            } else if(type === 'w4') {
-                frame.src = 'w4.html';      
-            } else if(type === 'w5') {
-                frame.src = 'w5.html';      
-            } else if(type === 'w6') {
-                frame.src = 'w6.html';          
-            } else if(type === 'w7') {
-                frame.src = 'w7.html';      
-            } else if(type === 'w8') {
-                frame.src = 'w8.html';                                                              
-            }
+            const pageMap = {
+                'home': 'home.html',
+                'trend': 'trend.html',
+                'swing': 'swing.html',
+                'contact': 'contact.html',
+                'trend-cn': 'trend-cn.html',
+                'swing-cn': 'swing-cn.html',
+                'w1': 'w1.html',
+                'w2': 'w2.html',
+                'w3': 'w3.html',
+                'w4': 'w4.html',
+                'w5': 'w5.html',
+                'w6': 'w6.html',
+                'w7': 'w7.html',
+                'w8': 'w8.html'
+            };
+            
+            frame.src = pageMap[type] || 'home.html';
         }
 
         // 默认加载首页
         window.onload = () => {
-            loadPage('home');
-            sidebar.classList.remove('hidden');
+            // 初始化加载首页
+            frame.src = 'home.html';
             // 给首页添加默认active
-            document.querySelector('.sidebar-link').classList.add('active');
+            const homeLink = document.querySelector('.sidebar-link');
+            if (homeLink) homeLink.classList.add('active');
+            
+            // 移动端适配：确保小屏幕下侧边栏默认隐藏
+            if (window.innerWidth >= 768) {
+                sidebar.classList.remove('-translate-x-full');
+            }
         };
+
+        // 窗口大小变化时适配
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                sidebar.classList.remove('-translate-x-full');
+                document.body.style.overflow = '';
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
     </script>
 </body>
 </html>
