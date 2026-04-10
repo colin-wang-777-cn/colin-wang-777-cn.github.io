@@ -26,9 +26,9 @@
             background-color: #1a1a1a; /* 深黑主背景 */
             transition: all 0.3s ease;
             box-shadow: 2px 0 15px rgba(0,0,0,0.15);
-            /* 关键修复：移动端侧边栏可滚动 */
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch; /* 优化iOS滚动体验 */
+            /* 修复：强制显示 + 避免位移覆盖 */
+            display: flex !important;
+            transform: translateX(0) !important;
         }
 
         .sidebar-link {
@@ -71,12 +71,17 @@
             color: #F7931A;
         }
 
-        .arrow-icon {
+        /* 修复：给每个箭头单独命名，避免选择器冲突 */
+        .arrow-icon-strategy,
+        .arrow-icon-strategy-cn,
+        .arrow-icon-study {
             transition: transform 0.3s ease;
             color: #F7931A; /* 箭头金色 */
         }
 
-        .arrow-icon.rotate {
+        .arrow-icon-strategy.rotate,
+        .arrow-icon-strategy-cn.rotate,
+        .arrow-icon-study.rotate {
             transform: rotate(90deg);
         }
 
@@ -123,28 +128,15 @@
             border-color: rgba(255, 215, 0, 0.3) !important;
         }
 
-        /* 新增：移动端侧边栏遮罩 */
-        .sidebar-mask {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.5);
-            z-index: 40;
-            display: none;
-        }
-        .sidebar-mask.show {
-            display: block;
+        /* 修复：移动端侧边栏隐藏样式单独定义 */
+        .sidebar.mobile-hidden {
+            transform: translateX(-100%) !important;
         }
     </style>
 </head>
 <body class="flex flex-col md:flex-row">
-    <!-- 移动端遮罩层 -->
-    <div class="sidebar-mask" id="sidebarMask"></div>
-
-    <!-- 左侧侧边栏：黑金白高级商务风格 -->
-    <aside class="sidebar w-64 h-screen hidden md:flex flex-col fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0">
+    <!-- 左侧侧边栏：修复 hidden 类 + 位移问题 -->
+    <aside class="sidebar w-64 h-screen fixed left-0 top-0 z-50 flex-col md:translate-x-0 mobile-hidden md:mobile-visible">
         <!-- Logo区域 -->
         <div class="p-6 border-b gold-border">
             <h1 class="text-3xl font-bold logo-text">
@@ -167,7 +159,8 @@
                 <li>
                     <button id="strategyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-cogs mr-3"></i>美股策略</span>
-                        <i class="fa fa-angle-right arrow-icon"></i>
+                        <!-- 修复：箭头添加唯一类名 -->
+                        <i class="fa fa-angle-right arrow-icon-strategy"></i>
                     </button>
                     <ul id="strategySubmenu" class="submenu">
                         <li>
@@ -186,7 +179,8 @@
                 <li>
                     <button id="strategyCNBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-cogs mr-3"></i>A股策略</span>
-                        <i class="fa fa-angle-right arrow-icon"></i>
+                        <!-- 修复：箭头添加唯一类名 -->
+                        <i class="fa fa-angle-right arrow-icon-strategy-cn"></i>
                     </button>
                     <ul id="strategyCNSubmenu" class="submenu">
                         <li>
@@ -205,7 +199,8 @@
                 <li>
                     <button id="studyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-book mr-3"></i>金融知识</span>
-                        <i class="fa fa-angle-right arrow-icon"></i>
+                        <!-- 修复：箭头添加唯一类名 -->
+                        <i class="fa fa-angle-right arrow-icon-study"></i>
                     </button>
                     <ul id="studySubmenu" class="submenu">
                         <li>
@@ -280,98 +275,98 @@
     </main>
 
     <script>
-        // 修复：每个二级菜单绑定独立的箭头图标
-        const strategyBtn = document.getElementById('strategyBtn');
-        const strategySubmenu = document.getElementById('strategySubmenu');
-        const strategyArrow = strategyBtn.querySelector('.arrow-icon'); // 独立箭头
-        strategyBtn.addEventListener('click', () => {
-            strategySubmenu.classList.toggle('open');
-            strategyArrow.classList.toggle('rotate');
-        });
+        // 修复：DOM加载完成后再执行逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            // 策略二级菜单展开/收起（美股）
+            const strategyBtn = document.getElementById('strategyBtn');
+            const strategySubmenu = document.getElementById('strategySubmenu');
+            const arrowIcon = document.querySelector('.arrow-icon-strategy');
+            strategyBtn.addEventListener('click', () => {
+                strategySubmenu.classList.toggle('open');
+                arrowIcon.classList.toggle('rotate');
+            });
 
-        const strategyCNBtn = document.getElementById('strategyCNBtn');
-        const strategyCNSubmenu = document.getElementById('strategyCNSubmenu');
-        const strategyCNArrow = strategyCNBtn.querySelector('.arrow-icon'); // 独立箭头
-        strategyCNBtn.addEventListener('click', () => {
-            strategyCNSubmenu.classList.toggle('open');
-            strategyCNArrow.classList.toggle('rotate');
-        });        
+            // 策略二级菜单展开/收起（A股）
+            const strategyCNBtn = document.getElementById('strategyCNBtn');
+            const strategyCNSubmenu = document.getElementById('strategyCNSubmenu');
+            const arrowIconCN = document.querySelector('.arrow-icon-strategy-cn');
+            strategyCNBtn.addEventListener('click', () => {
+                strategyCNSubmenu.classList.toggle('open');
+                arrowIconCN.classList.toggle('rotate');
+            });        
 
-        const studyBtn = document.getElementById('studyBtn');
-        const studySubmenu = document.getElementById('studySubmenu');
-        const studyArrow = studyBtn.querySelector('.arrow-icon'); // 独立箭头
-        studyBtn.addEventListener('click', () => {
-            studySubmenu.classList.toggle('open');
-            studyArrow.classList.toggle('rotate');
-        });
+            // 学习二级菜单展开/收起
+            const studyBtn = document.getElementById('studyBtn');
+            const studySubmenu = document.getElementById('studySubmenu');
+            const arrowIcon2 = document.querySelector('.arrow-icon-study');
+            studyBtn.addEventListener('click', () => {
+                studySubmenu.classList.toggle('open');
+                arrowIcon2.classList.toggle('rotate');
+            });
 
-        // 手机端菜单控制 + 遮罩层
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarMask = document.getElementById('sidebarMask');
-        
-        // 打开/关闭侧边栏
-        function toggleSidebar() {
-            sidebar.classList.toggle('-translate-x-full');
-            sidebarMask.classList.toggle('show');
-            // 修复：移动端滚动锁定/解锁
-            document.body.style.overflow = sidebar.classList.contains('-translate-x-full') ? '' : 'hidden';
-        }
+            // 手机端菜单控制（修复位移逻辑）
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const sidebar = document.querySelector('.sidebar');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('mobile-hidden');
+            });
 
-        mobileMenuBtn.addEventListener('click', toggleSidebar);
-        sidebarMask.addEventListener('click', toggleSidebar); // 点击遮罩关闭侧边栏
+            // 点击菜单后自动关闭手机端侧边栏
+            document.querySelectorAll('.sidebar-link, .submenu-link').forEach(item => {
+                item.addEventListener('click', () => {
+                    if(window.innerWidth < 768) {
+                        sidebar.classList.add('mobile-hidden');
+                    }
+                });
+            });
 
-        // 点击菜单后自动关闭手机端侧边栏
-        document.querySelectorAll('.sidebar-link, .submenu-link').forEach(item => {
-            item.addEventListener('click', () => {
-                if(window.innerWidth < 768) {
-                    sidebar.classList.add('-translate-x-full');
-                    sidebarMask.classList.remove('show');
-                    document.body.style.overflow = ''; // 恢复滚动
+            // 页面切换核心功能
+            const frame = document.getElementById('contentFrame');
+            function loadPage(type) {
+                // 阻止事件冒泡（避免影响菜单）
+                event?.stopPropagation();
+                // 移除所有active类
+                document.querySelectorAll('.sidebar-link, .submenu-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                // 给当前点击的菜单添加active类
+                if(event?.target) {
+                    event.target.classList.add('active');
                 }
-            });
-        });
+                
+                // 加载对应页面
+                const pageMap = {
+                    'home': 'home.html',
+                    'trend': 'trend.html',
+                    'swing': 'swing.html',
+                    'contact': 'contact.html',
+                    'trend-cn': 'trend-cn.html',
+                    'swing-cn': 'swing-cn.html',
+                    'w1': 'w1.html',
+                    'w2': 'w2.html',
+                    'w3': 'w3.html',
+                    'w4': 'w4.html',
+                    'w5': 'w5.html',
+                    'w6': 'w6.html',
+                    'w7': 'w7.html',
+                    'w8': 'w8.html'
+                };
+                frame.src = pageMap[type] || 'home.html';
+            }
 
-        // 页面切换核心功能
-        const frame = document.getElementById('contentFrame');
-        function loadPage(type) {
-            // 阻止事件冒泡（避免触发遮罩层关闭）
-            event.stopPropagation();
-            
-            // 移除所有active类
-            document.querySelectorAll('.sidebar-link, .submenu-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            // 给当前点击的菜单添加active类
-            event.target.classList.add('active');
-            
-            // 加载对应页面
-            const pageMap = {
-                'home': 'home.html',
-                'trend': 'trend.html',
-                'swing': 'swing.html',
-                'contact': 'contact.html',
-                'trend-cn': 'trend-cn.html',
-                'swing-cn': 'swing-cn.html',
-                'w1': 'w1.html',
-                'w2': 'w2.html',
-                'w3': 'w3.html',
-                'w4': 'w4.html',
-                'w5': 'w5.html',
-                'w6': 'w6.html',
-                'w7': 'w7.html',
-                'w8': 'w8.html'
-            };
-            frame.src = pageMap[type] || 'home.html';
-        }
-
-        // 默认加载首页
-        window.onload = () => {
+            // 默认加载首页
             loadPage('home');
-            sidebar.classList.remove('hidden');
             // 给首页添加默认active
             document.querySelector('.sidebar-link').classList.add('active');
-        };
+            
+            // 修复：桌面端强制显示侧边栏，移动端默认隐藏
+            if(window.innerWidth >= 768) {
+                sidebar.classList.remove('mobile-hidden');
+            } else {
+                sidebar.classList.add('mobile-hidden');
+            }
+        });
     </script>
 </body>
 </html>
