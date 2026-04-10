@@ -310,14 +310,14 @@
         });
 
         // 点击菜单后自动关闭手机端侧边栏
-        document.querySelectorAll('.sidebar-link:not(button)').forEach(item => {
+        // 修正选择器：只选中 非按钮的.sidebar-link（一级菜单<a>） + .submenu-link（子菜单<a>）
+        document.querySelectorAll('.sidebar-link:not(button), .submenu-link').forEach(item => {
             item.addEventListener('click', () => {
-                if(window.innerWidth < 768) {
+                if (window.innerWidth < 768) { // 仅移动端生效
                     sidebar.classList.add('-translate-x-full');
                 }
             });
         });
-
         // 页面切换核心功能
         const frame = document.getElementById('contentFrame');
         function loadPage(type) {
