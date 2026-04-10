@@ -15,9 +15,10 @@
 
         body {
             background-color: #f5f5f5;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
+        /* 侧边栏样式 */
         .sidebar {
             background-color: #222222;
             transition: all 0.3s ease;
@@ -67,11 +68,6 @@
             transform: rotate(90deg);
         }
 
-        .main-content {
-            height: 100vh;
-            overflow-y: auto;
-        }
-
         /* 滚动条美化 */
         ::-webkit-scrollbar {
             width: 8px;
@@ -86,22 +82,11 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                position: fixed;
-                z-index: 50;
-                transform: translateX(-100%);
-            }
-            .sidebar.open {
-                transform: translateX(0);
-            }
-        }
     </style>
 </head>
-<body class="flex">
-    <!-- 左侧侧边栏 -->
-    <aside class="sidebar w-64 h-screen flex flex-col fixed left-0 top-0 z-40">
+<body class="flex flex-col md:flex-row">
+    <!-- 左侧侧边栏：手机端绝对定位，不占位 -->
+    <aside class="sidebar w-64 h-screen hidden md:flex flex-col fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0">
         <div class="p-6 border-b border-gray-700">
             <h1 class="text-3xl font-bold text-white">
                 <span class="text-blue-400">Vicky</span><span class="text-white">Pedia</span>
@@ -152,22 +137,24 @@
 
         <div class="p-6 border-t border-gray-700">
             <div class="text-gray-400 text-sm space-y-1">
-                <p><i class="fa fa-phone mr-2"></i>contact@vickypedia.com</p>
+                <p><i class="fa fa-envelope mr-2"></i>contact@vickypedia.com</p>
             </div>
         </div>
     </aside>
 
-    <!-- 右侧内容区（iframe） -->
-    <main class="flex-1 ml-64 h-screen">
-        <button id="mobileMenuBtn" class="md:hidden fixed top-4 left-4 z-50 bg-gray-800 text-white p-2 rounded-lg">
+    <!-- 右侧内容：手机端全屏，电脑端自动留白 -->
+    <main class="flex-1 w-full min-h-screen md:ml-64">
+        <!-- 移动端菜单按钮 -->
+        <button id="mobileMenuBtn" class="md:hidden fixed top-4 left-4 z-50 bg-gray-800 text-white p-2 rounded-lg shadow-lg">
             <i class="fa fa-bars"></i>
         </button>
         
-        <iframe id="contentFrame" class="w-full h-full border-none" src="about:blank"></iframe>
+        <!-- iframe 内容区 -->
+        <iframe id="contentFrame" class="w-full h-screen border-none" src="about:blank"></iframe>
     </main>
 
     <script>
-        // 菜单展开收起
+        // 策略二级菜单
         const strategyBtn = document.getElementById('strategyBtn');
         const strategySubmenu = document.getElementById('strategySubmenu');
         const arrowIcon = document.querySelector('.arrow-icon');
@@ -176,21 +163,30 @@
             arrowIcon.classList.toggle('rotate');
         });
 
-        // 移动端菜单
+        // 手机端菜单控制（核心修复）
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const sidebar = document.querySelector('.sidebar');
+        
         mobileMenuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
+            sidebar.classList.toggle('-translate-x-full');
         });
 
-        // 核心：点击切换页面
+        // 点击菜单后自动关闭手机端侧边栏
+        document.querySelectorAll('.sidebar-link, .submenu-link').forEach(item => {
+            item.addEventListener('click', () => {
+                if(window.innerWidth < 768) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            });
+        });
+
+        // 页面切换
         const frame = document.getElementById('contentFrame');
         function loadPage(type) {
             if(type === 'study') {
-                // 点击学习 → 加载 test.html
-                frame.src = 'test.html';
+                frame.src = 'test.html'; // 学习 → 显示 test.html
             } else if(type === 'home') {
-                frame.src = 'home.html'; // 你可以自己建一个首页
+                frame.src = 'home.html';
             } else if(type === 'trend') {
                 frame.src = 'trend.html';
             } else if(type === 'swing') {
@@ -198,14 +194,13 @@
             } else if(type === 'contact') {
                 frame.src = 'contact.html';
             }
-
-            // 关闭移动端菜单
-            if(window.innerWidth <= 768) sidebar.classList.remove('open');
         }
 
-        // 默认打开首页
+        // 默认加载首页
         window.onload = () => {
             loadPage('home');
+            // 初始化显示侧边栏（电脑端）
+            sidebar.classList.remove('hidden');
         };
     </script>
 </body>
