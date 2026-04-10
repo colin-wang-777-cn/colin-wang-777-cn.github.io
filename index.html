@@ -1,179 +1,370 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <!-- 原有样式不变，省略 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VickyPedia - 交易学习与策略</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* 侧边栏核心样式 - 黑金白高级风格 */
+        .sidebar {
+            background-color: #1a1a1a; /* 深黑主背景 */
+            transition: all 0.3s ease;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.15);
+        }
+
+        .sidebar-link {
+            transition: all 0.2s ease;
+            position: relative;
+            color: #ffffff; /* 文字纯白 */
+        }
+
+        .sidebar-link:hover {
+            background-color: rgba(255, 215, 0, 0.1); /* hover浅金透黑 */
+            padding-left: 20px;
+            color: #F7931A; /* hover文字金色 */
+        }
+
+        .sidebar-link.active {
+            background-color: #F7931A; /* 激活态金色 */
+            color: #1a1a1a; /* 激活态文字黑色 */
+            font-weight: 600;
+        }
+
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #242424; /* 子菜单深灰黑 */
+        }
+
+        .submenu.open {
+            max-height: 400px;
+        }
+
+        .submenu-link {
+            transition: all 0.2s ease;
+            color: #ffffff;
+        }
+
+        .submenu-link:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            padding-left: 35px;
+            color: #F7931A;
+        }
+
+        .arrow-icon {
+            transition: transform 0.3s ease;
+            color: #F7931A; /* 箭头金色 */
+        }
+
+        .arrow-icon.rotate {
+            transform: rotate(90deg);
+        }
+
+        /* 滚动条美化 - 黑金配色 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8f8f8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #F7931A;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e6c200;
+        }
+
+        /* Logo区域样式 */
+        .logo-text {
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .logo-text span:first-child {
+            color: #F7931A; /* Logo前缀金色 */
+        }
+        .logo-desc {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* 移动端按钮优化 */
+        .mobile-btn {
+            background-color: #1a1a1a !important;
+            border: 1px solid #F7931A !important;
+            outline: none;
+        }
+        .mobile-btn:hover {
+            background-color: #242424 !important;
+            color: #F7931A !important;
+        }
+
+        /* 边框装饰 - 金色细边框 */
+        .gold-border {
+            border-color: rgba(255, 215, 0, 0.3) !important;
+        }
+    </style>
 </head>
 <body class="flex flex-col md:flex-row">
-  <!-- 左侧侧边栏：修复箭头图标ID，避免选择器冲突 -->
-  <aside class="sidebar w-64 h-screen fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0">
-    <!-- Logo区域 不变 -->
-    
-    <!-- 导航菜单：为每个箭头添加唯一ID -->
-    <nav class="flex-1 py-4">
-      <ul class="space-y-1">
-        <!-- 首页 不变 -->
+    <!-- 左侧侧边栏：黑金白高级商务风格 -->
+    <aside class="sidebar w-64 h-screen fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0 flex flex-col">
+        <!-- Logo区域 -->
+        <div class="p-6 border-b gold-border">
+            <h1 class="text-3xl font-bold logo-text">
+                <span><i class="fa fa-american-sign-language-interpreting mr-5"></i>Vicky</span><span>Pedia</span>
+            </h1>
+            <p class="logo-desc text-sm mt-1">量化交易 与 知识分享</p>
+        </div>
+
+        <!-- 导航菜单 -->
+        <nav class="flex-1 py-4">
+            <ul class="space-y-1">
+                <!-- 首页 -->
+                <li>
+                    <a onclick="loadPage(event, 'home')" class="sidebar-link cursor-pointer block px-6 py-3">
+                        <i class="fa fa-home mr-3"></i>首页
+                    </a>
+                </li>
+
+                <!-- 美股策略（二级菜单） -->
+                <li>
+                    <button id="strategyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
+                        <span><i class="fa fa-cogs mr-3"></i>美股策略</span>
+                        <i class="fa fa-angle-right arrow-icon" id="arrow-strategy"></i>
+                    </button>
+                    <ul id="strategySubmenu" class="submenu">
+                        <li>
+                            <a onclick="loadPage(event, 'trend')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                               &nbsp&nbsp <i class="fa fa-line-chart mr-3"></i>趋势交易
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage(event, 'swing')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-bar-chart mr-3"></i>波段交易
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- A股策略（二级菜单） -->
+                <li>
+                    <button id="strategyCNBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
+                        <span><i class="fa fa-cogs mr-3"></i>A股策略</span>
+                        <i class="fa fa-angle-right arrow-icon" id="arrow-strategy-cn"></i>
+                    </button>
+                    <ul id="strategyCNSubmenu" class="submenu">
+                        <li>
+                            <a onclick="loadPage(event, 'trend-cn')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                               &nbsp&nbsp <i class="fa fa-line-chart mr-3"></i>趋势交易
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage(event, 'swing-cn')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-bar-chart mr-3"></i>波段交易
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 学习 -->
+                <li>
+                    <button id="studyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
+                        <span><i class="fa fa-book mr-3"></i>金融知识</span>
+                        <i class="fa fa-angle-right arrow-icon" id="arrow-study"></i>
+                    </button>
+                    <ul id="studySubmenu" class="submenu">
+                        <li>
+                            <a onclick="loadPage(event, 'w1')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                               &nbsp&nbsp <i class="fa fa-battery-0 mr-3"></i>第一周
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage(event, 'w2')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-1 mr-3"></i>第二周
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage(event, 'w3')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-1 mr-3"></i>第三周
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage(event, 'w4')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-2 mr-3"></i>第四周
+                            </a>
+                        </li>           
+                        <li>
+                            <a onclick="loadPage(event, 'w5')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-2 mr-3"></i>第五周
+                            </a>
+                        </li>     
+                        <li>
+                            <a onclick="loadPage(event, 'w6')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-3 mr-3"></i>第六周
+                            </a>
+                        </li>          
+                        <li>
+                            <a onclick="loadPage(event, 'w7')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-3 mr-3"></i>第七周
+                            </a>
+                        </li>     
+                        <li>
+                            <a onclick="loadPage(event, 'w8')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-4 mr-3"></i>第八周
+                            </a>
+                        </li>                                                                                                           
+                    </ul>
+                </li>
+
+                <!-- 联系 -->
+                <li>
+                    <a onclick="loadPage(event, 'contact')" class="sidebar-link cursor-pointer block px-6 py-3">
+                        <i class="fa fa-user-circle mr-3"></i>关于我们
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 底部信息 -->
+        <div class="p-6 border-t gold-border">
+            <div class="text-white/80 text-sm space-y-1">
+                <p align="right">@2026 <a href="mailto:vicky.wang100707@gmail.com"><i class="fa fa-envelope mr-1"></i>&nbsp&nbsp&nbsp</a></p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 右侧内容区 -->
+    <main class="flex-1 w-full min-h-screen md:ml-64 bg-white">
+        <!-- 移动端菜单按钮 -->
+        <button id="mobileMenuBtn" class="mobile-btn md:hidden fixed top-4 left-4 z-50 text-white p-2 rounded-lg shadow-md">
+            <i class="fa fa-bars"></i>
+        </button>
         
-        <!-- 美股策略（二级菜单）：箭头添加id="arrow-strategy" -->
-        <li>
-          <button id="strategyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
-            <span><i class="fa fa-cogs mr-3"></i>美股策略</span>
-            <i class="fa fa-angle-right arrow-icon" id="arrow-strategy"></i>
-          </button>
-          <ul id="strategySubmenu" class="submenu">
-            <!-- 子菜单不变 -->
-          </ul>
-        </li>
+        <!-- 内容嵌入iframe -->
+        <iframe id="contentFrame" class="w-full h-screen border-none" src="about:blank"></iframe>
+    </main>
+
+    <script>
+        // 策略二级菜单展开/收起（美股）
+        const strategyBtn = document.getElementById('strategyBtn');
+        const strategySubmenu = document.getElementById('strategySubmenu');
+        const arrowIcon = document.getElementById('arrow-strategy');
+        strategyBtn.addEventListener('click', () => {
+            strategySubmenu.classList.toggle('open');
+            arrowIcon.classList.toggle('rotate');
+        });
+
+        // 策略二级菜单展开/收起（A股）
+        const strategyCNBtn = document.getElementById('strategyCNBtn');
+        const strategyCNSubmenu = document.getElementById('strategyCNSubmenu');
+        const arrowIconCN = document.getElementById('arrow-strategy-cn');
+        strategyCNBtn.addEventListener('click', () => {
+            strategyCNSubmenu.classList.toggle('open');
+            arrowIconCN.classList.toggle('rotate');
+        });        
+
+        // 学习二级菜单展开/收起
+        const studyBtn = document.getElementById('studyBtn');
+        const studySubmenu = document.getElementById('studySubmenu');
+        const arrowIcon2 = document.getElementById('arrow-study');
+        studyBtn.addEventListener('click', () => {
+            studySubmenu.classList.toggle('open');
+            arrowIcon2.classList.toggle('rotate');
+        });
+
+        // 手机端菜单控制
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.querySelector('.sidebar');
         
-        <!-- A股策略（二级菜单）：箭头添加id="arrow-strategy-cn" -->
-        <li>
-          <button id="strategyCNBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
-            <span><i class="fa fa-cogs mr-3"></i>A股策略</span>
-            <i class="fa fa-angle-right arrow-icon" id="arrow-strategy-cn"></i>
-          </button>
-          <ul id="strategyCNSubmenu" class="submenu">
-            <!-- 子菜单不变 -->
-          </ul>
-        </li>
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebar.classList.remove('hidden');
+        });
+
+        // 点击菜单后自动关闭手机端侧边栏
+        document.querySelectorAll('.sidebar-link, .submenu-link').forEach(item => {
+            item.addEventListener('click', () => {
+                if(window.innerWidth < 768) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            });
+        });
+
+        // 页面切换核心功能（修复event未定义 + 路径统一管理）
+        const frame = document.getElementById('contentFrame');
         
-        <!-- 学习（二级菜单）：箭头添加id="arrow-study" -->
-        <li>
-          <button id="studyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
-            <span><i class="fa fa-book mr-3"></i>金融知识</span>
-            <i class="fa fa-angle-right arrow-icon" id="arrow-study"></i>
-          </button>
-          <ul id="studySubmenu" class="submenu">
-            <!-- 子菜单不变 -->
-          </ul>
-        </li>
-        
-        <!-- 联系 不变 -->
-      </ul>
-    </nav>
-    
-    <!-- 底部信息 不变 -->
-  </aside>
+        // 页面路径映射表（方便维护）
+        const pageMap = {
+            home: 'home.html',
+            trend: 'trend.html',
+            swing: 'swing.html',
+            'trend-cn': 'trend-cn.html',
+            'swing-cn': 'swing-cn.html',
+            contact: 'contact.html',
+            w1: 'w1.html',
+            w2: 'w2.html',
+            w3: 'w3.html',
+            w4: 'w4.html',
+            w5: 'w5.html',
+            w6: 'w6.html',
+            w7: 'w7.html',
+            w8: 'w8.html',
+            study: 'study.html'
+        };
 
-  <!-- 右侧内容区 不变 -->
-  <main class="flex-1 w-full min-h-screen md:ml-64 bg-white">
-    <!-- 移动端菜单按钮 不变 -->
-    <button id="mobileMenuBtn" class="mobile-btn md:hidden fixed top-4 left-4 z-50 text-white p-2 rounded-lg shadow-md">
-      <i class="fa fa-bars"></i>
-    </button>
-    
-    <iframe id="contentFrame" class="w-full h-screen border-none" src="about:blank"></iframe>
-  </main>
+        function loadPage(event, type) {
+            // 阻止事件冒泡和默认行为
+            event.preventDefault();
+            event.stopPropagation();
 
-  <script>
-    // ========== 修复1：二级菜单箭头选择器（唯一ID） ==========
-    // 美股策略
-    const strategyBtn = document.getElementById('strategyBtn');
-    const strategySubmenu = document.getElementById('strategySubmenu');
-    const arrowIcon = document.getElementById('arrow-strategy'); // 用ID选择
-    strategyBtn.addEventListener('click', () => {
-      strategySubmenu.classList.toggle('open');
-      arrowIcon.classList.toggle('rotate');
-    });
+            // 移除所有active类
+            document.querySelectorAll('.sidebar-link, .submenu-link').forEach(link => {
+                link.classList.remove('active');
+            });
 
-    // A股策略
-    const strategyCNBtn = document.getElementById('strategyCNBtn');
-    const strategyCNSubmenu = document.getElementById('strategyCNSubmenu');
-    const arrowIconCN = document.getElementById('arrow-strategy-cn'); // 用ID选择
-    strategyCNBtn.addEventListener('click', () => {
-      strategyCNSubmenu.classList.toggle('open');
-      arrowIconCN.classList.toggle('rotate');
-    });
-
-    // 学习菜单
-    const studyBtn = document.getElementById('studyBtn');
-    const studySubmenu = document.getElementById('studySubmenu');
-    const arrowIcon2 = document.getElementById('arrow-study'); // 用ID选择
-    studyBtn.addEventListener('click', () => {
-      studySubmenu.classList.toggle('open');
-      arrowIcon2.classList.toggle('rotate');
-    });
-
-    // ========== 修复2：移动端侧边栏逻辑 ==========
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const sidebar = document.querySelector('.sidebar');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('-translate-x-full');
-      // 修复：移动端点击菜单时显示侧边栏（移除hidden，原代码有hidden导致移动端不显示）
-      sidebar.classList.remove('hidden');
-    });
-
-    // 点击菜单后关闭移动端侧边栏（保留）
-    document.querySelectorAll('.sidebar-link, .submenu-link').forEach(item => {
-      item.addEventListener('click', () => {
-        if (window.innerWidth < 768) {
-          sidebar.classList.add('-translate-x-full');
+            // 给当前点击的元素添加active类（兼容冒泡）
+            event.currentTarget.classList.add('active');
+            
+            // 获取目标页面路径
+            const targetPage = pageMap[type] || '404.html';
+            
+            // 加载页面并添加容错提示
+            frame.src = targetPage;
+            frame.onerror = () => {
+                alert(`页面 ${targetPage} 加载失败，请检查文件是否存在！`);
+            };
         }
-      });
-    });
 
-    // ========== 修复3：loadPage函数（解决event.target和路径问题） ==========
-    const frame = document.getElementById('contentFrame');
-    // 给函数添加event参数，避免未定义
-    function loadPage(event, type) {
-      // 阻止事件冒泡（避免影响父级菜单）
-      event.preventDefault();
-      event.stopPropagation();
-      
-      // 移除所有active类
-      document.querySelectorAll('.sidebar-link, .submenu-link').forEach(link => {
-        link.classList.remove('active');
-      });
-      
-      // 给当前点击的元素添加active（用event.currentTarget更稳定）
-      event.currentTarget.classList.add('active');
-      
-      // ========== 关键：确认以下文件路径是否正确 ==========
-      // 建议先测试绝对路径（如本地文件路径），再改相对路径
-      const pageMap = {
-        home: 'home.html',
-        trend: 'trend.html',
-        swing: 'swing.html',
-        'trend-cn': 'trend-cn.html',
-        'swing-cn': 'swing-cn.html',
-        contact: 'contact.html',
-        w1: 'w1.html',
-        w2: 'w2.html',
-        w3: 'w3.html',
-        w4: 'w4.html',
-        w5: 'w5.html',
-        w6: 'w6.html',
-        w7: 'w7.html',
-        w8: 'w8.html',
-        study: 'study.html'
-      };
-      
-      // 加载页面（添加容错：路径不存在时提示）
-      const targetSrc = pageMap[type] || '404.html';
-      frame.src = targetSrc;
-      
-      // 调试：控制台打印加载路径，方便排查
-      console.log('加载页面：', targetSrc);
-    }
-
-    // ========== 修复4：页面初始化 ==========
-    window.onload = () => {
-      // 移除侧边栏hidden（移动端也能显示）
-      sidebar.classList.remove('hidden');
-      // 初始化加载首页（传递空event，避免报错）
-      loadPage({
-        preventDefault: () => {},
-        stopPropagation: () => {},
-        currentTarget: document.querySelector('.sidebar-link')
-      }, 'home');
-      // 给首页添加active
-      document.querySelector('.sidebar-link').classList.add('active');
-    };
-
-    // ========== 修复5：修改HTML中onclick调用方式（传递event） ==========
-    // 注意：需要同步修改所有菜单的onclick，例如：
-    // 首页：<a onclick="loadPage(event, 'home')" ...>
-    // 趋势交易：<a onclick="loadPage(event, 'trend')" ...>
-    // （下方会统一修正HTML中的onclick）
-  </script>
+        // 默认加载首页（修复初始化event问题）
+        window.onload = () => {
+            // 模拟event对象初始化首页
+            loadPage({
+                preventDefault: () => {},
+                stopPropagation: () => {},
+                currentTarget: document.querySelector('.sidebar-link')
+            }, 'home');
+            
+            // 确保侧边栏初始显示（桌面端）
+            sidebar.classList.remove('hidden');
+            sidebar.classList.remove('-translate-x-full');
+            if (window.innerWidth < 768) {
+                sidebar.classList.add('-translate-x-full'); // 移动端初始隐藏
+            }
+        };
+    </script>
 </body>
 </html>
