@@ -143,7 +143,7 @@
                     </a>
                 </li>
 
-                <!-- 策略（二级菜单） -->
+                <!-- 美股策略（二级菜单） -->
                 <li>
                     <button id="strategyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-cogs mr-3"></i>美股策略</span>
@@ -162,7 +162,25 @@
                         </li>
                     </ul>
                 </li>
-
+                <!-- A股策略（二级菜单） -->
+                <li>
+                    <button id="strategyCNBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
+                        <span><i class="fa fa-cogs mr-3"></i>A股策略</span>
+                        <i class="fa fa-angle-right arrow-icon"></i>
+                    </button>
+                    <ul id="strategyCNSubmenu" class="submenu">
+                        <li>
+                            <a onclick="loadPage('trend-cn')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                               &nbsp&nbsp <i class="fa fa-line-chart mr-3"></i>趋势交易
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage('swing-cn')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-bar-chart mr-3"></i>波段交易
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <!-- 学习 -->
                 <li>
                     <button id="studyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
@@ -251,6 +269,14 @@
             strategySubmenu.classList.toggle('open');
             arrowIcon.classList.toggle('rotate');
         });
+        // 策略二级菜单展开/收起
+        const strategyCNBtn = document.getElementById('strategyCNBtn');
+        const strategyCNSubmenu = document.getElementById('strategyCNSubmenu');
+        const arrowIconCN = document.querySelector('.arrow-icon');
+        strategyCNBtn.addEventListener('click', () => {
+            strategyCNSubmenu.classList.toggle('open');
+            arrowIconCN.classList.toggle('rotate');
+        });        
         // 学习二级菜单展开/收起
         const studyBtn = document.getElementById('studyBtn');
         const studySubmenu = document.getElementById('studySubmenu');
@@ -297,6 +323,12 @@
                 frame.src = 'swing.html';
             } else if(type === 'contact') {
                 frame.src = 'contact.html';
+            } else if(type === 'trend-cn') {
+                frame.src = 'trend-cn.html';
+            } else if(type === 'swing-cn') {
+                frame.src = 'swing-cn.html';
+            } else if(type === 'contact') {
+                frame.src = 'contact.html';                
             } else if(type === 'w1') {
                 frame.src = 'w1.html';    
             } else if(type === 'w2') {

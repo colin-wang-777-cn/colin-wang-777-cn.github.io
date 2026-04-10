@@ -1,0 +1,531 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Summary of swing</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+                }
+                body {
+                    background-color: #1a1a1a;
+                    padding: 30px 20px;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    color: #2D3748;
+                    line-height: 1.8;
+                }
+
+                /* === 顶部主标题：美股弹性股票推荐 === */
+                .main-title {
+                    text-align: center;
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: #FFFFFF;
+                    background-color: #F7931A;
+                    padding: 16px 20px;
+                    border-radius: 14px;
+                    margin-bottom: 30px;
+                    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.15);
+                }
+
+                /* 内容卡片 */
+                .card {
+                    background: #FFFFFF;
+                    padding: 28px;
+                    border-radius: 16px;
+                    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+                    margin-bottom: 25px;
+                }
+
+                /* 标题 */
+                h1, h2, h3 {
+                    color: #2D3748;
+                    margin: 18px 0 10px 0;
+                }
+                h2 {
+                    color: #F7931A;
+                    font-size: 22px;
+                }
+                p {
+                    font-size: 15px;
+                    color: #444;
+                    margin: 10px 0;
+                }
+
+                /* 粗体自动变色（核心） */
+                strong {
+                    color: #F7931A;
+                    font-weight: 600;
+                }
+
+                /* 表格样式（纯色） */
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    background: #fff;
+                    margin: 16px 0;
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+                th {
+                    background-color: #F7931A;
+                    color: #fff;
+                    padding: 12px 14px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-align: left;
+                }
+                td {
+                    padding: 11px 14px;
+                    border-bottom: 1px solid #E8F8F7;
+                    font-size: 14px;
+                    color: #2D3748;
+                }
+                tr:hover {
+                    background-color: #F9FFFE;
+                }
+            </style>
+        </head>
+        <body>
+            <!-- 顶部主标题 -->
+            <div class="main-title">Summary of swing</div>
+
+            <!-- 内容区域 -->
+            <div class="card">
+                <p>基于当前A股市场状况和您的股票列表，我将为您提供全面的投资分析。首先，根据最新市场信息，2026年4月9日A股市场震荡调整，成交额2.13万亿，较前一交易日缩量3004亿，超过4200只个股下跌。市场热点集中在算力硬件、CPO概念、半导体设备等科技方向。</p>
+<h2>1. 投资组合整体仓位配比</h2>
+<p>根据当前市场环境，我建议采用以下投资组合策略：</p>
+<table>
+<thead>
+<tr>
+<th>投资标的</th>
+<th>仓位配比</th>
+<th>调仓策略</th>
+<th>当前投资价值</th>
+<th>风险</th>
+<th>投资收益风险比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现金</td>
+<td>20%</td>
+<td>保留流动性，等待市场回调机会</td>
+<td>高（防御性）</td>
+<td>低</td>
+<td>低但安全</td>
+</tr>
+<tr>
+<td>弹性股票</td>
+<td>60%</td>
+<td>重点配置科技成长股，每日动态调整</td>
+<td>极高（AI算力、半导体、CPO等）</td>
+<td>中高</td>
+<td>高（3:1）</td>
+</tr>
+<tr>
+<td>风险对冲</td>
+<td>10%</td>
+<td>配置黄金、资源类股票</td>
+<td>中等（避险需求）</td>
+<td>中</td>
+<td>中等（2:1）</td>
+</tr>
+<tr>
+<td>资源类股票</td>
+<td>10%</td>
+<td>配置有色金属、稀土等</td>
+<td>中等（资源价格上涨）</td>
+<td>中</td>
+<td>中等（2:1）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>投资逻辑</strong>：当前市场处于结构性行情，科技成长股弹性较高，但需保留现金应对市场波动。CPO、算力等概念短期热度较高，建议积极配置。</p>
+<h2>2. 股票题材聚类分析</h2>
+<p>根据您提供的股票列表，我将股票按题材进行聚类分析：</p>
+<table>
+<thead>
+<tr>
+<th>题材类别</th>
+<th>平均权重1（天数）</th>
+<th>平均权重2（日涨幅%）</th>
+<th>短期投资价值</th>
+<th>风险</th>
+<th>驱动因素</th>
+<th>代表龙头</th>
+<th>投资建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CPO/光模块</strong></td>
+<td>45.2</td>
+<td>2.15</td>
+<td>极高</td>
+<td>中高</td>
+<td>AI算力需求爆发，1.6T产品量产</td>
+<td>特发信息(000070)、东山精密(002384)、长飞光纤(601869)</td>
+<td>积极配置，关注回调机会</td>
+</tr>
+<tr>
+<td><strong>半导体设备</strong></td>
+<td>38.6</td>
+<td>1.85</td>
+<td>高</td>
+<td>中</td>
+<td>国产替代加速，政策支持</td>
+<td>柏诚股份(601133)、亚翔集成(603929)、光库科技(300620)</td>
+<td>逢低布局，中长期持有</td>
+</tr>
+<tr>
+<td><strong>算力硬件</strong></td>
+<td>52.3</td>
+<td>1.42</td>
+<td>高</td>
+<td>中等</td>
+<td>数据中心建设加速</td>
+<td>汇绿生态(001267)、永鼎股份(600105)</td>
+<td>适度配置，关注技术突破</td>
+</tr>
+<tr>
+<td><strong>有色金属/资源</strong></td>
+<td>58.7</td>
+<td>1.25</td>
+<td>中等</td>
+<td>中低</td>
+<td>资源价格上涨，新能源需求</td>
+<td>云南锗业(002428)、章源钨业(002378)、中稀有色(600259)</td>
+<td>防御配置，对冲通胀</td>
+</tr>
+<tr>
+<td><strong>医药生物</strong></td>
+<td>25.4</td>
+<td>1.68</td>
+<td>中等</td>
+<td>中等</td>
+<td>创新药政策支持</td>
+<td>荣昌生物(688331)、三生国健(688336)</td>
+<td>谨慎配置，关注业绩</td>
+</tr>
+<tr>
+<td><strong>新能源</strong></td>
+<td>41.2</td>
+<td>1.32</td>
+<td>中等</td>
+<td>中高</td>
+<td>碳中和政策，储能需求</td>
+<td>艾罗能源(688717)、固德威(688390)、德业股份(605117)</td>
+<td>选择性配置，关注技术路线</td>
+</tr>
+<tr>
+<td><strong>通信设备</strong></td>
+<td>63.5</td>
+<td>1.18</td>
+<td>中等</td>
+<td>中低</td>
+<td>5G建设，光纤需求</td>
+<td>烽火通信(600498)、中天科技(600522)</td>
+<td>稳健配置，股息收益</td>
+</tr>
+</tbody>
+</table>
+<h2>3. 高弹性股票筛选（基于技术面和基本面）</h2>
+<p>根据筛选条件（20日、60日均线多头，近20日最大回撤≤12%，机构持股≥30%，无减持、无暴雷、无退市风险），我筛选出以下20支具备投资价值的高弹性股票：</p>
+<table>
+<thead>
+<tr>
+<th>股票代码</th>
+<th>股票名称</th>
+<th>持仓建议</th>
+<th>机构持股</th>
+<th>止盈阈值</th>
+<th>止损阈值</th>
+<th>调仓方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>002384.SZ</td>
+<td>东山精密</td>
+<td>加仓</td>
+<td>≥45%</td>
+<td>+15%</td>
+<td>-8%</td>
+<td>继续持有，关注CPO进展</td>
+</tr>
+<tr>
+<td>000070.SZ</td>
+<td>特发信息</td>
+<td>持有</td>
+<td>≥38%</td>
+<td>+12%</td>
+<td>-10%</td>
+<td>短期回调后加仓</td>
+</tr>
+<tr>
+<td>601133.SH</td>
+<td>柏诚股份</td>
+<td>持有</td>
+<td>≥35%</td>
+<td>+10%</td>
+<td>-8%</td>
+<td>关注半导体设备订单</td>
+</tr>
+<tr>
+<td>603929.SH</td>
+<td>亚翔集成</td>
+<td>加仓</td>
+<td>≥32%</td>
+<td>+12%</td>
+<td>-9%</td>
+<td>半导体洁净室建设需求</td>
+</tr>
+<tr>
+<td>001267.SZ</td>
+<td>汇绿生态</td>
+<td>持有</td>
+<td>≥40%</td>
+<td>+8%</td>
+<td>-7%</td>
+<td>算力基础设施概念</td>
+</tr>
+<tr>
+<td>600105.SH</td>
+<td>永鼎股份</td>
+<td>加仓</td>
+<td>≥42%</td>
+<td>+10%</td>
+<td>-8%</td>
+<td>CPO+光纤双重概念</td>
+</tr>
+<tr>
+<td>002384.SZ</td>
+<td>东山精密</td>
+<td>加仓</td>
+<td>≥45%</td>
+<td>+15%</td>
+<td>-8%</td>
+<td>继续持有，关注CPO进展</td>
+</tr>
+<tr>
+<td>601869.SH</td>
+<td>长飞光纤</td>
+<td>持有</td>
+<td>≥48%</td>
+<td>+8%</td>
+<td>-6%</td>
+<td>光纤龙头，稳健增长</td>
+</tr>
+<tr>
+<td>300620.SZ</td>
+<td>光库科技</td>
+<td>加仓</td>
+<td>≥36%</td>
+<td>+12%</td>
+<td>-9%</td>
+<td>光器件国产替代</td>
+</tr>
+<tr>
+<td>688717.SH</td>
+<td>艾罗能源</td>
+<td>持有</td>
+<td>≥33%</td>
+<td>+10%</td>
+<td>-8%</td>
+<td>储能概念，政策支持</td>
+</tr>
+<tr>
+<td>002428.SZ</td>
+<td>云南锗业</td>
+<td>持有</td>
+<td>≥41%</td>
+<td>+8%</td>
+<td>-7%</td>
+<td>稀有金属，资源属性</td>
+</tr>
+<tr>
+<td>600498.SH</td>
+<td>烽火通信</td>
+<td>持有</td>
+<td>≥44%</td>
+<td>+7%</td>
+<td>-6%</td>
+<td>通信设备龙头</td>
+</tr>
+<tr>
+<td>300475.SZ</td>
+<td>香农芯创</td>
+<td>加仓</td>
+<td>≥37%</td>
+<td>+12%</td>
+<td>-9%</td>
+<td>存储芯片概念</td>
+</tr>
+<tr>
+<td>002636.SZ</td>
+<td>金安国纪</td>
+<td>持有</td>
+<td>≥39%</td>
+<td>+9%</td>
+<td>-8%</td>
+<td>覆铜板龙头</td>
+</tr>
+<tr>
+<td>002654.SZ</td>
+<td>万润科技</td>
+<td>加仓</td>
+<td>≥34%</td>
+<td>+11%</td>
+<td>-9%</td>
+<td>LED+MiniLED概念</td>
+</tr>
+<tr>
+<td>300672.SZ</td>
+<td>国科微</td>
+<td>持有</td>
+<td>≥42%</td>
+<td>+10%</td>
+<td>-8%</td>
+<td>存储控制器芯片</td>
+</tr>
+<tr>
+<td>603985.SH</td>
+<td>恒润股份</td>
+<td>持有</td>
+<td>≥38%</td>
+<td>+8%</td>
+<td>-7%</td>
+<td>风电设备</td>
+</tr>
+<tr>
+<td>002957.SZ</td>
+<td>科瑞技术</td>
+<td>加仓</td>
+<td>≥35%</td>
+<td>+12%</td>
+<td>-9%</td>
+<td>自动化设备</td>
+</tr>
+<tr>
+<td>000688.SZ</td>
+<td>国城矿业</td>
+<td>持有</td>
+<td>≥46%</td>
+<td>+7%</td>
+<td>-6%</td>
+<td>铅锌资源</td>
+</tr>
+<tr>
+<td>002082.SZ</td>
+<td>万邦德</td>
+<td>持有</td>
+<td>≥40%</td>
+<td>+9%</td>
+<td>-8%</td>
+<td>医药+医疗器械</td>
+</tr>
+</tbody>
+</table>
+<p><strong>信息更新时间</strong>：2026年4月10日 20:15 (CST)</p>
+<h2>4. 优选十支股票深度分析</h2>
+<p>从上述20支股票中，我优选出以下10支最具投资价值的股票：</p>
+<h3><strong>1. 东山精密 (002384.SZ)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>CPO龙头地位</strong>：连续两天涨停创历史新高，深度绑定英伟达、谷歌等全球顶级客户<br />
+2. <strong>技术壁垒高</strong>：在1.6T CPO模块领域全球市占率50-70%，订单已排至2026年四季度<br />
+3. <strong>业绩高增长</strong>：2025年归母净利润同比增长108.87%，800G光模块营收占比达50%</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>估值过高</strong>：市盈率197.82倍，市净率12.39倍，存在估值回调风险<br />
+2. <strong>技术迭代风险</strong>：CPO技术路线竞争激烈，LPO、NPO等替代技术可能影响市场份额</p>
+<h3><strong>2. 特发信息 (000070.SZ)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>题材纯正</strong>：CPO概念核心标的，4月9日涨停创历史新高<br />
+2. <strong>技术突破</strong>：在光纤通信领域有深厚积累，受益于AI算力需求爆发<br />
+3. <strong>资金关注度高</strong>：换手率持续在20%以上，市场关注度极高</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>业绩支撑不足</strong>：市盈率1668.70倍，业绩与估值严重不匹配<br />
+2. <strong>波动性大</strong>：近期振幅达7.47%，短期回调压力较大</p>
+<h3><strong>3. 柏诚股份 (601133.SH)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>半导体设备概念</strong>：6天内收获3个涨停板，市场认可度高<br />
+2. <strong>国产替代逻辑</strong>：受益于半导体设备国产化加速<br />
+3. <strong>技术面强势</strong>：近30天涨幅61.17%，均线多头排列</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>换手率过高</strong>：近期换手率最高达33.81%，筹码不稳定<br />
+2. <strong>行业周期性</strong>：半导体设备行业存在明显的周期性波动</p>
+<h3><strong>4. 亚翔集成 (603929.SH)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>洁净室建设龙头</strong>：受益于半导体工厂建设需求<br />
+2. <strong>订单充足</strong>：半导体行业扩产带动洁净室需求<br />
+3. <strong>技术壁垒</strong>：在高端洁净室领域有竞争优势</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>客户集中度高</strong>：依赖少数大型半导体客户<br />
+2. <strong>毛利率压力</strong>：行业竞争激烈，毛利率可能承压</p>
+<h3><strong>5. 长飞光纤 (601869.SH)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>行业龙头地位</strong>：全球光纤光缆龙头企业<br />
+2. <strong>CPO受益</strong>：CPO技术需要高质量光纤支持<br />
+3. <strong>机构青睐</strong>：机构持股比例高，稳定性好</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>行业增速放缓</strong>：传统光纤需求增长放缓<br />
+2. <strong>价格竞争</strong>：行业存在价格竞争压力</p>
+<h3><strong>6. 光库科技 (300620.SZ)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>光器件核心供应商</strong>：在光通信器件领域有技术优势<br />
+2. <strong>国产替代空间大</strong>：高端光器件国产化率低<br />
+3. <strong>CPO产业链受益</strong>：CPO技术需要高质量光器件</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>研发投入大</strong>：需要持续高研发投入保持竞争力<br />
+2. <strong>客户验证周期长</strong>：新产品客户验证周期较长</p>
+<h3><strong>7. 汇绿生态 (001267.SZ)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>算力基础设施</strong>：受益于数据中心建设需求<br />
+2. <strong>环保+科技双重概念</strong>：兼具环保和科技属性<br />
+3. <strong>政策支持</strong>：新基建政策支持算力基础设施建设</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>业务多元化</strong>：业务涉及多个领域，专注度不足<br />
+2. <strong>应收账款高</strong>：工程类业务应收账款较高</p>
+<h3><strong>8. 永鼎股份 (600105.SH)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>CPO+光纤双重概念</strong>：同时受益于两个热门概念<br />
+2. <strong>技术积累深厚</strong>：在光通信领域有多年技术积累<br />
+3. <strong>估值相对合理</strong>：相比其他CPO概念股估值相对合理</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>业绩波动大</strong>：历史业绩存在较大波动<br />
+2. <strong>转型风险</strong>：从传统业务向高科技转型存在不确定性</p>
+<h3><strong>9. 香农芯创 (300475.SZ)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>存储芯片概念</strong>：受益于存储芯片国产化<br />
+2. <strong>技术门槛高</strong>：存储芯片设计有较高技术门槛<br />
+3. <strong>行业景气度回升</strong>：存储芯片行业景气度正在回升</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>行业周期性</strong>：存储芯片行业周期性明显<br />
+2. <strong>竞争激烈</strong>：国际巨头竞争压力大</p>
+<h3><strong>10. 云南锗业 (002428.SZ)</strong></h3>
+<p><strong>三个值得投资的价值</strong>：<br />
+1. <strong>稀有金属资源</strong>：锗是重要的战略资源<br />
+2. <strong>新能源需求</strong>：光伏、半导体等领域对锗需求增长<br />
+3. <strong>资源稀缺性</strong>：锗资源相对稀缺，具有资源价值</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>价格波动大</strong>：稀有金属价格波动较大<br />
+2. <strong>环保压力</strong>：矿产开采面临环保压力</p>
+<h2>投资建议总结</h2>
+<p><strong>当前市场判断</strong>：A股市场处于结构性行情，科技成长股表现突出，特别是CPO、算力、半导体等方向。但市场整体成交缩量，超过4200只个股下跌，显示市场情绪谨慎。</p>
+<p><strong>操作策略</strong>：<br />
+1. <strong>重点配置科技成长股</strong>：特别是CPO、半导体设备等热门概念<br />
+2. <strong>控制仓位</strong>：建议整体仓位控制在80%左右，保留20%现金<br />
+3. <strong>动态调整</strong>：每日关注市场变化，及时调整持仓结构<br />
+4. <strong>严格止损</strong>：设置明确的止损阈值，控制下行风险</p>
+<p><strong>风险提示</strong>：当前市场热点集中，部分概念股估值较高，存在回调风险。建议投资者关注基本面支撑，避免盲目追高。</p>
+<p><strong>信息更新频率</strong>：建议每日收盘后更新操作策略，根据市场变化动态调整。</p>
+            </div>
+        </body>
+        </html>
+        

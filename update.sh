@@ -7,7 +7,6 @@
 # git config user.email
 # git config user.password
 
-# git pull
 git add .
 git commit -m "new upload"
 git push
