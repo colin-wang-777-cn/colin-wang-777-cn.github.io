@@ -40,8 +40,7 @@
             color: #F7931A; /* hover文字金色 */
         }
 
-        .sidebar-link.active,
-        .submenu-link.active {
+        .sidebar-link.active {
             background-color: #F7931A; /* 激活态金色 */
             color: #1a1a1a; /* 激活态文字黑色 */
             font-weight: 600;
@@ -61,12 +60,11 @@
         .submenu-link {
             transition: all 0.2s ease;
             color: #ffffff;
-            padding-left: 24px !important;
         }
 
         .submenu-link:hover {
             background-color: rgba(255, 215, 0, 0.1);
-            padding-left: 35px !important;
+            padding-left: 35px;
             color: #F7931A;
         }
 
@@ -121,11 +119,18 @@
         .gold-border {
             border-color: rgba(255, 215, 0, 0.3) !important;
         }
+
+        /* 侧边栏滚动修复 */
+        .sidebar-content {
+            height: calc(100vh - 128px); /* 减去logo和底部区域高度 */
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body class="flex flex-col md:flex-row">
     <!-- 左侧侧边栏：黑金白高级商务风格 -->
-    <aside class="sidebar w-64 h-screen fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0 flex flex-col">
+    <aside class="sidebar w-64 h-screen hidden md:flex flex-col fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0">
         <!-- Logo区域 -->
         <div class="p-6 border-b gold-border">
             <h1 class="text-3xl font-bold logo-text">
@@ -134,8 +139,8 @@
             <p class="logo-desc text-sm mt-1">量化交易 与 知识分享</p>
         </div>
 
-        <!-- 导航菜单 -->
-        <nav class="flex-1 py-4">
+        <!-- 导航菜单（添加滚动容器） -->
+        <nav class="sidebar-content py-4">
             <ul class="space-y-1">
                 <!-- 首页 -->
                 <li>
@@ -148,61 +153,91 @@
                 <li>
                     <button id="strategyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-cogs mr-3"></i>美股策略</span>
-                        <i class="fa fa-angle-right arrow-icon" id="arrow-strategy"></i>
+                        <i class="fa fa-angle-right arrow-icon"></i>
                     </button>
                     <ul id="strategySubmenu" class="submenu">
                         <li>
                             <a onclick="loadPage('trend')" class="submenu-link cursor-pointer block px-4 py-2.5">
-                                <i class="fa fa-line-chart mr-3"></i>趋势交易
+                               &nbsp&nbsp <i class="fa fa-line-chart mr-3"></i>趋势交易
                             </a>
                         </li>
                         <li>
                             <a onclick="loadPage('swing')" class="submenu-link cursor-pointer block px-4 py-2.5">
-                                <i class="fa fa-bar-chart mr-3"></i>波段交易
+                                &nbsp&nbsp <i class="fa fa-bar-chart mr-3"></i>波段交易
                             </a>
                         </li>
                     </ul>
                 </li>
-                
                 <!-- A股策略（二级菜单） -->
                 <li>
                     <button id="strategyCNBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-cogs mr-3"></i>A股策略</span>
-                        <i class="fa fa-angle-right arrow-icon" id="arrow-strategy-cn"></i>
+                        <i class="fa fa-angle-right arrow-icon"></i>
                     </button>
                     <ul id="strategyCNSubmenu" class="submenu">
                         <li>
                             <a onclick="loadPage('trend-cn')" class="submenu-link cursor-pointer block px-4 py-2.5">
-                                <i class="fa fa-line-chart mr-3"></i>趋势交易
+                               &nbsp&nbsp <i class="fa fa-line-chart mr-3"></i>趋势交易
                             </a>
                         </li>
                         <li>
                             <a onclick="loadPage('swing-cn')" class="submenu-link cursor-pointer block px-4 py-2.5">
-                                <i class="fa fa-bar-chart mr-3"></i>波段交易
+                                &nbsp&nbsp <i class="fa fa-bar-chart mr-3"></i>波段交易
                             </a>
                         </li>
                     </ul>
                 </li>
-                
                 <!-- 学习 -->
                 <li>
                     <button id="studyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
                         <span><i class="fa fa-book mr-3"></i>金融知识</span>
-                        <i class="fa fa-angle-right arrow-icon" id="arrow-study"></i>
+                        <i class="fa fa-angle-right arrow-icon"></i>
                     </button>
                     <ul id="studySubmenu" class="submenu">
-                        <li><a onclick="loadPage('w1')" class="submenu-link cursor-pointer block px-4 py-2.5"><i class="fa fa-battery-0 mr-3"></i>第一周</a></li>
-                        <li><a onclick="loadPage('w2')" class="submenu-link cursor-pointer block px-4 py-2.5"><i class="fa fa-battery-1 mr-3"></i>第二周</a></li>
-                        <li><a onclick="loadPage('w3')" class="submenu-link cursor-pointer block px-4 py-2.5"><i class="fa fa-battery-1 mr-3"></i>第三周</a></li>
-                        <li><a onclick="loadPage('w4')" class="submenu-link cursor-pointer block px-4 py-2.5"><i class="fa fa-battery-2 mr-3"></i>第四周</a></li>           
-                        <li><a onclick="loadPage('w5')" class="submenu-link cursor-pointer block px-4 py-2.5"><i class="fa fa-battery-2 mr-3"></i>第五周</a></li>     
-                        <li><a onclick="loadPage('w6')" class="submenu-link cursor-pointer block px-4 py-2.5"><i class="fa fa-battery-3 mr-3"></i>第六周</a></li>          
-                        <li><a onclick="loadPage('w7')" class="submenu-link cursor-pointer block px-4 py-2.5"><i class="fa fa-battery-3 mr-3"></i>第七周</a></li>     
-                        <li><a onclick="loadPage('w8')" class="submenu-link cursor-pointer block px-4 py-2.5"><i class="fa fa-battery-4 mr-3"></i>第八周</a></li>                                                                                                           
+                        <li>
+                            <a onclick="loadPage('w1')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                               &nbsp&nbsp <i class="fa fa-battery-0 mr-3"></i>第一周
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage('w2')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-1 mr-3"></i>第二周
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage('w3')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-1 mr-3"></i>第三周
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage('w4')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-2 mr-3"></i>第四周
+                            </a>
+                        </li>           
+                        <li>
+                            <a onclick="loadPage('w5')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-2 mr-3"></i>第五周
+                            </a>
+                        </li>     
+                        <li>
+                            <a onclick="loadPage('w6')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-3 mr-3"></i>第六周
+                            </a>
+                        </li>          
+                        <li>
+                            <a onclick="loadPage('w7')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-3 mr-3"></i>第七周
+                            </a>
+                        </li>     
+                        <li>
+                            <a onclick="loadPage('w8')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-4 mr-3"></i>第八周
+                            </a>
+                        </li>                                                                                                           
                     </ul>
                 </li>
 
-                <!-- 关于我们 -->
+                <!-- 联系 -->
                 <li>
                     <a onclick="loadPage('contact')" class="sidebar-link cursor-pointer block px-6 py-3">
                         <i class="fa fa-user-circle mr-3"></i>关于我们
@@ -214,7 +249,7 @@
         <!-- 底部信息 -->
         <div class="p-6 border-t gold-border">
             <div class="text-white/80 text-sm space-y-1">
-                <p align="right">@2026 <a href="mailto:vicky.wang100707@gmail.com"><i class="fa fa-envelope mr-1"></i></a></p>
+                <p align="right">@2026 <a href="mailto:vicky.wang100707@gmail.com"><i class="fa fa-envelope mr-1"></i>&nbsp&nbsp&nbsp</a></p>
             </div>
         </div>
     </aside>
@@ -231,37 +266,37 @@
     </main>
 
     <script>
-        // 美股策略二级菜单展开/收起
+        // 策略二级菜单展开/收起
         const strategyBtn = document.getElementById('strategyBtn');
         const strategySubmenu = document.getElementById('strategySubmenu');
-        const arrowStrategy = document.getElementById('arrow-strategy');
-        
-        strategyBtn.addEventListener('click', () => {
+        const arrowIcon1 = strategyBtn.querySelector('.arrow-icon');
+        strategyBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // 阻止事件冒泡
             strategySubmenu.classList.toggle('open');
-            arrowStrategy.classList.toggle('rotate');
+            arrowIcon1.classList.toggle('rotate');
         });
 
         // A股策略二级菜单展开/收起
         const strategyCNBtn = document.getElementById('strategyCNBtn');
         const strategyCNSubmenu = document.getElementById('strategyCNSubmenu');
-        const arrowStrategyCN = document.getElementById('arrow-strategy-cn');
-        
-        strategyCNBtn.addEventListener('click', () => {
+        const arrowIcon2 = strategyCNBtn.querySelector('.arrow-icon');
+        strategyCNBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // 阻止事件冒泡
             strategyCNSubmenu.classList.toggle('open');
-            arrowStrategyCN.classList.toggle('rotate');
+            arrowIcon2.classList.toggle('rotate');
         });        
 
-        // 金融知识二级菜单展开/收起
+        // 学习二级菜单展开/收起
         const studyBtn = document.getElementById('studyBtn');
         const studySubmenu = document.getElementById('studySubmenu');
-        const arrowStudy = document.getElementById('arrow-study');
-        
-        studyBtn.addEventListener('click', () => {
+        const arrowIcon3 = studyBtn.querySelector('.arrow-icon');
+        studyBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // 阻止事件冒泡
             studySubmenu.classList.toggle('open');
-            arrowStudy.classList.toggle('rotate');
+            arrowIcon3.classList.toggle('rotate');
         });
 
-        // 手机端菜单控制
+        // 手机端菜单控制（无占位空白）
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const sidebar = document.querySelector('.sidebar');
         
@@ -269,10 +304,11 @@
             sidebar.classList.toggle('-translate-x-full');
         });
 
-        // 点击菜单后自动关闭手机端侧边栏
-        document.querySelectorAll('.sidebar-link, .submenu-link').forEach(item => {
+        // 修复：仅让普通链接（非按钮）点击时关闭侧边栏
+        // 普通链接选择器：排除button类型的sidebar-link
+        document.querySelectorAll('.sidebar-link:not(button), .submenu-link').forEach(item => {
             item.addEventListener('click', () => {
-                if (window.innerWidth < 768) {
+                if(window.innerWidth < 768) {
                     sidebar.classList.add('-translate-x-full');
                 }
             });
@@ -285,7 +321,6 @@
             document.querySelectorAll('.sidebar-link, .submenu-link').forEach(link => {
                 link.classList.remove('active');
             });
-            
             // 给当前点击的菜单添加active类
             if (event && event.target) {
                 event.target.classList.add('active');
@@ -293,59 +328,30 @@
             
             // 加载对应页面
             switch(type) {
-                case 'home':
-                    frame.src = 'home.html';
-                    break;
-                case 'trend':
-                    frame.src = 'trend.html';
-                    break;
-                case 'swing':
-                    frame.src = 'swing.html';
-                    break;
-                case 'trend-cn':
-                    frame.src = 'trend-cn.html';
-                    break;
-                case 'swing-cn':
-                    frame.src = 'swing-cn.html';
-                    break;
-                case 'contact':
-                    frame.src = 'contact.html';
-                    break;
-                case 'w1':
-                    frame.src = 'w1.html';
-                    break;
-                case 'w2':
-                    frame.src = 'w2.html';
-                    break;
-                case 'w3':
-                    frame.src = 'w3.html';
-                    break;
-                case 'w4':
-                    frame.src = 'w4.html';
-                    break;
-                case 'w5':
-                    frame.src = 'w5.html';
-                    break;
-                case 'w6':
-                    frame.src = 'w6.html';
-                    break;
-                case 'w7':
-                    frame.src = 'w7.html';
-                    break;
-                case 'w8':
-                    frame.src = 'w8.html';
-                    break;
-                default:
-                    frame.src = 'home.html';
+                case 'home': frame.src = 'home.html'; break;
+                case 'trend': frame.src = 'trend.html'; break;
+                case 'swing': frame.src = 'swing.html'; break;
+                case 'trend-cn': frame.src = 'trend-cn.html'; break;
+                case 'swing-cn': frame.src = 'swing-cn.html'; break;
+                case 'contact': frame.src = 'contact.html'; break;
+                case 'w1': frame.src = 'w1.html'; break;
+                case 'w2': frame.src = 'w2.html'; break;
+                case 'w3': frame.src = 'w3.html'; break;
+                case 'w4': frame.src = 'w4.html'; break;
+                case 'w5': frame.src = 'w5.html'; break;
+                case 'w6': frame.src = 'w6.html'; break;
+                case 'w7': frame.src = 'w7.html'; break;
+                case 'w8': frame.src = 'w8.html'; break;
+                default: frame.src = 'home.html';
             }
         }
 
         // 默认加载首页
         window.onload = () => {
             loadPage('home');
+            sidebar.classList.remove('hidden');
             // 给首页添加默认active
-            const homeLink = document.querySelector('.sidebar-link');
-            if (homeLink) homeLink.classList.add('active');
+            document.querySelector('.sidebar-link').classList.add('active');
         };
     </script>
 </body>
