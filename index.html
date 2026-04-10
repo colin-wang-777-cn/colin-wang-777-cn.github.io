@@ -1,536 +1,329 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Financial Analysis Network - Precise Insight, Empower Decision-Making</title>
+    <title>VickyPedia - 交易学习与策略</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
         * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", "Source Han Sans", sans-serif;
         }
-        /* Global Styles */
+
         body {
-            background-color: #fff;
-            color: #333333;
-            line-height: 1.5;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .container {
-            width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        /* Responsive Adaptation */
-        @media (max-width: 1200px) {
-            .container {
-                width: 100%;
-            }
-        }
-        @media (max-width: 768px) {
-            .service-list, .advantage-list {
-                flex-direction: column;
-            }
-            .nav-middle {
-                display: none;
-            }
-            .nav-hamburger {
-                display: block;
-            }
+            background-color: #ffffff;
+            overflow-x: hidden;
         }
 
-        /* Top Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to right, #E6F2FF, #D1E7FF);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 999;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .nav-logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #1E88E5;
-            display: flex;
-            align-items: center;
-        }
-        .nav-logo i {
-            margin-right: 8px;
-            font-size: 28px;
-        }
-        .nav-slogan {
-            font-size: 12px;
-            color: #666666;
-            margin-top: 4px;
-        }
-        .nav-middle {
-            display: flex;
-            gap: 30px;
-        }
-        .nav-middle a {
-            font-size: 16px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-middle a:hover {
-            color: #1E88E5;
-            font-weight: bold;
-        }
-        .nav-right {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        .nav-btn {
-            font-size: 14px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: all 0.3s;
-        }
-        .login-btn {
-            border: 1px solid #1E88E5;
-            color: #1E88E5;
-        }
-        .login-btn:hover {
-            background-color: #E6F2FF;
-        }
-        .consult-btn {
-            background-color: #1E88E5;
-            color: #fff;
-        }
-        .consult-btn:hover {
-            background-color: #1976D2;
-        }
-        .nav-hamburger {
-            display: none;
-            font-size: 24px;
-            color: #1E88E5;
-            cursor: pointer;
+        /* 侧边栏核心样式 - 黑金白高级风格 */
+        .sidebar {
+            background-color: #1a1a1a; /* 深黑主背景 */
+            transition: all 0.3s ease;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.15);
         }
 
-        /* Banner Section */
-        .banner {
-            margin-top: 80px;
-            background-color: #F0F7FF;
-            padding: 80px 0;
-            text-align: center;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231e88e5' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-        .banner-title {
-            font-size: 32px;
-            font-weight: bold;
-            color: #1E88E5;
-            margin-bottom: 20px;
-        }
-        .banner-subtitle {
-            font-size: 18px;
-            color: #666666;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        .banner-btns {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .banner-btn {
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-experience {
-            background-color: #1E88E5;
-            color: #fff;
-        }
-        .btn-experience:hover {
-            background-color: #1976D2;
-        }
-        .btn-more {
-            border: 1px solid #1E88E5;
-            color: #1E88E5;
-            background-color: transparent;
-        }
-        .btn-more:hover {
-            background-color: #E6F2FF;
-        }
-
-        /* Core Services Section */
-        .service {
-            padding: 80px 0;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #333333;
-            margin-bottom: 40px;
+        .sidebar-link {
+            transition: all 0.2s ease;
             position: relative;
-        }
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: #E6F2FF;
-        }
-        .service-list {
-            display: flex;
-            gap: 30px;
-        }
-        .service-card {
-            background-color: #fff;
-            border: 1px solid #E6F2FF;
-            border-radius: 8px;
-            padding: 30px;
-            flex: 1;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            background-color: #F8FBFF;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .service-icon {
-            font-size: 40px;
-            color: #1E88E5;
-            margin-bottom: 20px;
-        }
-        .service-card h3 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333333;
-            margin-bottom: 15px;
-        }
-        .service-card p {
-            font-size: 14px;
-            color: #666666;
-            line-height: 1.5;
+            color: #ffffff; /* 文字纯白 */
         }
 
-        /* Website Advantages Section */
-        .advantage {
-            padding: 80px 0;
-            background-color: #F0F7FF;
-        }
-        .advantage-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        .advantage-item {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        .advantage-icon {
-            font-size: 40px;
-            color: #1E88E5;
-            flex-shrink: 0;
-        }
-        .advantage-content h3 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333333;
-            margin-bottom: 10px;
-        }
-        .advantage-content p {
-            font-size: 14px;
-            color: #666666;
-            line-height: 1.5;
+        .sidebar-link:hover {
+            background-color: rgba(255, 215, 0, 0.1); /* hover浅金透黑 */
+            padding-left: 20px;
+            color: #F7931A; /* hover文字金色 */
         }
 
-        /* Closing Introduction Section */
-        .closing {
-            padding: 80px 0;
-            text-align: center;
-            background-color: #fff;
-        }
-        .closing-slogan {
-            font-size: 22px;
-            font-weight: bold;
-            color: #1E88E5;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto 20px;
-        }
-        .closing-desc {
-            font-size: 14px;
-            color: #666666;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        .closing-btn {
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 500;
-            background-color: #1E88E5;
-            color: #fff;
-            border: none;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .closing-btn:hover {
-            background-color: #1976D2;
+        .sidebar-link.active {
+            background-color: #F7931A; /* 激活态金色 */
+            color: #1a1a1a; /* 激活态文字黑色 */
+            font-weight: 600;
         }
 
-        /* Footer */
-        .footer {
-            background-color: #E6F2FF;
-            padding: 40px 0;
-            color: #666666;
-        }
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        .footer-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .footer-logo {
-            font-size: 20px;
-            font-weight: bold;
-            color: #1E88E5;
-            margin-bottom: 10px;
-        }
-        .footer-slogan {
-            font-size: 12px;
-        }
-        .footer-middle {
-            display: flex;
-            gap: 30px;
-        }
-        .footer-middle a {
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-        .footer-middle a:hover {
-            color: #1E88E5;
-        }
-        .footer-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        .footer-contact {
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .footer-copyright {
-            text-align: center;
-            font-size: 12px;
-            color: #999999;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #D1E7FF;
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #242424; /* 子菜单深灰黑 */
         }
 
-        /* Icon Import (Font Awesome) */
-        .icon {
-            font-family: "FontAwesome";
+        .submenu.open {
+            max-height: 400px;
+        }
+
+        .submenu-link {
+            transition: all 0.2s ease;
+            color: #ffffff;
+        }
+
+        .submenu-link:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            padding-left: 35px;
+            color: #F7931A;
+        }
+
+        .arrow-icon {
+            transition: transform 0.3s ease;
+            color: #F7931A; /* 箭头金色 */
+        }
+
+        .arrow-icon.rotate {
+            transform: rotate(90deg);
+        }
+
+        /* 滚动条美化 - 黑金配色 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8f8f8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #F7931A;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e6c200;
+        }
+
+        /* Logo区域样式 */
+        .logo-text {
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        .logo-text span:first-child {
+            color: #F7931A; /* Logo前缀金色 */
+        }
+        .logo-desc {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* 移动端按钮优化 */
+        .mobile-btn {
+            background-color: #1a1a1a !important;
+            border: 1px solid #F7931A !important;
+            outline: none;
+        }
+        .mobile-btn:hover {
+            background-color: #242424 !important;
+            color: #F7931A !important;
+        }
+
+        /* 边框装饰 - 金色细边框 */
+        .gold-border {
+            border-color: rgba(255, 215, 0, 0.3) !important;
         }
     </style>
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <!-- Top Navigation Bar -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="nav-left">
-                <a href="#" class="nav-logo">
-                    <i class="fas fa-chart-line icon"></i>
-                    Jinxi Zhitou
-                </a>
-                <div class="nav-slogan">Professional Financial Analysis · Empower Value Decision-Making</div>
-            </div>
-            <div class="nav-middle">
-                <a href="#">Home</a>
-                <a href="#">Market Analysis</a>
-                <a href="#">Research Report Interpretation</a>
-                <a href="#">Data Center</a>
-                <a href="#">Intelligent Tools</a>
-                <a href="#">About Us</a>
-            </div>
-            <div class="nav-right">
-                <a href="#" class="nav-btn login-btn">Login/Register</a>
-                <a href="#" class="nav-btn consult-btn">Online Consultation</a>
-                <div class="nav-hamburger">
-                    <i class="fas fa-bars icon"></i>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body class="flex flex-col md:flex-row">
+    <!-- 左侧侧边栏：黑金白高级商务风格 -->
+    <aside class="sidebar w-64 h-screen hidden md:flex flex-col fixed left-0 top-0 z-50 transform -translate-x-full md:translate-x-0">
+        <!-- Logo区域 -->
+        <div class="p-6 border-b gold-border">
+            <h1 class="text-3xl font-bold logo-text">
+                <span><i class="fa fa-american-sign-language-interpreting mr-5"></i>Vicky</span><span>Pedia</span>
 
-    <!-- Banner Section -->
-    <section class="banner">
-        <div class="container">
-            <h1 class="banner-title">Precisely Insight Financial Trends, Scientifically Layout Wealth Future</h1>
-            <p class="banner-subtitle">Integrate global financial data, provide comprehensive and multi-dimensional market analysis, research report interpretation and decision support to help individuals and institutions layout efficiently</p>
-            <div class="banner-btns">
-                <button class="banner-btn btn-experience">Experience Now</button>
-                <button class="banner-btn btn-more">Learn More</button>
+            </h1>
+            <p class="logo-desc text-sm mt-1">量化交易 与 知识分享</p>
+        </div>
+
+        <!-- 导航菜单 -->
+        <nav class="flex-1 py-4">
+            <ul class="space-y-1">
+                <!-- 首页 -->
+                <li>
+                    <a onclick="loadPage('home')" class="sidebar-link cursor-pointer block px-6 py-3">
+                        <i class="fa fa-home mr-3"></i>首页
+                    </a>
+                </li>
+
+                <!-- 策略（二级菜单） -->
+                <li>
+                    <button id="strategyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
+                        <span><i class="fa fa-cogs mr-3"></i>美股策略</span>
+                        <i class="fa fa-angle-right arrow-icon"></i>
+                    </button>
+                    <ul id="strategySubmenu" class="submenu">
+                        <li>
+                            <a onclick="loadPage('trend')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                               &nbsp&nbsp <i class="fa fa-line-chart mr-3"></i>趋势交易
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage('swing')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-bar-chart mr-3"></i>波段交易
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- 学习 -->
+                <li>
+                    <button id="studyBtn" class="sidebar-link w-full text-left px-6 py-3 flex items-center justify-between">
+                        <span><i class="fa fa-book mr-3"></i>金融知识</span>
+                        <i class="fa fa-angle-right arrow-icon"></i>
+                    </button>
+                    <ul id="studySubmenu" class="submenu">
+                        <li>
+                            <a onclick="loadPage('w1')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                               &nbsp&nbsp <i class="fa fa-battery-0 mr-3"></i>第一周
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage('w2')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-1 mr-3"></i>第二周
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage('w3')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-1 mr-3"></i>第三周
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="loadPage('w4')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-2 mr-3"></i>第四周
+                            </a>
+                        </li>           
+                        <li>
+                            <a onclick="loadPage('w5')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-2 mr-3"></i>第五周
+                            </a>
+                        </li>     
+                        <li>
+                            <a onclick="loadPage('w6')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-3 mr-3"></i>第六周
+                            </a>
+                        </li>          
+                        <li>
+                            <a onclick="loadPage('w7')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-3 mr-3"></i>第七周
+                            </a>
+                        </li>     
+                        <li>
+                            <a onclick="loadPage('w8')" class="submenu-link cursor-pointer block px-4 py-2.5">
+                                &nbsp&nbsp <i class="fa fa-battery-4 mr-3"></i>第八周
+                            </a>
+                        </li>                                                                                                           
+                    </ul>
+                </li>
+
+
+                <!-- 联系 -->
+                <li>
+                    <a onclick="loadPage('contact')" class="sidebar-link cursor-pointer block px-6 py-3">
+                        <i class="fa fa-user-circle mr-3"></i>关于我们
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 底部信息 -->
+        <div class="p-6 border-t gold-border">
+            <div class="text-white/80 text-sm space-y-1">
+                <p align="right">@2026 <a href="mailto:vicky.wang100707@gmail.com"><i class="fa fa-envelope mr-1"></i>&nbsp&nbsp&nbsp</a></p>
             </div>
         </div>
-    </section>
+    </aside>
 
-    <!-- Core Services Section -->
-    <section class="service">
-        <div class="container">
-            <h2 class="section-title">Core Services · Professional Empowerment</h2>
-            <div class="service-list">
-                <div class="service-card">
-                    <i class="fas fa-chart-bar service-icon icon"></i>
-                    <h3>Real-Time Market · Precise Research</h3>
-                    <p>Cover multiple categories such as stocks, funds, futures, and foreign exchange, update market data in real time, and provide precise research and judgment suggestions combined with technical indicators and market sentiment.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-file-alt service-icon icon"></i>
-                    <h3>In-Depth Research Reports · Extract Essence</h3>
-                    <p>Integrate research reports from leading securities companies and institutions, simplify complexity, extract core viewpoints and investment logic, save decision-making time, and lower information thresholds.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-cogs service-icon icon"></i>
-                    <h3>Intelligent Assistance · Scientific Decision-Making</h3>
-                    <p>Provide intelligent tools such as data query, risk assessment, and portfolio optimization, combined with big data algorithms, to customize personalized investment assistance plans for users.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Website Advantages Section -->
-    <section class="advantage">
-        <div class="container">
-            <h2 class="section-title">Our Advantages · Trustworthy</h2>
-            <div class="advantage-list">
-                <div class="advantage-item">
-                    <i class="fas fa-users advantage-icon icon"></i>
-                    <div class="advantage-content">
-                        <h3>Senior Analyst Team</h3>
-                        <p>The core team all have more than 10 years of experience in the financial industry, covering multiple fields, with both theoretical and practical experience, ensuring the professionalism and accuracy of the analysis.</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <i class="fas fa-database advantage-icon icon"></i>
-                    <div class="advantage-content">
-                        <h3>Comprehensive Data Coverage</h3>
-                        <p>Connect to global mainstream financial data interfaces, update market conditions, financial reports, and macroeconomic data in real time, providing solid data support for analysis and rejecting subjective assumptions.</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <i class="fas fa-bolt advantage-icon icon"></i>
-                    <div class="advantage-content">
-                        <h3>Simple and Easy to Use · Efficient and Convenient</h3>
-                        <p>The interface is simple and intuitive, easy to operate, no complex operations required, beginners can get started quickly, and obtain the required financial analysis information anytime and anywhere.</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <i class="fas fa-shield-alt advantage-icon icon"></i>
-                    <div class="advantage-content">
-                        <h3>Safe and Compliant · Privacy Protection</h3>
-                        <p>Strictly follow financial industry compliance standards, adopt encryption technology, comprehensively protect user privacy and data security, and make users more assured to use.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Closing Introduction Section -->
-    <section class="closing">
-        <div class="container">
-            <p class="closing-slogan">Insight into trends with professionalism, empower decision-making with data, we are committed to becoming your most reliable financial analysis partner</p>
-            <p class="closing-desc">Whether you are an individual investor, an enterprise institution, or a financial practitioner, we can provide you with accurate, efficient and professional financial analysis services to help you seize market opportunities and avoid investment risks.</p>
-            <button class="closing-btn">Register Now · Start Professional Analysis Journey</button>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-left">
-                    <div class="footer-logo">Jinxi Zhitou</div>
-                    <div class="footer-slogan">Professional Financial Analysis · Empower Value Decision-Making</div>
-                </div>
-                <div class="footer-middle">
-                    <a href="#">Home</a>
-                    <a href="#">Service Introduction</a>
-                    <a href="#">Contact Us</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">User Agreement</a>
-                </div>
-                <div class="footer-right">
-                    <div class="footer-contact">
-                        <i class="fas fa-phone icon"></i>
-                        <span>Consultation Hotline: 400-XXXX-XXXX</span>
-                    </div>
-                    <div class="footer-contact">
-                        <i class="fas fa-envelope icon"></i>
-                        <span>Email: service@jinxizhitou.com</span>
-                    </div>
-                    <div class="footer-contact">
-                        <i class="fab fa-weixin icon"></i>
-                        <span>WeChat Official Account: Jinxi Zhitou</span>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright">©2024 Jinxi Zhitou Financial Analysis Network. All Rights Reserved | ICP Filing No.: Yue ICP Bei XXXXXXX</div>
-        </div>
-    </footer>
+    <!-- 右侧内容区 -->
+    <main class="flex-1 w-full min-h-screen md:ml-64 bg-white">
+        <!-- 移动端菜单按钮 -->
+        <button id="mobileMenuBtn" class="mobile-btn md:hidden fixed top-4 left-4 z-50 text-white p-2 rounded-lg shadow-md">
+            <i class="fa fa-bars"></i>
+        </button>
+        
+        <!-- 内容嵌入iframe -->
+        <iframe id="contentFrame" class="w-full h-screen border-none" src="about:blank"></iframe>
+    </main>
 
     <script>
-        // Mobile Hamburger Menu Interaction (Simple Implementation)
-        const hamburger = document.querySelector('.nav-hamburger');
-        const navMiddle = document.querySelector('.nav-middle');
-        hamburger.addEventListener('click', () => {
-            navMiddle.style.display = navMiddle.style.display === 'flex' ? 'none' : 'flex';
-            if (navMiddle.style.display === 'flex') {
-                navMiddle.style.flexDirection = 'column';
-                navMiddle.style.position = 'absolute';
-                navMiddle.style.top = '70px';
-                navMiddle.style.left = '0';
-                navMiddle.style.right = '0';
-                navMiddle.style.background = '#E6F2FF';
-                navMiddle.style.padding = '20px';
-                navMiddle.style.gap = '15px';
-                navMiddle.style.alignItems = 'center';
-            }
+        // 策略二级菜单展开/收起
+        const strategyBtn = document.getElementById('strategyBtn');
+        const strategySubmenu = document.getElementById('strategySubmenu');
+        const arrowIcon = document.querySelector('.arrow-icon');
+        strategyBtn.addEventListener('click', () => {
+            strategySubmenu.classList.toggle('open');
+            arrowIcon.classList.toggle('rotate');
         });
+        // 学习二级菜单展开/收起
+        const studyBtn = document.getElementById('studyBtn');
+        const studySubmenu = document.getElementById('studySubmenu');
+        const arrowIcon2 = document.querySelector('.arrow-icon');
+        studyBtn.addEventListener('click', () => {
+            studySubmenu.classList.toggle('open');
+            arrowIcon2.classList.toggle('rotate');
+        });
+        // 手机端菜单控制（无占位空白）
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // 点击菜单后自动关闭手机端侧边栏
+        document.querySelectorAll('.sidebar-link, .submenu-link').forEach(item => {
+            item.addEventListener('click', () => {
+                if(window.innerWidth < 768) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            });
+        });
+
+        // 页面切换核心功能
+        const frame = document.getElementById('contentFrame');
+        function loadPage(type) {
+            // 移除所有active类
+            document.querySelectorAll('.sidebar-link, .submenu-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            // 给当前点击的菜单添加active类
+            event.target.classList.add('active');
+            
+            // 加载对应页面
+            if(type === 'study') {
+                frame.src = 'study.html'; // 学习 → 显示study.html
+            } else if(type === 'home') {
+                frame.src = 'home.html';
+            } else if(type === 'trend') {
+                frame.src = 'trend.html';
+            } else if(type === 'swing') {
+                frame.src = 'swing.html';
+            } else if(type === 'contact') {
+                frame.src = 'contact.html';
+            } else if(type === 'w1') {
+                frame.src = 'w1.html';    
+            } else if(type === 'w2') {
+                frame.src = 'w2.html';   
+            } else if(type === 'w3') {
+                frame.src = 'w3.html';   
+            } else if(type === 'w4') {
+                frame.src = 'w4.html';      
+            } else if(type === 'w5') {
+                frame.src = 'w5.html';      
+            } else if(type === 'w6') {
+                frame.src = 'w6.html';          
+            } else if(type === 'w7') {
+                frame.src = 'w7.html';      
+            } else if(type === 'w8') {
+                frame.src = 'w8.html';                                                              
+            }
+
+        }
+
+        // 默认加载首页
+        window.onload = () => {
+            loadPage('home');
+            sidebar.classList.remove('hidden');
+            // 给首页添加默认active
+            document.querySelector('.sidebar-link').classList.add('active');
+        };
     </script>
 </body>
 </html>
