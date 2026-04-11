@@ -6,6 +6,7 @@
     <title>VickyPedia - 首页</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -20,6 +21,13 @@
             background-color: #121212;
             min-height: 100vh;
             padding: 20px;
+        }
+
+        /* 图表专用样式 */
+        #chart {
+            width: 100%;
+            height: 380px;
+            border-radius: 16px;
         }
 
         /* 通用卡片样式 */
@@ -150,10 +158,12 @@
         <img src="pic/main.jpeg" alt="Banner" class="banner-img">
     </div>
 
-    <!-- 第二个卡片：制定学习计划 -->
-    <div class="card study-card">
-        <h2 class="card-title" style="color: #fff;">策略表现</h2>
-        图标
+    <!-- 第二个卡片：📈 策略净值曲线（已修复） -->
+    <div class="card model-card">
+        <h2 class="card-title">策略表现</h2>
+        <div style="background:#f5e8dc; padding:20px; border-radius:16px;">
+            <div id="chart"></div>
+        </div>
     </div>
 
     <!-- 第三个卡片：构建模型流程 -->
@@ -167,13 +177,12 @@
             <div class="process-item" onclick="location.href='ai-sort.html'">AI 排序</div>
             <span class="process-arrow">→</span>
             <div class="process-item" onclick="location.href='strategy.html'">交易策略</div>
-            <span class="process-arrow"> →</span>
+            <span class="process-arrow">→</span>
             <div class="process-item" onclick="location.href='track.html'">效果跟踪</div>
             <span class="process-arrow">→</span>
             <div class="process-item" onclick="location.href='evaluate.html'">策略评估</div>
             <span class="process-arrow">→</span>
             <div class="process-item" onclick="location.href='optimize.html'">策略优化</div>
-            
         </div>
     </div>
 
@@ -192,10 +201,61 @@
         </div>
     </div>
 
-    <!-- 第五个空白卡片（按原图结构保留） -->
-    <div class="card model-card" min-height: 200px;">
-        
-
+    <!-- 第五个空白卡片 -->
+    <div class="card model-card" style="min-height:200px;">
     </div>
+
+<script>
+// ==============================================
+// ✅ 预先写入的日期 + 净值
+// ==============================================
+const dates = [
+"2023-01-01","2023-01-02","2023-01-03","2023-01-04","2023-01-05",
+"2023-01-06","2023-01-07","2023-01-08","2023-02-09","2023-02-10",
+];
+
+// ==============================================
+// ✅ 4条策略净值数据（你可以自由替换）
+// ==============================================
+const s1 = [1.0000,1.0551,1.1189,1.17222,1.2255,1.2787,1.321,1.354,1.387,1.420];
+const s2 = [1.0000,1.0022,1.0041,1.0070,1.0095,1.0121,1.5145,2.0169,2.0193,3.0217];
+const s3 = [1.0000,0.9181,0.9165,0.9190,1.0012,1.5035,2.0058,3.0082,4.0105,5.0129];
+const s4 = [1.0000,2.0015,3.0033,4.0051,5.0076,6.0101,7.0127,8.0153,9.0179,10.0205];
+
+// ================== 绘图 ==================
+var chartDom = document.getElementById('chart');
+var myChart = echarts.init(chartDom);
+
+var option = {
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'axis' },
+  legend: {
+    data: ['S1', 'S2', 'S3', 'S4'], // 曲线名称
+    textStyle: { color: '#333' },
+    top: 0
+  },
+  xAxis: {
+    type: 'category',
+    data: dates,
+    axisLine: { color: '#666' },
+    axisLabel: { color: '#333' }
+  },
+  yAxis: {
+    type: 'value',
+    name: 'Net Value',
+    axisLine: { color: '#666' },
+    axisLabel: { color: '#333' }
+  },
+  series: [
+    { name: 'S1', type: 'line', smooth: true, data: s1, itemStyle: { color: '#F7931A' }, lineStyle: { width: 2 } },
+    { name: 'S2', type: 'line', smooth: true, data: s2, itemStyle: { color: '#009688' }, lineStyle: { width: 2 } },
+    { name: 'S3', type: 'line', smooth: true, data: s3, itemStyle: { color: '#1890ff' }, lineStyle: { width: 2 } },
+    { name: 'S4', type: 'line', smooth: true, data: s4, itemStyle: { color: '#722ED1' }, lineStyle: { width: 2 } }
+  ]
+};
+
+myChart.setOption(option);
+window.addEventListener('resize', () => myChart.resize());
+</script>    
 </body>
 </html>
