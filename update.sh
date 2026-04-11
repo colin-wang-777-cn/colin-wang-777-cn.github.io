@@ -7,6 +7,8 @@
 # git config user.email
 # git config user.password
 
+cd /Users/wangzhenggang/Desktop/colin-wang-777-cn.github.io/
+
 git add .
 git commit -m "new upload"
 git push
