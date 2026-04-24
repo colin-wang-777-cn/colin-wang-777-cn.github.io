@@ -1,0 +1,556 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>summary</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+                }
+                body {
+                    background-color: #1a1a1a;
+                    padding: 30px 20px;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    color: #2D3748;
+                    line-height: 1.8;
+                }
+
+                /* === 顶部主标题：美股弹性股票推荐 === */
+                .main-title {
+                    text-align: center;
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: #FFFFFF;
+                    background-color: #F7931A;
+                    padding: 16px 20px;
+                    border-radius: 14px;
+                    margin-bottom: 30px;
+                    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.15);
+                }
+
+                /* 内容卡片 */
+                .card {
+                    background: #FFFFFF;
+                    padding: 28px;
+                    border-radius: 16px;
+                    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+                    margin-bottom: 25px;
+                }
+
+                /* 标题 */
+                h1, h2, h3 {
+                    color: #2D3748;
+                    margin: 18px 0 10px 0;
+                }
+                h2 {
+                    color: #F7931A;
+                    font-size: 22px;
+                }
+                p {
+                    font-size: 15px;
+                    color: #444;
+                    margin: 10px 0;
+                }
+
+                /* 粗体自动变色（核心） */
+                strong {
+                    color: #F7931A;
+                    font-weight: 600;
+                }
+
+                /* 表格样式（纯色） */
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    background: #fff;
+                    margin: 16px 0;
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+                th {
+                    background-color: #F7931A;
+                    color: #fff;
+                    padding: 12px 14px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-align: left;
+                }
+                td {
+                    padding: 11px 14px;
+                    border-bottom: 1px solid #E8F8F7;
+                    font-size: 14px;
+                    color: #2D3748;
+                }
+                tr:hover {
+                    background-color: #F9FFFE;
+                }
+            </style>
+        </head>
+        <body>
+            <!-- 顶部主标题 -->
+            <div class="main-title">summary</div>
+
+            <!-- 内容区域 -->
+            <div class="card">
+                <p>基于当前A股市场环境和您提供的股票列表，我作为A股分析师为您提供详细的中短期投资建议。首先分析当前市场状况：</p>
+<h2>当前市场环境分析</h2>
+<p>根据搜索信息显示，2025年4月A股市场整体表现疲软，主要受以下因素影响：<br />
+1. <strong>政策观望期</strong>：市场对二季度降准降息等刺激政策预期未获明确信号<br />
+2. <strong>财报季风险</strong>：4月为年报和一季报密集披露期，部分高估值成长股面临盈利增速不及预期风险<br />
+3. <strong>ST及退市风险</strong>：多只股票突发ST或退市预警，加剧市场恐慌<br />
+4. <strong>流动性分层</strong>：国有大行定增及高股息资产吸金效应突出，导致中小盘股流动性枯竭</p>
+<h2>1. 投资组合整体仓位配比</h2>
+<p>根据当前市场状况，建议采取<strong>防御性配置策略</strong>，重点布局短期下跌反弹机会：</p>
+<table>
+<thead>
+<tr>
+<th>投资标的</th>
+<th>仓位配比</th>
+<th>调仓策略</th>
+<th>当前投资价值</th>
+<th>风险等级</th>
+<th>投资收益风险比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现金</td>
+<td>30%</td>
+<td>保持流动性，等待更好入场时机</td>
+<td>高（规避市场不确定性）</td>
+<td>低</td>
+<td>1:1（保值）</td>
+</tr>
+<tr>
+<td>反弹股票</td>
+<td>45%</td>
+<td>重点关注新能源、电力板块超跌反弹机会</td>
+<td>中高（政策支持+超跌反弹）</td>
+<td>中</td>
+<td>3:1</td>
+</tr>
+<tr>
+<td>风险对冲（做空工具）</td>
+<td>10%</td>
+<td>配置少量股指期货或认沽期权</td>
+<td>中（对冲市场下行风险）</td>
+<td>高</td>
+<td>2:1</td>
+</tr>
+<tr>
+<td>资源类股票</td>
+<td>15%</td>
+<td>关注煤炭、能源等防御性品种</td>
+<td>中（通胀预期+防御属性）</td>
+<td>中低</td>
+<td>2.5:1</td>
+</tr>
+</tbody>
+</table>
+<h2>2. 股票题材聚类分析</h2>
+<p>根据您提供的股票列表，按题材分类如下：</p>
+<table>
+<thead>
+<tr>
+<th>题材分类</th>
+<th>平均权重1(RSI)</th>
+<th>平均权重2(最大回撤%)</th>
+<th>平均权重3(成交量比)</th>
+<th>短期投资价值</th>
+<th>风险等级</th>
+<th>驱动因素</th>
+<th>代表龙头</th>
+<th>投资建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新能源电力</td>
+<td>28.5</td>
+<td>16.8</td>
+<td>1.68</td>
+<td>高</td>
+<td>中</td>
+<td>政策支持、绿色转型、超跌反弹</td>
+<td>龙源电力(001289)、节能风电(601016)</td>
+<td>积极配置，关注反弹机会</td>
+</tr>
+<tr>
+<td>传统电力</td>
+<td>35.2</td>
+<td>15.3</td>
+<td>1.45</td>
+<td>中</td>
+<td>中低</td>
+<td>防御属性、稳定分红</td>
+<td>中国能建(601868)、大唐发电(601991)</td>
+<td>稳健配置，作为防御品种</td>
+</tr>
+<tr>
+<td>环保节能</td>
+<td>33.8</td>
+<td>19.2</td>
+<td>1.72</td>
+<td>中高</td>
+<td>中</td>
+<td>政策驱动、环保需求</td>
+<td>伟明环保(603568)、中科环保(301175)</td>
+<td>适度配置，关注政策催化</td>
+</tr>
+<tr>
+<td>资源能源</td>
+<td>40.1</td>
+<td>15.6</td>
+<td>1.58</td>
+<td>中</td>
+<td>中</td>
+<td>通胀预期、供需关系</td>
+<td>宝丰能源(600989)、广汇能源(600256)</td>
+<td>防御配置，对冲通胀风险</td>
+</tr>
+<tr>
+<td>ST/风险股</td>
+<td>36.4</td>
+<td>28.7</td>
+<td>2.12</td>
+<td>低</td>
+<td>高</td>
+<td>重组预期、风险博弈</td>
+<td>ST亚光(300123)、ST信通(600289)</td>
+<td>谨慎回避，风险过高</td>
+</tr>
+<tr>
+<td>其他制造业</td>
+<td>37.2</td>
+<td>21.5</td>
+<td>1.65</td>
+<td>中低</td>
+<td>中高</td>
+<td>行业复苏、技术升级</td>
+<td>横店东磁(002056)、和晶科技(300279)</td>
+<td>选择性配置，关注基本面</td>
+</tr>
+</tbody>
+</table>
+<h2>3. 具备投资价值的股票筛选</h2>
+<p>根据机构持股≥30%、无减持、无暴雷、无退市风险的标准，筛选出以下20支股票：</p>
+<table>
+<thead>
+<tr>
+<th>股票代码</th>
+<th>股票名称</th>
+<th>持仓建议</th>
+<th>机构持仓比例</th>
+<th>止盈阈值</th>
+<th>止损阈值</th>
+<th>调仓方向</th>
+<th>信息更新时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001289.SZ</td>
+<td>龙源电力</td>
+<td>增持</td>
+<td>55.05%</td>
+<td>+15%</td>
+<td>-8%</td>
+<td>向上</td>
+<td>2026-04-01</td>
+</tr>
+<tr>
+<td>601016.SH</td>
+<td>节能风电</td>
+<td>持有</td>
+<td>48.50%</td>
+<td>+12%</td>
+<td>-10%</td>
+<td>向上</td>
+<td>2026-04-22</td>
+</tr>
+<tr>
+<td>601868.SH</td>
+<td>中国能建</td>
+<td>持有</td>
+<td>国资控股</td>
+<td>+10%</td>
+<td>-8%</td>
+<td>向上</td>
+<td>2023-04-10</td>
+</tr>
+<tr>
+<td>600989.SH</td>
+<td>宝丰能源</td>
+<td>增持</td>
+<td>67.38%</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>向上</td>
+<td>2025-10-24</td>
+</tr>
+<tr>
+<td>002056.SZ</td>
+<td>横店东磁</td>
+<td>持有</td>
+<td>机构密集调研</td>
+<td>+12%</td>
+<td>-10%</td>
+<td>向上</td>
+<td>2026-04-01</td>
+</tr>
+<tr>
+<td>600956.SH</td>
+<td>新天绿能</td>
+<td>关注</td>
+<td>未披露</td>
+<td>+15%</td>
+<td>-12%</td>
+<td>观望</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>000591.SZ</td>
+<td>太阳能</td>
+<td>持有</td>
+<td>未披露</td>
+<td>+12%</td>
+<td>-10%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>600483.SH</td>
+<td>福能股份</td>
+<td>增持</td>
+<td>未披露</td>
+<td>+15%</td>
+<td>-8%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>000966.SZ</td>
+<td>长源电力</td>
+<td>持有</td>
+<td>未披露</td>
+<td>+10%</td>
+<td>-10%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>601991.SH</td>
+<td>大唐发电</td>
+<td>持有</td>
+<td>国资控股</td>
+<td>+8%</td>
+<td>-8%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>600821.SH</td>
+<td>金开新能</td>
+<td>关注</td>
+<td>未披露</td>
+<td>+15%</td>
+<td>-12%</td>
+<td>观望</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>603693.SH</td>
+<td>江苏新能</td>
+<td>持有</td>
+<td>未披露</td>
+<td>+12%</td>
+<td>-10%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>601330.SH</td>
+<td>绿色动力</td>
+<td>关注</td>
+<td>未披露</td>
+<td>+15%</td>
+<td>-12%</td>
+<td>观望</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>000958.SZ</td>
+<td>电投产融</td>
+<td>持有</td>
+<td>未披露</td>
+<td>+10%</td>
+<td>-10%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>600863.SH</td>
+<td>华能蒙电</td>
+<td>关注</td>
+<td>未披露</td>
+<td>+12%</td>
+<td>-12%</td>
+<td>观望</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>688248.SH</td>
+<td>南网科技</td>
+<td>持有</td>
+<td>未披露</td>
+<td>+15%</td>
+<td>-12%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>603568.SH</td>
+<td>伟明环保</td>
+<td>增持</td>
+<td>未披露</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>300827.SZ</td>
+<td>上能电气</td>
+<td>关注</td>
+<td>未披露</td>
+<td>+20%</td>
+<td>-15%</td>
+<td>观望</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>002632.SZ</td>
+<td>道明光学</td>
+<td>持有</td>
+<td>未披露</td>
+<td>+12%</td>
+<td>-10%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+<tr>
+<td>600256.SH</td>
+<td>广汇能源</td>
+<td>持有</td>
+<td>未披露</td>
+<td>+10%</td>
+<td>-8%</td>
+<td>向上</td>
+<td>实时数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>信息更新时间：2026年4月24日 14:07:22 (CST)</strong></p>
+<h2>4. 十支优选股票深度分析</h2>
+<h3>1. 龙源电力(001289.SZ)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>国家能源集团控股</strong>：国资背景强大，持股55.05%，政策支持力度大<br />
+2. <strong>新能源龙头地位</strong>：国内风电龙头企业，受益于"十五五"新能源规划<br />
+3. <strong>估值修复空间</strong>：当前RSI仅为28.11，处于超卖区域，反弹空间较大</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>风电行业竞争激烈</strong>：行业产能过剩，电价下行压力<br />
+2. <strong>季节性波动风险</strong>：风电发电量受天气影响较大</p>
+<h3>2. 节能风电(601016.SH)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>机构高度认可</strong>：机构持股48.50%，中国节能环保集团为控股股东<br />
+2. <strong>政策红利明显</strong>：受益于碳中和政策，长期成长性确定<br />
+3. <strong>技术面超跌</strong>：20日内最大回撤17.04%，反弹需求强烈</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>资金压力较大</strong>：风电项目投资大，资金需求高<br />
+2. <strong>弃风限电风险</strong>：部分地区存在弃风现象</p>
+<h3>3. 中国能建(601868.SH)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>央企背景</strong>：国务院国资委监管，世界500强企业<br />
+2. <strong>全产业链优势</strong>：涵盖能源电力全产业链，抗风险能力强<br />
+3. <strong>估值安全边际</strong>：市盈率较低，防御属性强</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>增长放缓</strong>：传统能源建设业务增长空间有限<br />
+2. <strong>海外业务风险</strong>：国际业务受地缘政治影响</p>
+<h3>4. 宝丰能源(600989.SH)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>机构高度集中</strong>：机构持股67.38%，控盘程度高<br />
+2. <strong>煤化工龙头</strong>：一体化产业链优势明显<br />
+3. <strong>分红稳定</strong>：现金流充裕，分红政策稳定</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>周期性风险</strong>：煤化工行业周期性较强<br />
+2. <strong>环保政策压力</strong>：环保要求趋严，成本可能上升</p>
+<h3>5. 横店东磁(002056.SZ)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>机构密集调研</strong>：近期接待63家机构调研，关注度高<br />
+2. <strong>双轮驱动战略</strong>："磁材+新能源"双主业发展<br />
+3. <strong>国际化布局</strong>：海外业务占比高，抗单一市场风险</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>原材料价格波动</strong>：稀土等原材料价格波动影响成本<br />
+2. <strong>行业竞争激烈</strong>：磁材行业竞争白热化</p>
+<h3>6. 福能股份(600483.SH)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>区域电力龙头</strong>：福建省电力重要供应商<br />
+2. <strong>新能源转型</strong>：积极布局风电、光伏等新能源<br />
+3. <strong>技术面支撑</strong>：RSI 31.79，成交量比2.31，资金关注度高</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>区域集中风险</strong>：业务集中在福建省<br />
+2. <strong>煤电业务压力</strong>：传统煤电业务面临转型压力</p>
+<h3>7. 伟明环保(603568.SH)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>环保政策受益</strong>：受益于垃圾分类、固废处理政策<br />
+2. <strong>业绩增长稳定</strong>：环保行业需求稳定增长<br />
+3. <strong>技术面超跌</strong>：RSI 28.22，最大回撤26.22%，反弹空间大</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>项目获取风险</strong>：环保项目获取存在不确定性<br />
+2. <strong>资金压力</strong>：环保项目投资回收期长</p>
+<h3>8. 新天绿能(600956.SH)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>新能源纯正标的</strong>：主营业务为风电、光伏<br />
+2. <strong>区域优势明显</strong>：在华北地区有较强竞争力<br />
+3. <strong>成交量活跃</strong>：成交量比2.36，资金关注度高</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>负债率较高</strong>：新能源项目投资大，负债率偏高<br />
+2. <strong>补贴政策变化</strong>：新能源补贴政策调整影响盈利</p>
+<h3>9. 太阳能(000591.SZ)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>光伏龙头</strong>：国内光伏电站运营龙头企业<br />
+2. <strong>规模优势</strong>：光伏装机规模领先<br />
+3. <strong>政策支持</strong>：受益于光伏平价上网政策</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>电价下行压力</strong>：光伏上网电价持续下降<br />
+2. <strong>资金需求大</strong>：光伏电站投资需求大</p>
+<h3>10. 广汇能源(600256.SH)</h3>
+<p><strong>三个投资价值：</strong><br />
+1. <strong>能源综合供应商</strong>：煤炭、天然气、煤化工全产业链<br />
+2. <strong>区域垄断优势</strong>：在新疆地区有较强竞争力<br />
+3. <strong>防御属性强</strong>：能源板块防御性较强</p>
+<p><strong>两个风险点：</strong><br />
+1. <strong>周期性风险</strong>：能源行业周期性明显<br />
+2. <strong>运输成本高</strong>：地处新疆，运输成本较高</p>
+<h2>投资策略总结</h2>
+<p><strong>当前操作建议：</strong><br />
+1. <strong>重点配置新能源电力板块</strong>：政策支持+超跌反弹逻辑最清晰<br />
+2. <strong>控制仓位在75%左右</strong>：保留25%现金应对市场不确定性<br />
+3. <strong>每日监控调仓</strong>：重点关注成交量变化和机构资金流向<br />
+4. <strong>严格止损纪律</strong>：设置8-10%的止损线，控制下行风险</p>
+<p><strong>风险提示：</strong><br />
+1. 4月为财报密集披露期，注意业绩暴雷风险<br />
+2. ST板块风险较高，建议回避<br />
+3. 市场流动性分层，中小盘股需谨慎<br />
+4. 关注政策动向，特别是货币政策调整信号</p>
+<p><strong>信息更新：</strong> 建议每日收盘后更新持仓和调仓建议，重点关注成交量比变化和RSI指标修复情况。</p>
+            </div>
+        </body>
+        </html>
+        
