@@ -1,255 +1,270 @@
 
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VickyPedia - 首页</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #121212;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        /* 图表专用样式 */
-        #chart {
-            width: 100%;
-            height: 380px;
-            border-radius: 16px;
-        }
-
-        /* 通用卡片样式 */
-        .card {
-            border-radius: 24px;
-            padding: 24px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        /* 第一个卡片：Banner图 */
-        .banner-card {
-            background-color: #1a1a1a;
-            padding: 0;
-            height: 180px;
-        }
-
-        .banner-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 24px;
-        }
-
-        /* 第二个卡片：构建模型流程 */
-        .model-card {
-            background-color: #f5e8dc;
-        }
-
-        .process-item {
-            background-color: #F7931A;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-block;
-            text-align: center;
-            min-width: 120px;
-        }
-
-        .process-item:hover {
-            background-color: #e08617;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(247, 147, 26, 0.3);
-        }
-
-        .process-arrow {
-            color: #F7931A;
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0 12px;
-        }
-
-        .process-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 20px;
-        }
-
-        /* 第三个卡片：学习计划 */
-        .study-card {
-            background-color: #F7931A;
-        }
-
-        .study-number {
-            background-color: #fff;
-            color: #F7931A;
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
-        }
-
-        .study-number:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .study-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        /* 标题样式 */
-        .card-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 16px;
-        }
-
-        /* 响应式适配 */
-        @media (max-width: 768px) {
-            .process-item {
-                min-width: 100px;
-                font-size: 14px;
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VickyPedia - 首页</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+            
+            * {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
-            .study-number {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
+
+            body {
+                background-color: #121212;
+                min-height: 100vh;
+                padding: 20px;
             }
+
+            /* 图表专用样式 */
+            #chart {
+                width: 100%;
+                height: 380px;
+                border-radius: 16px;
+            }
+
+            /* 通用卡片样式 */
+            .card {
+                border-radius: 24px;
+                padding: 24px;
+                margin-bottom: 20px;
+                overflow: hidden;
+            }
+
+            /* 第一个卡片：Banner图 */
             .banner-card {
-                height: 140px;
+                background-color: #1a1a1a;
+                padding: 0;
+                height: 180px;
             }
-        }
-    </style>
-</head>
-<body>
-    <!-- 第一个卡片：Banner图 -->
-    <div class="card banner-card">
-        <img src="pic/main.jpeg" alt="Banner" class="banner-img">
-    </div>
 
-    <!-- 第二个卡片：📈 策略净值曲线（已修复） -->
-    <div class="card model-card">
-        <h2 class="card-title">策略表现</h2>
-        <div style="background:#f5e8dc; padding:20px; border-radius:16px;">
-            <div id="chart"></div>
+            .banner-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 24px;
+            }
+
+            /* 第二个卡片：构建模型流程 */
+            .model-card {
+                background-color: #f5e8dc;
+            }
+
+            .process-item {
+                background-color: #F7931A;
+                color: #fff;
+                padding: 8px 16px;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                display: inline-block;
+                text-align: center;
+                min-width: 120px;
+            }
+
+            .process-item:hover {
+                background-color: #e08617;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(247, 147, 26, 0.3);
+            }
+
+            .process-arrow {
+                color: #F7931A;
+                font-size: 24px;
+                font-weight: bold;
+                margin: 0 12px;
+            }
+
+            .process-row {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 20px;
+            }
+
+            /* 第三个卡片：学习计划 */
+            .study-card {
+                background-color: #F7931A;
+            }
+
+            .study-number {
+                background-color: #fff;
+                color: #F7931A;
+                width: 60px;
+                height: 60px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+            }
+
+            .study-number:hover {
+                transform: scale(1.1);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            }
+
+            .study-row {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+                margin-top: 20px;
+            }
+
+            /* 标题样式 */
+            .card-title {
+                font-size: 24px;
+                font-weight: 700;
+                color: #1a1a1a;
+                margin-bottom: 16px;
+            }
+
+            /* 响应式适配 */
+            @media (max-width: 768px) {
+                .process-item {
+                    min-width: 100px;
+                    font-size: 14px;
+                }
+                .study-number {
+                    width: 50px;
+                    height: 50px;
+                    font-size: 20px;
+                }
+                .banner-card {
+                    height: 140px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 第一个卡片：Banner图 -->
+        <div class="card banner-card">
+            <img src="pic/main.jpeg" alt="Banner" class="banner-img">
         </div>
-    </div>
 
-    <!-- 第三个卡片：构建模型流程 -->
-    <div class="card model-card">
-        <h2 class="card-title">构建模型</h2>
-        <div class="process-row">
-            <div class="process-item" onclick="location.href='model/data.html'">数据获取</div>
-            <span class="process-arrow">→</span>
-            <div class="process-item" onclick="location.href='model/stock-select.html'">算法选股</div>
-            <span class="process-arrow">→</span>
-            <div class="process-item" onclick="location.href='model/ai-sort.html'">AI 排序</div>
-            <span class="process-arrow">→</span>
-            <div class="process-item" onclick="location.href='model/strategy.html'">交易策略</div>
-            <span class="process-arrow">→</span>
-            <div class="process-item" onclick="location.href='model/track.html'">效果跟踪</div>
-            <span class="process-arrow">→</span>
-            <div class="process-item" onclick="location.href='model/evaluate.html'">策略评估</div>
-            <span class="process-arrow">→</span>
-            <div class="process-item" onclick="location.href='model/optimize.html'">策略优化</div>
+        <!-- 第二个卡片：📈 策略净值曲线（已修复） -->
+        <div class="card model-card">
+            <h2 class="card-title">策略表现</h2>
+            <div style="background:#f5e8dc; padding:20px; border-radius:16px;">
+                <div id="chart"></div>
+            </div>
         </div>
-    </div>
 
-    <!-- 第四个卡片：制定学习计划 -->
-    <div class="card study-card">
-        <h2 class="card-title" style="color: #fff;">制定学习计划</h2>
-        <div class="study-row">
-            <div class="study-number" onclick="location.href='study/w1.html'">1</div>
-            <div class="study-number" onclick="location.href='study/w2.html'">2</div>
-            <div class="study-number" onclick="location.href='study/w3.html'">3</div>
-            <div class="study-number" onclick="location.href='study/w4.html'">4</div>
-            <div class="study-number" onclick="location.href='study/w5.html'">5</div>
-            <div class="study-number" onclick="location.href='study/w6.html'">6</div>
-            <div class="study-number" onclick="location.href='study/w7.html'">7</div>
-            <div class="study-number" onclick="location.href='study/w8.html'">8</div>
+        <!-- 第三个卡片：构建模型流程 -->
+        <div class="card model-card">
+            <h2 class="card-title">构建模型</h2>
+            <div class="process-row">
+                <div class="process-item" onclick="location.href='model/data.html'">数据获取</div>
+                <span class="process-arrow">→</span>
+                <div class="process-item" onclick="location.href='model/stock-select.html'">算法选股</div>
+                <span class="process-arrow">→</span>
+                <div class="process-item" onclick="location.href='model/ai-sort.html'">AI 排序</div>
+                <span class="process-arrow">→</span>
+                <div class="process-item" onclick="location.href='model/strategy.html'">交易策略</div>
+                <span class="process-arrow">→</span>
+                <div class="process-item" onclick="location.href='model/track.html'">效果跟踪</div>
+                <span class="process-arrow">→</span>
+                <div class="process-item" onclick="location.href='model/evaluate.html'">策略评估</div>
+                <span class="process-arrow">→</span>
+                <div class="process-item" onclick="location.href='model/optimize.html'">策略优化</div>
+            </div>
         </div>
-    </div>
 
-    <!-- 第五个空白卡片 -->
-    <div class="card model-card" style="min-height:200px;">
-    </div>
+        <!-- 第四个卡片：制定学习计划 -->
+        <div class="card study-card">
+            <h2 class="card-title" style="color: #fff;">制定学习计划</h2>
+            <div class="study-row">
+                <div class="study-number" onclick="location.href='study/w1.html'">1</div>
+                <div class="study-number" onclick="location.href='study/w2.html'">2</div>
+                <div class="study-number" onclick="location.href='study/w3.html'">3</div>
+                <div class="study-number" onclick="location.href='study/w4.html'">4</div>
+                <div class="study-number" onclick="location.href='study/w5.html'">5</div>
+                <div class="study-number" onclick="location.href='study/w6.html'">6</div>
+                <div class="study-number" onclick="location.href='study/w7.html'">7</div>
+                <div class="study-number" onclick="location.href='study/w8.html'">8</div>
+            </div>
+        </div>
 
-<script>
-// ==============================================
-// ✅ 预先写入的日期 + 净值
-// ==============================================
-const dates = ["2026-04-29",];
+        <!-- 第五个空白卡片 -->
+        <div class="card model-card" style="min-height:200px;">
+        </div>
+
+    <script>
+    // ==============================================
+    // ✅ 预先写入的日期 + 净值
+    // ==============================================
+    const dates = ["2026-04-29",];
 const s1 = [100,];
 const s2 = [102.624,];
 const s3 = [,];
 const s4 = [,];
 
-// ================== 绘图 ==================
-var chartDom = document.getElementById('chart');
-var myChart = echarts.init(chartDom);
+    // ================== 绘图 ==================
+    var chartDom = document.getElementById('chart');
+    var myChart = echarts.init(chartDom);
 
-var option = {
-  backgroundColor: 'transparent',
-  tooltip: { trigger: 'axis' },
-  legend: {
-    data: ['trend-us', 'swing-us', 'trend-cn', 'swing-cn'], // 曲线名称
-    textStyle: { color: '#333' },
-    top: 0
-  },
-  xAxis: {
-    type: 'category',
-    data: dates,
-    axisLine: { color: '#666' },
-    axisLabel: { color: '#333' }
-  },
-  yAxis: {
-    type: 'value',
-    name: 'Net Value',
-    axisLine: { color: '#666' },
-    axisLabel: { color: '#333' }
-  },
-  series: [
-    { name: 'trend-us', type: 'line', smooth: true, data: s1, itemStyle: { color: '#F7931A' }, lineStyle: { width: 2 } },
-    { name: 'trend-cn', type: 'line', smooth: true, data: s2, itemStyle: { color: '#009688' }, lineStyle: { width: 2 } },
-    { name: 'swing-us', type: 'line', smooth: true, data: s3, itemStyle: { color: '#1890ff' }, lineStyle: { width: 2 } },
-    { name: 'swing-cn', type: 'line', smooth: true, data: s4, itemStyle: { color: '#722ED1' }, lineStyle: { width: 2 } }
-  ]
-};
+    var option = {
+      // 标题
+      title: {
+        text: '策略净值 2026-04-30 12:19 ',
+        left: 'center',
+        top: 10,       // 标题距离顶部 10px
+        textStyle: {
+          color: '#333',
+          fontSize: 16,
+          fontWeight: 'bold'
+        }
+      },
 
-myChart.setOption(option);
-window.addEventListener('resize', () => myChart.resize());
-</script>    
-</body>
-</html>
+      backgroundColor: 'transparent',
+      tooltip: { trigger: 'axis' },
+
+      // 图例（关键修改：往下挪）
+      legend: {
+        data: ['trend-us', 'swing-us', 'trend-cn', 'swing-cn'],
+        textStyle: { color: '#333' },
+        top: 40        // 图例距离顶部 40px，不会和标题重叠
+      },
+
+      xAxis: {
+        type: 'category',
+        data: dates,
+        axisLine: { color: '#666' },
+        axisLabel: { color: '#333' }
+      },
+      yAxis: {
+        type: 'value',
+        name: 'Net Value',
+        axisLine: { color: '#666' },
+        axisLabel: { color: '#333' }
+      },
+      series: [
+        { name: 'trend-us', type: 'line', smooth: true, data: s1, itemStyle: { color: '#F7931A' }, lineStyle: { width: 2 } },
+        { name: 'trend-cn', type: 'line', smooth: true, data: s2, itemStyle: { color: '#009688' }, lineStyle: { width: 2 } },
+        { name: 'swing-us', type: 'line', smooth: true, data: s3, itemStyle: { color: '#1890ff' }, lineStyle: { width: 2 } },
+        { name: 'swing-cn', type: 'line', smooth: true, data: s4, itemStyle: { color: '#722ED1' }, lineStyle: { width: 2 } }
+      ]
+    };
+
+    myChart.setOption(option);
+    window.addEventListener('resize', () => myChart.resize());
+    </script>    
+    </body>
+    </html>
