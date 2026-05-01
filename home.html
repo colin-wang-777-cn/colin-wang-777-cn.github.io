@@ -23,7 +23,37 @@
                 min-height: 100vh;
                 padding: 20px;
             }
-
+            /* 表格容器居中 */
+            .table-wrap {
+                width: 80%;
+                margin: 0 auto; /* 核心：水平居中 */
+            }
+            /* 表格样式 */
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                background: #fff;
+                margin: 16px 0;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+            th {
+                background-color: #F7931A;
+                color: #fff;
+                padding: 12px 14px;
+                font-size: 14px;
+                font-weight: 600;
+                text-align: left;
+            }
+            td {
+                padding: 11px 14px;
+                border-bottom: 1px solid #E8F8F7;
+                font-size: 14px;
+                color: #2D3748;
+            }
+            tr:hover {
+                background-color: #F9FFFE;
+            }
             /* 图表专用样式 */
             #chart {
                 width: 100%;
@@ -167,7 +197,64 @@
             </div>
         </div>
 
-        <!-- 第三个卡片：构建模型流程 -->
+
+        <!-- 第三个卡片：策略推荐持仓 -->
+        <div class="card study-card">
+            <h2 class="card-title" style="color: #fff;">持仓情况</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>趋势交易-美股</th>
+                        <th>波段交易-美股</th>
+                        <th>趋势交易-A股</th>
+                        <th>波段交易-A股</th>
+                    </tr>
+                </thead>
+                <tbody>
+    <tr>
+<td>1</td>
+<td><a href="https://xueqiu.com/S/GOOGL">谷歌A类股</a></td>
+<td><a href="https://xueqiu.com/S/IQV">IQVIA Holdings Inc.</a></td>
+<td><a href="https://xueqiu.com/S/SH688256">寒武纪</a></td>
+<td><a href="https://xueqiu.com/S/SH600803">新奥股份</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://xueqiu.com/S/MU">美光科技</a></td>
+<td><a href="https://xueqiu.com/S/AR">Antero Resources Corp.</a></td>
+<td><a href="https://xueqiu.com/S/SH688041">海光信息</a></td>
+<td><a href="https://xueqiu.com/S/SH688278">特宝生物</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://xueqiu.com/S/AMD">美国超微</a></td>
+<td><a href="https://xueqiu.com/S/USLM">United States Lime &amp</a></td>
+<td><a href="https://xueqiu.com/S/SZ300502">新易盛</a></td>
+<td><a href="https://xueqiu.com/S/SH688032">禾迈股份</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://xueqiu.com/S/AVGO">博通</a></td>
+<td><a href="https://xueqiu.com/S/ Minerals Inc."></a></td>
+<td><a href="https://xueqiu.com/S/SH688150">莱特光电</a></td>
+<td><a href="https://xueqiu.com/S/SH688617">惠泰医疗</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://xueqiu.com/S/ARM">Arm Holdings</a></td>
+<td><a href="https://xueqiu.com/S/GIB">CGI Inc.</a></td>
+<td><a href="https://xueqiu.com/S/SZ002281">光迅科技</a></td>
+<td><a href="https://xueqiu.com/S/SH688161">威高骨科</a></td>
+</tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <!-- 第四个卡片：构建模型流程 -->
         <div class="card model-card">
             <h2 class="card-title">构建模型</h2>
             <div class="process-row">
@@ -187,7 +274,7 @@
             </div>
         </div>
 
-        <!-- 第四个卡片：制定学习计划 -->
+        <!-- 第五个卡片：制定学习计划 -->
         <div class="card study-card">
             <h2 class="card-title" style="color: #fff;">制定学习计划</h2>
             <div class="study-row">
@@ -202,7 +289,7 @@
             </div>
         </div>
 
-        <!-- 第五个空白卡片 -->
+        <!-- 第六个空白卡片 -->
         <div class="card model-card" style="min-height:200px;">
         </div>
 
@@ -210,11 +297,11 @@
     // ==============================================
     // ✅ 预先写入的日期 + 净值
     // ==============================================
-    const dates = ["2026-04-29",];
-const s1 = [100,];
-const s2 = [102.624,];
-const s3 = [,];
-const s4 = [,];
+    const dates = ["2026-04-29","2026-04-30",];
+const s1 = [100,101.271,];
+const s2 = [102.624,101.595,];
+const s3 = [100,110.298,];
+const s4 = [,,];
 
     // ================== 绘图 ==================
     var chartDom = document.getElementById('chart');
@@ -223,7 +310,7 @@ const s4 = [,];
     var option = {
       // 标题
       title: {
-        text: '策略净值 2026-04-30 12:19 ',
+        text: '策略净值 2026-05-01 10:53 ',
         left: 'center',
         top: 10,       // 标题距离顶部 10px
         textStyle: {
@@ -257,8 +344,8 @@ const s4 = [,];
       },
       series: [
         { name: 'trend-us', type: 'line', smooth: true, data: s1, itemStyle: { color: '#F7931A' }, lineStyle: { width: 2 } },
-        { name: 'trend-cn', type: 'line', smooth: true, data: s2, itemStyle: { color: '#009688' }, lineStyle: { width: 2 } },
-        { name: 'swing-us', type: 'line', smooth: true, data: s3, itemStyle: { color: '#1890ff' }, lineStyle: { width: 2 } },
+        { name: 'swing-us', type: 'line', smooth: true, data: s2, itemStyle: { color: '#009688' }, lineStyle: { width: 2 } },
+        { name: 'trend-cn', type: 'line', smooth: true, data: s3, itemStyle: { color: '#1890ff' }, lineStyle: { width: 2 } },
         { name: 'swing-cn', type: 'line', smooth: true, data: s4, itemStyle: { color: '#722ED1' }, lineStyle: { width: 2 } }
       ]
     };
