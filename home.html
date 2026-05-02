@@ -215,36 +215,36 @@
                 <tbody>
     <tr>
 <td>1</td>
-<td><a href="https://xueqiu.com/S/GOOGL">谷歌A类股</a></td>
-<td><a href="https://xueqiu.com/S/IQV">IQVIA Holdings Inc.</a></td>
+<td><a href="https://xueqiu.com/S/QCOM">高通公司</a></td>
+<td><a href="https://xueqiu.com/S/PAM">Pampa Energia SA</a></td>
 <td><a href="https://xueqiu.com/S/SH688256">寒武纪</a></td>
 <td><a href="https://xueqiu.com/S/SH600803">新奥股份</a></td>
 </tr>
 <tr>
 <td>2</td>
-<td><a href="https://xueqiu.com/S/MU">美光科技</a></td>
-<td><a href="https://xueqiu.com/S/AR">Antero Resources Corp.</a></td>
+<td><a href="https://xueqiu.com/S/AMD">美国超微公司</a></td>
+<td><a href="https://xueqiu.com/S/NFG">National Fuel Gas Co.</a></td>
 <td><a href="https://xueqiu.com/S/SH688041">海光信息</a></td>
 <td><a href="https://xueqiu.com/S/SH688278">特宝生物</a></td>
 </tr>
 <tr>
 <td>3</td>
-<td><a href="https://xueqiu.com/S/AMD">美国超微</a></td>
-<td><a href="https://xueqiu.com/S/USLM">United States Lime  Minerals Inc.</a></td>
+<td><a href="https://xueqiu.com/S/MU">美光科技公司</a></td>
+<td><a href="https://xueqiu.com/S/FMC">FMC公司</a></td>
 <td><a href="https://xueqiu.com/S/SZ300502">新易盛</a></td>
 <td><a href="https://xueqiu.com/S/SH688032">禾迈股份</a></td>
 </tr>
 <tr>
 <td>4</td>
-<td><a href="https://xueqiu.com/S/AVGO">博通</a></td>
-<td><a href="https://xueqiu.com/S/GIB">CGI Inc.</a></td>
+<td><a href="https://xueqiu.com/S/INTC">英特尔公司</a></td>
+<td><a href="https://xueqiu.com/S/LAUR">Laureate Education Inc.</a></td>
 <td><a href="https://xueqiu.com/S/SH688150">莱特光电</a></td>
 <td><a href="https://xueqiu.com/S/SH688617">惠泰医疗</a></td>
 </tr>
 <tr>
 <td>5</td>
-<td><a href="https://xueqiu.com/S/ARM">Arm Holdings</a></td>
-<td><a href="https://xueqiu.com/S/CHTR">特许通讯公司</a></td>
+<td><a href="https://xueqiu.com/S/ANET">Arista Networks Inc.</a></td>
+<td><a href="https://xueqiu.com/S/USLM">United States Lime  Minerals Inc.</a></td>
 <td><a href="https://xueqiu.com/S/SZ002281">光迅科技</a></td>
 <td><a href="https://xueqiu.com/S/SH688161">威高骨科</a></td>
 </tr>
@@ -297,11 +297,11 @@
     // ==============================================
     // ✅ 预先写入的日期 + 净值
     // ==============================================
-    const dates = ["2026-04-29","2026-04-30",];
-const s1 = [100,101.271,];
-const s2 = [102.624,101.595,];
-const s3 = [100,110.298,];
-const s4 = [,,];
+    const dates = ["2026-04-29","2026-04-30","2026-05-01",];
+const s1 = [100,101.271,100.717,];
+const s2 = [102.624,101.595,106.579,];
+const s3 = [100,110.298,,];
+const s4 = [,,,];
 
     // ================== 绘图 ==================
     var chartDom = document.getElementById('chart');
@@ -310,7 +310,7 @@ const s4 = [,,];
     var option = {
       // 标题
       title: {
-        text: '策略净值 2026-05-01 18:20 ',
+        text: '策略净值 2026-05-02 10:52 ',
         left: 'center',
         top: 10,       // 标题距离顶部 10px
         textStyle: {
