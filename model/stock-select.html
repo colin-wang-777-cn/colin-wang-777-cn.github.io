@@ -1,0 +1,129 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>数据获取</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+                }
+                body {
+                    background-color: #1a1a1a;
+                    padding: 30px 20px;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    color: #2D3748;
+                    line-height: 1.8;
+                }
+
+                /* === 顶部主标题：美股弹性股票推荐 === */
+                .main-title {
+                    text-align: center;
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: #FFFFFF;
+                    background-color: #F7931A;
+                    padding: 16px 20px;
+                    border-radius: 14px;
+                    margin-bottom: 30px;
+                    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.15);
+                }
+
+                /* 内容卡片 */
+                .card {
+                    background: #FFFFFF;
+                    padding: 28px;
+                    border-radius: 16px;
+                    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+                    margin-bottom: 25px;
+                }
+
+                /* 标题 */
+                h1, h2, h3 {
+                    color: #2D3748;
+                    margin: 18px 0 10px 0;
+                }
+                h2 {
+                    color: #F7931A;
+                    font-size: 22px;
+                }
+                p {
+                    font-size: 15px;
+                    color: #444;
+                    margin: 10px 0;
+                }
+
+                /* 粗体自动变色（核心） */
+                strong {
+                    color: #F7931A;
+                    font-weight: 600;
+                }
+
+                /* 表格样式（纯色） */
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    background: #fff;
+                    margin: 16px 0;
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+                th {
+                    background-color: #F7931A;
+                    color: #fff;
+                    padding: 12px 14px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-align: left;
+                }
+                td {
+                    padding: 11px 14px;
+                    border-bottom: 1px solid #E8F8F7;
+                    font-size: 14px;
+                    color: #2D3748;
+                }
+                tr:hover {
+                    background-color: #F9FFFE;
+                }
+            </style>
+        </head>
+        <body>
+            <!-- 顶部主标题 -->
+            <div class="main-title">数据获取</div>
+
+            <!-- 内容区域 -->
+            <div class="card">
+                <h4>趋势交易</h4>
+<p>我们尝试捕捉趋势股，希望找到投资机会。趋势股的特点如下图，我们发现当一个交易形成时，我们利用传统的BOLL bands（黄色带）和新生成的BOLL_HVIX bands（红色实线），组合我们的推荐策略。当黄色带上沿持续高于红色实线时，标志这一段长期趋势的形成。</p>
+<p><img alt="指标" src="asset/algorithm.jpeg"  style="width: 100%; height: 100%; object-fit: cover;"/></p>
+
+<h5>指标修正: MACD_HVIX(Historical Volatility Index)</h5>
+<p>上述指标中出现HVIX，是根据历史价格波动率加权的指数移动均值，</p>
+<p>Exponetial Moving Average weighted by historical volatility[^1]</p>
+<p>"MACD evolved from the exponential moving average (EMA), which was proposed by Gerald Appel in the 1970s. It is a common indicator in stock analysis. The standard MACD is the 12-day EMA subtracted by the 26-day EMA, which is also called the DIF. The MACD histogram, which was developed by T. Aspray in 1986, measures the signed distance between the MACD and its signal line calculated using the 9-day EMA of the MACD, which is called the DEA. Similar to the MACD, the MACD histogram is an oscillator that fluctuates above and below the zero line. The construction formula is as follows:</p>
+<p><img alt="公式1" src="asset/eq1.jpeg"   style="width: 100%; height: 100%; object-fit: cover;"/><br />
+wherem = 12,n = 26,andp = 9.Theweightnumber 𝛼 is a fixed value equal to 2/(m + 1). The number of the MACD histogram is usually called the MACD bar or OSC. The analysis process of the cross and deviation strategy of DIF and DEA includes the following three steps.</p>
+<p>(i) Calculate the values of DIF and DEA.</p>
+<p>(ii) When DIF and DEA are positive, the MACD line cuts the signal line in the uptrend, and the divergence is positive, there is a buy signal confirmation.</p>
+<p>(iii) When DIF and DEA are negative, the signal line cuts the MACD line in the downtrend, and the divergence is negative, there is a sell signal confirmation.</p>
+<h5><strong>MACD-HVIX Weighted by Historical Volatility and Its Strategy</strong></h5>
+<p>The essence of a good technical indicator is a smooth trading strategy; i.e., the constructed index must be a stationary process. We present an empirical study in Section 5. The validity and sensitivity of MACD have a strong relationship with the choice of parameters. Different investors choose different parameters to achieve the best return for different stocks. In this study, the weight is based on the historical volatility. It is expected that the accuracy and stability of MACD can be improved. The construction formula is as follows:</p>
+<p><img alt="公式2" src="asset/eq2.jpeg"   style="width: 100%; height: 100%; object-fit: cover;"/><br />
+ "</p>
+<h5>指标修正：BOLL_HVIX</h5>
+<p><img alt="公式3" src="asset/eq3.jpeg"   style="width: 100%; height: 100%; object-fit: cover;"/></p>
+<h4>筛选条件</h4>
+<ol>
+<li>BOLL 上沿高于BOLL_HVIX 上沿3天及以上</li>
+<li>超过上沿期间，平均每日涨幅超过0.5%</li>
+<li>成交额大于一个亿 且 价格大于十元</li>
+</ol>
+            </div>
+        </body>
+        </html>
+        

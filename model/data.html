@@ -1,0 +1,182 @@
+
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>数据获取</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+                }
+                body {
+                    background-color: #1a1a1a;
+                    padding: 30px 20px;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    color: #2D3748;
+                    line-height: 1.8;
+                }
+
+                /* === 顶部主标题：美股弹性股票推荐 === */
+                .main-title {
+                    text-align: center;
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: #FFFFFF;
+                    background-color: #F7931A;
+                    padding: 16px 20px;
+                    border-radius: 14px;
+                    margin-bottom: 30px;
+                    box-shadow: 0 2px 8px rgba(78, 205, 196, 0.15);
+                }
+
+                /* 内容卡片 */
+                .card {
+                    background: #FFFFFF;
+                    padding: 28px;
+                    border-radius: 16px;
+                    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+                    margin-bottom: 25px;
+                }
+
+                /* 标题 */
+                h1, h2, h3 {
+                    color: #2D3748;
+                    margin: 18px 0 10px 0;
+                }
+                h2 {
+                    color: #F7931A;
+                    font-size: 22px;
+                }
+                p {
+                    font-size: 15px;
+                    color: #444;
+                    margin: 10px 0;
+                }
+
+                /* 粗体自动变色（核心） */
+                strong {
+                    color: #F7931A;
+                    font-weight: 600;
+                }
+
+                /* 表格样式（纯色） */
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    background: #fff;
+                    margin: 16px 0;
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+                th {
+                    background-color: #F7931A;
+                    color: #fff;
+                    padding: 12px 14px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-align: left;
+                }
+                td {
+                    padding: 11px 14px;
+                    border-bottom: 1px solid #E8F8F7;
+                    font-size: 14px;
+                    color: #2D3748;
+                }
+                tr:hover {
+                    background-color: #F9FFFE;
+                }
+            </style>
+        </head>
+        <body>
+            <!-- 顶部主标题 -->
+            <div class="main-title">数据获取</div>
+
+            <!-- 内容区域 -->
+            <div class="card">
+                <p>使用akshare库中sina数据，搭建本地数据库，每天更新daily股票信息。</p>
+<p>~/backtrader/US/class/usAnalysis.py </p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>akshare 函数引用</th>
+<th>function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>update.get_realtime_data()</td>
+<td>ak.stock_us_spot()</td>
+<td>获取美股实时数据</td>
+</tr>
+<tr>
+<td>update.daily_update_data_sina()</td>
+<td>ak.stock_us_daily()</td>
+<td>更新本地全量数据</td>
+</tr>
+<tr>
+<td>update.get_stock_data_sina()</td>
+<td>ak.stock_us_daily()</td>
+<td>获取个股历史数据</td>
+</tr>
+</tbody>
+</table>
+<p>数据更新流程</p>
+<table>
+<thead>
+<tr>
+<th>no</th>
+<th>流程</th>
+<th>阈值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>筛选活跃股票</td>
+<td>换手率&gt;0 and 总市值&gt;20mil</td>
+</tr>
+<tr>
+<td>2</td>
+<td>获取交易日历</td>
+<td>最大成交额股票的交易日历</td>
+</tr>
+<tr>
+<td>3</td>
+<td>股票信息不存在</td>
+<td>update.update_data()</td>
+</tr>
+<tr>
+<td>4</td>
+<td>股票历史数据不一致 or 股票信息不存在</td>
+<td>update.reload_data()</td>
+</tr>
+<tr>
+<td>5</td>
+<td>遍历所有股票更新</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>数据存储位置 ~/backtrader/US/data/us_data_sina</p>
+<p>格式如下，</p>
+<pre><code>date,open,high,low,close,volume
+2011-01-26,7.73,7.81,7.61,7.66,37758055.0
+2011-01-27,8.07,8.36,8.04,8.3,81594101.0
+2011-01-28,8.47,8.48,7.87,8.08,50815248.0
+2011-01-31,8.21,8.34,7.96,8.25,34151709.0
+2011-02-01,8.38,8.61,8.36,8.52,40458832.0
+2011-02-02,8.4,8.71,8.39,8.6,28273733.0
+2011-02-03,8.71,8.73,8.45,8.6,24517519.0
+2011-02-04,8.61,8.81,8.52,8.76,27846011.0
+2011-02-07,8.88,9.14,8.86,9.0,45051877.0
+</code></pre>
+            </div>
+        </body>
+        </html>
+        
