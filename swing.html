@@ -98,9 +98,8 @@
 
             <!-- 内容区域 -->
             <div class="card">
-                <p>基于最新的美股市场信息和您提供的股票数据，我现在为您提供详细的中短期投资建议：</p>
-<h2>1. 投资组合整体仓位配比</h2>
-<p>根据当前美股市场状况（纳指、标普500创新高，但存在地缘政治风险），建议采用谨慎乐观的仓位配置：</p>
+                <p>基于搜索到的信息，我将为您提供全面的美股投资分析。根据当前市场状况和您提供的股票列表，以下是详细的分析和建议：</p>
+<h2>1. 投资组合整体仓位配比（基于当前市场环境）</h2>
 <table>
 <thead>
 <tr>
@@ -116,44 +115,42 @@
 <tr>
 <td>现金</td>
 <td>25%</td>
-<td>市场突破关键阻力位时减至20%</td>
-<td>高（等待更好机会）</td>
+<td>市场RSI&gt;70时增持至35%，RSI&lt;30时减至15%</td>
+<td>高（市场波动大，等待更好机会）</td>
 <td>低</td>
-<td>中等</td>
+<td>1:1（保值为主）</td>
 </tr>
 <tr>
 <td>反弹股票</td>
 <td>50%</td>
-<td>RSI&lt;30且成交量放大时加仓</td>
-<td>中等偏高（精选个股）</td>
-<td>中等</td>
-<td>高</td>
+<td>每日监控RSI，超卖反弹时加仓，超买减仓</td>
+<td>中高（RSI超卖股较多，短期反弹概率大）</td>
+<td>中高</td>
+<td>2:1</td>
 </tr>
 <tr>
 <td>SQQQ（风险对冲）</td>
 <td>10%</td>
-<td>VIX&gt;20时加仓至15%</td>
-<td>中等（市场波动率低）</td>
+<td>纳指RSI&gt;60时增持至15%，RSI&lt;40时减至5%</td>
+<td>中（市场反弹但仍有回调风险）</td>
 <td>高</td>
-<td>中等</td>
+<td>1.5:1</td>
 </tr>
 <tr>
 <td>资源类股票</td>
 <td>15%</td>
-<td>地缘紧张时加仓至20%</td>
-<td>高（通胀预期+地缘风险）</td>
-<td>中等</td>
-<td>高</td>
+<td>关注通胀数据，通胀上升时增持</td>
+<td>中（油价回落但仍有通胀压力）</td>
+<td>中</td>
+<td>1.8:1</td>
 </tr>
 </tbody>
 </table>
-<p><strong>投资逻辑</strong>：当前美股创新高但面临地缘政治风险，建议保持25%现金等待回调机会，50%配置精选的反弹股票，10%对冲风险，15%配置资源类股票以对冲通胀风险。</p>
-<h2>2. 股票题材聚类分析</h2>
-<p>基于您提供的股票列表，按题材分类如下：</p>
+<h2>2. 股票按题材聚类分析</h2>
 <table>
 <thead>
 <tr>
-<th>题材类别</th>
+<th>题材分类</th>
 <th>平均权重1(RSI)</th>
 <th>平均权重2(回撤)</th>
 <th>平均权重3(成交量比)</th>
@@ -166,97 +163,85 @@
 </thead>
 <tbody>
 <tr>
-<td>科技/半导体</td>
-<td>34.2</td>
-<td>20.6</td>
-<td>1.8</td>
+<td>医疗健康</td>
+<td>28.5</td>
+<td>25.6</td>
+<td>1.85</td>
 <td>高</td>
-<td>中等</td>
-<td>AI需求、芯片短缺缓解</td>
-<td>ANET, CTSH</td>
-<td>逢低买入</td>
+<td>中</td>
+<td>AI医疗、减肥药、并购交易</td>
+<td>ZTS, GMED, SYK</td>
+<td>逢低买入，关注政策利好</td>
 </tr>
 <tr>
-<td>医疗健康</td>
-<td>28.4</td>
-<td>25.3</td>
-<td>2.1</td>
-<td>中等偏高</td>
-<td>低</td>
-<td>老龄化、创新药</td>
-<td>ZTS, DHR</td>
-<td>稳健配置</td>
+<td>科技/软件</td>
+<td>35.2</td>
+<td>20.1</td>
+<td>1.65</td>
+<td>中高</td>
+<td>高</td>
+<td>AI盈利兑现、云需求</td>
+<td>CDW, GLOB, WK</td>
+<td>谨慎参与，关注估值</td>
+</tr>
+<tr>
+<td>工业/制造</td>
+<td>30.8</td>
+<td>22.4</td>
+<td>1.58</td>
+<td>中</td>
+<td>中</td>
+<td>制造业回流、基建投资</td>
+<td>MTD, TRMB, TEL</td>
+<td>分批建仓，长期持有</td>
 </tr>
 <tr>
 <td>消费零售</td>
 <td>32.1</td>
-<td>25.8</td>
-<td>1.9</td>
-<td>中等</td>
-<td>中等</td>
-<td>消费复苏、通胀影响</td>
-<td>ANF, SHAK</td>
-<td>选择性配置</td>
+<td>24.3</td>
+<td>1.62</td>
+<td>中</td>
+<td>中低</td>
+<td>消费韧性、品牌价值</td>
+<td>TSCO, BURL, RL</td>
+<td>防御配置，关注季报</td>
 </tr>
 <tr>
-<td>金融保险</td>
-<td>32.5</td>
-<td>18.8</td>
-<td>1.7</td>
-<td>中等</td>
-<td>中等</td>
-<td>利率环境、经济预期</td>
-<td>WFC, BRO</td>
-<td>谨慎配置</td>
-</tr>
-<tr>
-<td>工业制造</td>
-<td>30.2</td>
-<td>22.4</td>
-<td>1.6</td>
-<td>中等</td>
-<td>低</td>
-<td>制造业复苏、基建投资</td>
-<td>HII, TEL</td>
-<td>逢低布局</td>
-</tr>
-<tr>
-<td>资源材料</td>
-<td>35.8</td>
-<td>16.2</td>
-<td>1.9</td>
-<td>高</td>
-<td>中等</td>
-<td>通胀预期、地缘风险</td>
-<td>AA, CENX</td>
-<td>积极配置</td>
+<td>金融服务</td>
+<td>34.7</td>
+<td>18.2</td>
+<td>1.72</td>
+<td>中高</td>
+<td>中</td>
+<td>利率环境、数字化转型</td>
+<td>COF, LPLA, FUTU</td>
+<td>精选优质标的</td>
 </tr>
 <tr>
 <td>房地产/REITs</td>
-<td>31.3</td>
-<td>13.5</td>
-<td>1.5</td>
-<td>低</td>
-<td>中等</td>
-<td>利率敏感性</td>
-<td>NHI</td>
-<td>观望</td>
+<td>31.5</td>
+<td>21.8</td>
+<td>2.45</td>
+<td>中低</td>
+<td>中高</td>
+<td>利率预期、商业地产</td>
+<td>ABR, NHI</td>
+<td>谨慎观望</td>
 </tr>
 <tr>
-<td>交通运输</td>
-<td>30.6</td>
-<td>21.9</td>
-<td>1.6</td>
-<td>中等</td>
-<td>中等</td>
-<td>经济复苏、油价</td>
-<td>EMBJ</td>
-<td>选择性配置</td>
+<td>教育服务</td>
+<td>40.3</td>
+<td>13.0</td>
+<td>1.32</td>
+<td>中</td>
+<td>中</td>
+<td>政策环境、在线教育</td>
+<td>LRN, EDU</td>
+<td>少量配置</td>
 </tr>
 </tbody>
 </table>
-<h2>3. 具备投资价值的20支股票筛选</h2>
-<p>基于机构持股≥30%，无减持、无暴雷、无退市风险的标准：</p>
+<h2>3. 具备投资价值的股票筛选（机构持股≥30%）</h2>
 <table>
 <thead>
 <tr>
@@ -274,298 +259,298 @@
 <tr>
 <td>ZTS</td>
 <td>Zoetis Inc.</td>
-<td>持有</td>
+<td>买入</td>
 <td>85%</td>
 <td>+15%</td>
 <td>-8%</td>
-<td>逢低加仓</td>
-<td>2026-05-12</td>
+<td>RSI&lt;30加仓</td>
+<td>2026-05-13</td>
 </tr>
 <tr>
-<td>DHR</td>
-<td>丹纳赫公司</td>
-<td>买入</td>
+<td>TSCO</td>
+<td>拖拉机供应公司</td>
+<td>持有</td>
 <td>78%</td>
 <td>+12%</td>
-<td>-7%</td>
-<td>逢低加仓</td>
-<td>2026-05-12</td>
+<td>-10%</td>
+<td>突破阻力加仓</td>
+<td>2026-05-13</td>
 </tr>
 <tr>
 <td>CDW</td>
 <td>CDW Corp.</td>
-<td>持有</td>
-<td>72%</td>
-<td>+10%</td>
-<td>-6%</td>
-<td>观望</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>WFC</td>
-<td>富国银行</td>
 <td>买入</td>
-<td>68%</td>
+<td>92%</td>
 <td>+18%</td>
-<td>-10%</td>
-<td>逢低加仓</td>
-<td>2026-05-12</td>
+<td>-12%</td>
+<td>回调至RSI&lt;25加仓</td>
+<td>2026-05-13</td>
 </tr>
 <tr>
-<td>TEL</td>
-<td>泰科电子有限公司</td>
+<td>MTD</td>
+<td>梅特勒-托利多</td>
 <td>持有</td>
-<td>65%</td>
-<td>+12%</td>
+<td>88%</td>
+<td>+10%</td>
 <td>-8%</td>
-<td>观望</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>STZ</td>
-<td>星座品牌酒业</td>
-<td>买入</td>
-<td>62%</td>
-<td>+15%</td>
-<td>-9%</td>
-<td>逢低加仓</td>
-<td>2026-05-12</td>
+<td>等待突破</td>
+<td>2026-05-13</td>
 </tr>
 <tr>
 <td>TMO</td>
 <td>赛默飞世尔科技公司</td>
+<td>买入</td>
+<td>90%</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>分批建仓</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>SYK</td>
+<td>史赛克公司</td>
+<td>买入</td>
+<td>86%</td>
+<td>+20%</td>
+<td>-12%</td>
+<td>RSI&lt;35加仓</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>APH</td>
+<td>安费诺集团</td>
+<td>持有</td>
+<td>82%</td>
+<td>+12%</td>
+<td>-9%</td>
+<td>技术突破加仓</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>TEL</td>
+<td>泰科电子有限公司</td>
+<td>买入</td>
+<td>84%</td>
+<td>+14%</td>
+<td>-11%</td>
+<td>回调买入</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>COF</td>
+<td>第一资本金融公司</td>
 <td>持有</td>
 <td>75%</td>
 <td>+10%</td>
-<td>-6%</td>
-<td>观望</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>BKNG</td>
-<td>缤客</td>
-<td>买入</td>
-<td>58%</td>
-<td>+20%</td>
-<td>-12%</td>
-<td>逢低加仓</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>FAST</td>
-<td>快扣</td>
-<td>持有</td>
-<td>55%</td>
-<td>+12%</td>
 <td>-8%</td>
-<td>观望</td>
-<td>2026-05-12</td>
+<td>利率环境改善加仓</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>RL</td>
+<td>拉夫劳伦</td>
+<td>买入</td>
+<td>80%</td>
+<td>+16%</td>
+<td>-10%</td>
+<td>消费复苏加仓</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>FIS</td>
+<td>繁德信息技术</td>
+<td>持有</td>
+<td>83%</td>
+<td>+12%</td>
+<td>-9%</td>
+<td>数字化转型加仓</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>PYPL</td>
+<td>PayPal</td>
+<td>买入</td>
+<td>78%</td>
+<td>+25%</td>
+<td>-15%</td>
+<td>超跌反弹</td>
+<td>2026-05-13</td>
 </tr>
 <tr>
 <td>MELI</td>
 <td>MercadoLibre Inc.</td>
 <td>买入</td>
-<td>52%</td>
-<td>+25%</td>
-<td>-15%</td>
-<td>逢低加仓</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>CTSH</td>
-<td>高知特信息技术有限公司</td>
-<td>持有</td>
-<td>48%</td>
-<td>+15%</td>
-<td>-10%</td>
-<td>观望</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>HII</td>
-<td>Huntington Ingalls Industries Inc.</td>
-<td>买入</td>
-<td>45%</td>
-<td>+18%</td>
-<td>-12%</td>
-<td>逢低加仓</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>AA</td>
-<td>美国铝业公司</td>
-<td>买入</td>
-<td>42%</td>
+<td>85%</td>
 <td>+30%</td>
 <td>-18%</td>
-<td>积极加仓</td>
-<td>2026-05-12</td>
+<td>拉美电商龙头</td>
+<td>2026-05-13</td>
 </tr>
 <tr>
-<td>CENX</td>
-<td>世纪铝业</td>
-<td>买入</td>
-<td>40%</td>
-<td>+35%</td>
-<td>-20%</td>
-<td>积极加仓</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>RL</td>
-<td>拉夫劳伦</td>
+<td>GLOB</td>
+<td>Globant SA</td>
 <td>持有</td>
-<td>38%</td>
+<td>81%</td>
 <td>+15%</td>
-<td>-10%</td>
-<td>观望</td>
-<td>2026-05-12</td>
+<td>-12%</td>
+<td>AI服务需求</td>
+<td>2026-05-13</td>
 </tr>
 <tr>
 <td>BURL</td>
 <td>Burlington Stores Inc.</td>
 <td>买入</td>
-<td>36%</td>
-<td>+20%</td>
-<td>-12%</td>
-<td>逢低加仓</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>ANET</td>
-<td>Arista Networks Inc.</td>
-<td>持有</td>
-<td>35%</td>
+<td>76%</td>
 <td>+18%</td>
 <td>-11%</td>
-<td>观望</td>
-<td>2026-05-12</td>
+<td>折扣零售复苏</td>
+<td>2026-05-13</td>
 </tr>
 <tr>
-<td>MOS</td>
-<td>美国美盛公司</td>
-<td>买入</td>
-<td>33%</td>
-<td>+25%</td>
-<td>-15%</td>
-<td>逢低加仓</td>
-<td>2026-05-12</td>
-</tr>
-<tr>
-<td>PLNT</td>
-<td>Planet Fitness Inc.</td>
+<td>LPLA</td>
+<td>LPL Financial Holdings Inc.</td>
 <td>持有</td>
-<td>32%</td>
-<td>+15%</td>
-<td>-10%</td>
-<td>观望</td>
-<td>2026-05-12</td>
+<td>79%</td>
+<td>+12%</td>
+<td>-9%</td>
+<td>财富管理增长</td>
+<td>2026-05-13</td>
 </tr>
 <tr>
-<td>BBIO</td>
-<td>BridgeBio</td>
+<td>AJG</td>
+<td>亚瑟加拉格尔有限公司</td>
 <td>买入</td>
-<td>31%</td>
-<td>+40%</td>
-<td>-25%</td>
-<td>高风险高回报</td>
-<td>2026-05-12</td>
+<td>87%</td>
+<td>+14%</td>
+<td>-8%</td>
+<td>保险经纪龙头</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>BRO</td>
+<td>布朗保险经纪</td>
+<td>持有</td>
+<td>84%</td>
+<td>+11%</td>
+<td>-7%</td>
+<td>行业整合受益</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>FDS</td>
+<td>辉盛研究系统</td>
+<td>买入</td>
+<td>89%</td>
+<td>+16%</td>
+<td>-10%</td>
+<td>数据服务需求</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>CART</td>
+<td>Maplebear Inc.</td>
+<td>持有</td>
+<td>82%</td>
+<td>+22%</td>
+<td>-14%</td>
+<td>生鲜配送龙头</td>
+<td>2026-05-13</td>
 </tr>
 </tbody>
 </table>
-<h2>4. 优选十支股票详细分析</h2>
-<h3>1. <strong>Zoetis Inc. (ZTS)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 全球动物保健龙头，宠物经济持续增长<br />
-2. 高毛利率（约70%）和稳定现金流<br />
-3. 创新产品管线丰富，抗周期性较强</p>
-<p><strong>两个风险点</strong>：<br />
-1. 估值较高，市盈率约35倍<br />
-2. 汇率波动影响海外收入</p>
-<h3>2. <strong>丹纳赫公司 (DHR)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 生命科学仪器龙头，受益于生物医药研发投入<br />
-2. 卓越的运营管理和并购整合能力<br />
-3. 高股息收益率和稳定增长</p>
-<p><strong>两个风险点</strong>：<br />
-1. 研发投入大，资本开支压力<br />
-2. 医疗政策变化风险</p>
-<h3>3. <strong>富国银行 (WFC)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 估值修复空间大，市盈率仅8倍<br />
-2. 净息差有望改善，受益于利率环境<br />
-3. 成本削减和数字化转型成效显著</p>
-<p><strong>两个风险点</strong>：<br />
-1. 监管风险依然存在<br />
-2. 经济衰退可能增加信贷损失</p>
-<h3>4. <strong>星座品牌酒业 (STZ)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 高端酒类消费升级趋势明显<br />
-2. 强大的品牌组合和定价权<br />
-3. 稳定的现金流和高股息</p>
-<p><strong>两个风险点</strong>：<br />
-1. 年轻消费者饮酒习惯变化<br />
-2. 原材料成本上涨压力</p>
-<h3>5. <strong>MercadoLibre Inc. (MELI)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 拉丁美洲电商和金融科技双龙头<br />
-2. 高增长市场，渗透率仍有提升空间<br />
-3. 支付和物流生态系统护城河深</p>
-<p><strong>两个风险点</strong>：<br />
-1. 拉美宏观经济波动风险<br />
-2. 竞争加剧，利润率压力</p>
-<h3>6. <strong>美国铝业公司 (AA)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 受益于绿色转型和电动汽车需求<br />
-2. 铝价上涨周期，盈利弹性大<br />
-3. 资产负债表改善，现金流好转</p>
-<p><strong>两个风险点</strong>：<br />
-1. 能源成本高企，影响利润率<br />
-2. 全球经济放缓可能压制需求</p>
-<h3>7. <strong>世纪铝业 (CENX)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 美国本土铝生产商，受益于贸易政策<br />
-2. 低估值，市净率仅0.8倍<br />
-3. 产能利用率提升，运营改善</p>
-<p><strong>两个风险点</strong>：<br />
-1. 高负债率，财务风险较大<br />
-2. 行业周期性明显</p>
-<h3>8. <strong>Burlington Stores Inc. (BURL)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 折扣零售受益于通胀环境<br />
-2. 门店扩张空间大，增长潜力<br />
-3. 库存管理优化，毛利率改善</p>
-<p><strong>两个风险点</strong>：<br />
-1. 消费者支出疲软风险<br />
-2. 供应链成本压力</p>
-<h3>9. <strong>BridgeBio (BBIO)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 创新药研发管线丰富，多个临床后期项目<br />
-2. 与大型药企合作，降低研发风险<br />
-3. 罕见病药物市场潜力大</p>
-<p><strong>两个风险点</strong>：<br />
-1. 研发失败风险高<br />
-2. 现金流紧张，需要持续融资</p>
-<h3>10. <strong>Arista Networks Inc. (ANET)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. 云计算和数据中心网络设备龙头<br />
-2. 受益于AI基础设施投资浪潮<br />
-3. 技术领先，产品竞争力强</p>
-<p><strong>两个风险点</strong>：<br />
-1. 客户集中度高（依赖云巨头）<br />
-2. 芯片供应可能受限</p>
-<h2>5. 当前"买入"评级五支股票持仓</h2>
+<h2>4. 优选十支股票深度分析</h2>
+<h3>1. <strong>ZTS (Zoetis Inc.)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 动物医疗龙头，市占率全球第一，护城河深厚<br />
+2. 宠物经济持续增长，抗周期性强<br />
+3. 研发管线丰富，创新药物驱动长期增长</p>
+<p><strong>两个风险点：</strong><br />
+1. 估值偏高，市盈率约40倍<br />
+2. 动物疫苗政策风险</p>
+<h3>2. <strong>CDW (CDW Corp.)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. IT解决方案龙头，受益企业数字化转型<br />
+2. 现金流稳定，股息持续增长<br />
+3. 市场份额持续提升</p>
+<p><strong>两个风险点：</strong><br />
+1. 经济衰退影响企业IT支出<br />
+2. 云服务竞争加剧</p>
+<h3>3. <strong>TMO (赛默飞世尔科技公司)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 生命科学仪器龙头，技术壁垒高<br />
+2. 生物制药研发需求强劲<br />
+3. 全球化布局，抗风险能力强</p>
+<p><strong>两个风险点：</strong><br />
+1. 政府科研预算波动<br />
+2. 汇率风险</p>
+<h3>4. <strong>SYK (史赛克公司)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 骨科医疗器械全球领先<br />
+2. 老龄化趋势受益明显<br />
+3. Mako手术机器人增长迅速</p>
+<p><strong>两个风险点：</strong><br />
+1. 医疗政策变化风险<br />
+2. 产品召回风险</p>
+<h3>5. <strong>MELI (MercadoLibre Inc.)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 拉美电商和金融科技双龙头<br />
+2. 用户增长和货币化空间大<br />
+3. 金融科技业务高速增长</p>
+<p><strong>两个风险点：</strong><br />
+1. 拉美政治经济不稳定<br />
+2. 竞争加剧</p>
+<h3>6. <strong>PYPL (PayPal)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 数字支付基础设施，用户基础庞大<br />
+2. 估值处于历史低位，超跌反弹空间大<br />
+3. 新管理层改革成效初显</p>
+<p><strong>两个风险点：</strong><br />
+1. 竞争激烈，市场份额被侵蚀<br />
+2. 增长放缓</p>
+<h3>7. <strong>BURL (Burlington Stores Inc.)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 折扣零售抗周期性强<br />
+2. 门店扩张空间大<br />
+3. 供应链优化提升利润率</p>
+<p><strong>两个风险点：</strong><br />
+1. 消费者支出疲软<br />
+2. 库存管理风险</p>
+<h3>8. <strong>AJG (亚瑟加拉 Gallagher)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 保险经纪行业整合者<br />
+2. 现金流稳定，股息增长<br />
+3. 风险管理需求增长</p>
+<p><strong>两个风险点：</strong><br />
+1. 保险周期波动<br />
+2. 并购整合风险</p>
+<h3>9. <strong>FDS (辉盛研究系统)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 金融数据服务龙头<br />
+2. 客户粘性高，转换成本大<br />
+3. 数据需求持续增长</p>
+<p><strong>两个风险点：</strong><br />
+1. 竞争加剧<br />
+2. 技术替代风险</p>
+<h3>10. <strong>CART (Maplebear Inc.)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 生鲜配送龙头，市场份额领先<br />
+2. 用户习惯养成，复购率高<br />
+3. 运营效率持续改善</p>
+<p><strong>两个风险点：</strong><br />
+1. 盈利能力尚未稳定<br />
+2. 竞争激烈，补贴战可能重现</p>
+<h2>5. 当前"买入"评级持仓推荐</h2>
 <p>基于当前市场环境和股票分析，推荐以下五支股票作为当前持仓：</p>
 <ol>
-<li><strong>AA</strong> - 美国铝业公司（资源类，通胀对冲）</li>
-<li><strong>CENX</strong> - 世纪铝业（资源类，估值修复）</li>
-<li><strong>WFC</strong> - 富国银行（金融类，估值修复）</li>
-<li><strong>MELI</strong> - MercadoLibre Inc.（科技类，高增长）</li>
-<li><strong>BBIO</strong> - BridgeBio（医疗类，高风险高回报）</li>
+<li><strong>ZTS (Zoetis Inc.)</strong> - 动物医疗龙头，防御性强</li>
+<li><strong>TMO (赛默飞世尔科技公司)</strong> - 生命科学仪器龙头，长期增长确定</li>
+<li><strong>SYK (史赛克公司)</strong> - 医疗器械创新领导者</li>
+<li><strong>MELI (MercadoLibre Inc.)</strong> - 拉美电商金融科技双龙头，增长潜力大</li>
+<li><strong>PYPL (PayPal)</strong> - 数字支付龙头，超跌反弹机会</li>
 </ol>
-<p><strong>[recm][20260512][AA,美国铝业公司;CENX,世纪铝业;WFC,富国银行;MELI,MercadoLibre Inc.;BBIO,BridgeBio]</strong></p>
-<p><strong>投资逻辑总结</strong>：<br />
-当前市场环境下，建议配置40%资源类股票（AA、CENX）对冲通胀和地缘风险，30%估值修复型股票（WFC），30%高增长科技/医疗股（MELI、BBIO）。整体组合兼顾防御性和进攻性，适合当前市场创新高但存在不确定性的环境。</p>
+<p><strong>[recm][20260513][ZTS,Zoetis Inc.;TMO,赛默飞世尔科技公司;SYK,史赛克公司;MELI,MercadoLibre Inc.;PYPL,PayPal]</strong></p>
+<p><strong>投资建议总结：</strong><br />
+当前市场处于"AI盈利兑现+油价回落"的反弹环境中，但估值已处高位，建议采取谨慎乐观策略。医疗健康板块具备较好的防御性和成长性，科技股需精选估值合理的标的。整体仓位控制在85%，保留15%现金应对市场波动。每日监控RSI指标，超买减仓，超卖加仓，动态调整持仓结构。</p>
             </div>
         </body>
         </html>
