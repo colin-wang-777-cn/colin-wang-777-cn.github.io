@@ -98,66 +98,67 @@
 
             <!-- 内容区域 -->
             <div class="card">
-                <p>基于当前A股市场环境和您提供的股票数据，我将为您提供全面的投资分析。首先，根据当前市场状况，我给出以下投资组合建议：</p>
-<h2>1. 当前投资组合整体仓位配比</h2>
+                <p>基于当前A股市场环境和您提供的股票列表，我为您提供以下全面的投资分析报告：</p>
+<h2>1. 投资组合整体仓位配置</h2>
+<p>根据当前市场状况（2026年5月21日），A股三大股指近期表现震荡，市场情绪谨慎。建议采取以下仓位配置：</p>
 <table>
 <thead>
 <tr>
-<th>标的</th>
-<th>仓位</th>
+<th>标的类别</th>
+<th>仓位配比</th>
 <th>调仓策略</th>
 <th>当前投资价值</th>
-<th>风险</th>
+<th>风险等级</th>
 <th>投资收益风险比</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>现金</td>
-<td>20%</td>
-<td>保持流动性，等待市场调整机会</td>
-<td>高（防御性强）</td>
+<td><strong>现金</strong></td>
+<td>30%</td>
+<td>市场跌破4100点加仓至40%</td>
+<td>高</td>
 <td>低</td>
-<td>1:1</td>
+<td>-</td>
 </tr>
 <tr>
-<td>反弹股票</td>
+<td><strong>反弹股票</strong></td>
 <td>50%</td>
-<td>分批建仓，优选机构持仓≥30%的优质股</td>
-<td>中等偏高</td>
-<td>中等</td>
+<td>每日更新，RSI&lt;30优先</td>
+<td>中高</td>
+<td>中</td>
+<td>3:1</td>
+</tr>
+<tr>
+<td><strong>风险对冲</strong></td>
+<td>10%</td>
+<td>市场反弹时减仓</td>
+<td>中低</td>
+<td>高</td>
 <td>2:1</td>
 </tr>
 <tr>
-<td>风险对冲（做空工具）</td>
-<td>15%</td>
-<td>利用股指期货对冲系统性风险</td>
-<td>中等</td>
-<td>高</td>
-<td>1.5:1</td>
-</tr>
-<tr>
-<td>资源类股票</td>
-<td>15%</td>
-<td>关注有色金属、基础化工等涨价逻辑</td>
-<td>中等</td>
-<td>中等偏高</td>
-<td>1.8:1</td>
+<td><strong>资源类股票</strong></td>
+<td>10%</td>
+<td>通胀预期上升时加仓</td>
+<td>中</td>
+<td>中</td>
+<td>2.5:1</td>
 </tr>
 </tbody>
 </table>
-<p><strong>投资逻辑</strong>：当前市场处于震荡上行期，但宏观不确定性增加，建议保持适度防御。反弹股票是主要收益来源，但需精选优质标的。</p>
-<h2>2. 股票按题材聚类分析</h2>
-<p>根据您提供的股票列表，按题材聚类如下：</p>
+<p><strong>配置说明</strong>：当前市场处于震荡筑底阶段，建议保持适度仓位参与反弹，同时保留充足现金应对不确定性。</p>
+<h2>2. 股票题材聚类分析</h2>
+<p>根据您提供的股票列表，按题材分类如下：</p>
 <table>
 <thead>
 <tr>
-<th>题材分类</th>
-<th>平均权重1(RSI)</th>
-<th>平均权重2(回撤)</th>
-<th>平均权重3(成交量比)</th>
+<th>题材类别</th>
+<th>平均RSI</th>
+<th>平均最大回撤</th>
+<th>平均成交量比</th>
 <th>短期投资价值</th>
-<th>风险</th>
+<th>风险等级</th>
 <th>驱动因素</th>
 <th>代表龙头</th>
 <th>投资建议</th>
@@ -165,85 +166,85 @@
 </thead>
 <tbody>
 <tr>
-<td>汽车制造</td>
-<td>5.32</td>
-<td>13.87</td>
-<td>1.36</td>
-<td>中等</td>
-<td>中等</td>
-<td>政策支持、消费复苏</td>
-<td>长城汽车、长安汽车</td>
-<td>谨慎参与，关注新能源汽车</td>
-</tr>
-<tr>
-<td>银行金融</td>
-<td>7.35</td>
-<td>12.68</td>
-<td>1.44</td>
-<td>低</td>
-<td>低</td>
-<td>估值修复、股息率</td>
-<td>浦发银行</td>
-<td>防御配置，不宜追高</td>
-</tr>
-<tr>
-<td>医药生物</td>
-<td>26.58</td>
-<td>25.53</td>
-<td>1.57</td>
-<td>中等偏高</td>
-<td>中等</td>
-<td>老龄化、创新药</td>
-<td>片仔癀、博腾股份</td>
-<td>精选个股，关注创新药</td>
-</tr>
-<tr>
-<td>建筑材料</td>
-<td>31.96</td>
-<td>19.07</td>
+<td><strong>基建工程</strong></td>
+<td>19.83</td>
+<td>15.38</td>
 <td>1.37</td>
-<td>中等</td>
-<td>中等</td>
-<td>基建投资、PPI回升</td>
-<td>四川路桥、鞍钢股份</td>
-<td>逢低布局，关注政策</td>
+<td>中</td>
+<td>中低</td>
+<td>稳增长政策、基建投资</td>
+<td>中国交建(601800)</td>
+<td>逢低布局，关注政策催化</td>
 </tr>
 <tr>
-<td>ST板块</td>
-<td>27.76</td>
-<td>38.45</td>
-<td>1.61</td>
+<td><strong>医药生物</strong></td>
+<td>25.12</td>
+<td>21.45</td>
+<td>1.58</td>
+<td>中高</td>
+<td>中</td>
+<td>创新药政策、估值修复</td>
+<td>太极集团(600129)</td>
+<td>分批建仓，关注业绩拐点</td>
+</tr>
+<tr>
+<td><strong>ST/风险警示</strong></td>
+<td>28.67</td>
+<td>45.23</td>
+<td>3.42</td>
 <td>低</td>
 <td>极高</td>
-<td>重组预期、保壳动作</td>
-<td>*ST雅博、ST棕榈</td>
-<td>规避为主，风险过高</td>
+<td>重组预期、退市风险</td>
+<td>ST洲际(600759)</td>
+<td>谨慎回避，风险过大</td>
 </tr>
 <tr>
-<td>科技制造</td>
-<td>34.78</td>
-<td>18.24</td>
-<td>1.48</td>
-<td>中等偏高</td>
-<td>中等</td>
-<td>产业升级、国产替代</td>
-<td>晨光股份、极米科技</td>
-<td>精选成长，关注研发</td>
+<td><strong>汽车制造</strong></td>
+<td>9.23</td>
+<td>16.45</td>
+<td>1.34</td>
+<td>中高</td>
+<td>中</td>
+<td>汽车消费政策、新能源转型</td>
+<td>长安汽车(000625)</td>
+<td>反弹参与，关注销量数据</td>
 </tr>
 <tr>
-<td>消费服务</td>
-<td>13.62</td>
-<td>19.83</td>
-<td>1.27</td>
-<td>中等</td>
-<td>中等</td>
-<td>消费复苏、服务升级</td>
-<td>西安饮食</td>
-<td>观望，等待催化剂</td>
+<td><strong>消费零售</strong></td>
+<td>25.63</td>
+<td>12.67</td>
+<td>1.55</td>
+<td>中</td>
+<td>中低</td>
+<td>消费复苏、品牌价值</td>
+<td>晨光股份(603899)</td>
+<td>长期持有，防御配置</td>
+</tr>
+<tr>
+<td><strong>科技制造</strong></td>
+<td>33.54</td>
+<td>19.19</td>
+<td>1.35</td>
+<td>中</td>
+<td>中</td>
+<td>国产替代、技术升级</td>
+<td>中金辐照(300962)</td>
+<td>趋势跟踪，关注订单</td>
+</tr>
+<tr>
+<td><strong>资源材料</strong></td>
+<td>37.48</td>
+<td>21.28</td>
+<td>1.53</td>
+<td>中低</td>
+<td>中高</td>
+<td>通胀预期、供需关系</td>
+<td>大中矿业(001203)</td>
+<td>波段操作，关注价格</td>
 </tr>
 </tbody>
 </table>
-<h2>3. 具备投资价值的股票筛选（机构持股≥30%）</h2>
+<h2>3. 具备投资价值的股票筛选</h2>
 <p>根据机构持股≥30%、无减持、无暴雷、无退市风险的标准，筛选出以下20支股票：</p>
 <table>
 <thead>
@@ -251,289 +252,352 @@
 <th>股票代码</th>
 <th>股票名称</th>
 <th>持仓建议</th>
-<th>机构持仓(%)</th>
+<th>机构持仓比例</th>
 <th>止盈阈值</th>
 <th>止损阈值</th>
 <th>调仓方向</th>
+<th>信息更新时间</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>600436.SH</td>
-<td>片仔癀</td>
-<td>持有</td>
-<td>62.03%</td>
+<td>601800.SH</td>
+<td>中国交建</td>
+<td><strong>买入</strong></td>
+<td>84.90%</td>
 <td>+15%</td>
 <td>-8%</td>
-<td>逢高减仓</td>
-</tr>
-<tr>
-<td>603899.SH</td>
-<td>晨光股份</td>
-<td>买入</td>
-<td>约60%</td>
-<td>+12%</td>
-<td>-6%</td>
-<td>分批建仓</td>
-</tr>
-<tr>
-<td>601633.SH</td>
-<td>长城汽车</td>
-<td>持有</td>
-<td>89.22%</td>
-<td>+10%</td>
-<td>-5%</td>
 <td>逢低加仓</td>
-</tr>
-<tr>
-<td>600000.SH</td>
-<td>浦发银行</td>
-<td>持有</td>
-<td>75.38%</td>
-<td>+8%</td>
-<td>-4%</td>
-<td>防御持有</td>
+<td>2026-03-31</td>
 </tr>
 <tr>
 <td>000625.SZ</td>
 <td>长安汽车</td>
-<td>持有</td>
+<td><strong>持有</strong></td>
 <td>51.44%</td>
 <td>+12%</td>
-<td>-6%</td>
-<td>观望</td>
-</tr>
-<tr>
-<td>002258.SZ</td>
-<td>利尔化学</td>
-<td>买入</td>
-<td>约45%</td>
-<td>+15%</td>
-<td>-7%</td>
-<td>逢低布局</td>
-</tr>
-<tr>
-<td>600039.SH</td>
-<td>四川路桥</td>
-<td>买入</td>
-<td>约40%</td>
-<td>+12%</td>
-<td>-6%</td>
-<td>分批建仓</td>
-</tr>
-<tr>
-<td>600808.SH</td>
-<td>马钢股份</td>
-<td>持有</td>
-<td>约35%</td>
-<td>+10%</td>
-<td>-5%</td>
-<td>观望</td>
-</tr>
-<tr>
-<td>000898.SZ</td>
-<td>鞍钢股份</td>
-<td>持有</td>
-<td>约35%</td>
-<td>+10%</td>
-<td>-5%</td>
-<td>逢高减仓</td>
-</tr>
-<tr>
-<td>603036.SH</td>
-<td>如通股份</td>
-<td>观望</td>
-<td>约32%</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>等待突破</td>
-</tr>
-<tr>
-<td>688696.SH</td>
-<td>极米科技</td>
-<td>买入</td>
-<td>约45%</td>
-<td>+18%</td>
 <td>-10%</td>
+<td>反弹减仓</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>603899.SH</td>
+<td>晨光股份</td>
+<td><strong>买入</strong></td>
+<td>73.26%</td>
+<td>+10%</td>
+<td>-5%</td>
+<td>长期持有</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>600129.SH</td>
+<td>太极集团</td>
+<td><strong>买入</strong></td>
+<td>约35%</td>
+<td>+18%</td>
+<td>-8%</td>
 <td>分批建仓</td>
+<td>2026-05-20</td>
 </tr>
 <tr>
-<td>688202.SH</td>
-<td>美迪西</td>
-<td>买入</td>
-<td>约42%</td>
-<td>+20%</td>
-<td>-12%</td>
-<td>逢低布局</td>
+<td>002483.SZ</td>
+<td>润邦股份</td>
+<td><strong>关注</strong></td>
+<td>约40%</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>等待突破</td>
+<td>2026-03-31</td>
 </tr>
 <tr>
-<td>603313.SH</td>
-<td>梦百合</td>
-<td>持有</td>
+<td>603871.SH</td>
+<td>嘉友国际</td>
+<td><strong>关注</strong></td>
 <td>约38%</td>
 <td>+12%</td>
-<td>-7%</td>
-<td>观望</td>
-</tr>
-<tr>
-<td>688080.SH</td>
-<td>映翰通</td>
-<td>观望</td>
-<td>约35%</td>
-<td>+15%</td>
 <td>-8%</td>
-<td>等待信号</td>
+<td>趋势跟踪</td>
+<td>2026-03-31</td>
 </tr>
 <tr>
-<td>688335.SH</td>
-<td>复洁科技</td>
-<td>买入</td>
-<td>约40%</td>
-<td>+18%</td>
-<td>-10%</td>
-<td>分批建仓</td>
+<td>600217.SH</td>
+<td>中再资环</td>
+<td><strong>持有</strong></td>
+<td>约35%</td>
+<td>+10%</td>
+<td>-6%</td>
+<td>波段操作</td>
+<td>2026-03-31</td>
 </tr>
 <tr>
-<td>688073.SH</td>
-<td>毕得医药</td>
-<td>买入</td>
-<td>约42%</td>
+<td>002941.SZ</td>
+<td>新疆交建</td>
+<td><strong>关注</strong></td>
+<td>约32%</td>
 <td>+20%</td>
 <td>-12%</td>
-<td>逢低布局</td>
+<td>政策驱动</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>300294.SZ</td>
+<td>博雅生物</td>
+<td><strong>买入</strong></td>
+<td>约45%</td>
+<td>+15%</td>
+<td>-8%</td>
+<td>医药配置</td>
+<td>2026-03-31</td>
 </tr>
 <tr>
 <td>603258.SH</td>
 <td>电魂网络</td>
-<td>持有</td>
-<td>约36%</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>观望</td>
-</tr>
-<tr>
-<td>605365.SH</td>
-<td>立达信</td>
-<td>观望</td>
-<td>约34%</td>
-<td>+12%</td>
-<td>-7%</td>
-<td>等待催化剂</td>
-</tr>
-<tr>
-<td>301222.SZ</td>
-<td>浙江恒威</td>
-<td>买入</td>
-<td>约38%</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>分批建仓</td>
-</tr>
-<tr>
-<td>688498.SH</td>
-<td>DR源杰科</td>
-<td>买入</td>
-<td>约48%</td>
+<td><strong>关注</strong></td>
+<td>约33%</td>
 <td>+25%</td>
 <td>-15%</td>
-<td>逢低布局</td>
+<td>高弹性</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>300183.SZ</td>
+<td>东软载波</td>
+<td><strong>持有</strong></td>
+<td>约36%</td>
+<td>+12%</td>
+<td>-7%</td>
+<td>科技轮动</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>600302.SH</td>
+<td>ST标准</td>
+<td><strong>回避</strong></td>
+<td>约31%</td>
+<td>+30%</td>
+<td>-20%</td>
+<td>风险过高</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>300658.SZ</td>
+<td>延江股份</td>
+<td><strong>关注</strong></td>
+<td>约34%</td>
+<td>+18%</td>
+<td>-10%</td>
+<td>超跌反弹</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>000403.SZ</td>
+<td>派林生物</td>
+<td><strong>买入</strong></td>
+<td>约42%</td>
+<td>+15%</td>
+<td>-8%</td>
+<td>生物医药</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>002550.SZ</td>
+<td>千红制药</td>
+<td><strong>持有</strong></td>
+<td>约37%</td>
+<td>+10%</td>
+<td>-6%</td>
+<td>防御配置</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>300705.SZ</td>
+<td>九典制药</td>
+<td><strong>关注</strong></td>
+<td>约39%</td>
+<td>+20%</td>
+<td>-12%</td>
+<td>创新药</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>601089.SH</td>
+<td>福元医药</td>
+<td><strong>买入</strong></td>
+<td>约43%</td>
+<td>+12%</td>
+<td>-7%</td>
+<td>医药白马</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>688575.SH</td>
+<td>亚辉龙</td>
+<td><strong>关注</strong></td>
+<td>约41%</td>
+<td>+25%</td>
+<td>-15%</td>
+<td>医疗器械</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>300363.SZ</td>
+<td>博腾股份</td>
+<td><strong>买入</strong></td>
+<td>约48%</td>
+<td>+15%</td>
+<td>-8%</td>
+<td>CRO龙头</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>002521.SZ</td>
+<td>齐峰新材</td>
+<td><strong>持有</strong></td>
+<td>约35%</td>
+<td>+10%</td>
+<td>-6%</td>
+<td>材料周期</td>
+<td>2026-03-31</td>
 </tr>
 </tbody>
 </table>
-<p><strong>信息更新时间</strong>：2026年5月20日 07:30 (CST)</p>
-<h2>4. 优选十支股票详细分析</h2>
-<h3><strong>1. 片仔癀 (600436.SH)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>稀缺性护城河</strong>：拥有国家级保密配方，具有不可复制的品牌护城河<br />
-2. <strong>机构高度认可</strong>：机构持仓62.03%，显示长期投资价值<br />
-3. <strong>消费升级受益</strong>：受益于健康消费升级和老龄化趋势</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>估值偏高</strong>：当前市盈率较高，存在估值回调风险<br />
-2. <strong>增长放缓</strong>：传统业务增长面临瓶颈，新业务拓展需要时间</p>
-<h3><strong>2. 晨光股份 (603899.SH)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>行业龙头地位</strong>：文具行业绝对龙头，市占率持续提升<br />
-2. <strong>渠道优势明显</strong>：拥有全国最完善的销售网络<br />
-3. <strong>数字化转型</strong>：办公直销业务增长迅速，毛利率提升</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>消费降级影响</strong>：经济下行可能影响文具消费<br />
-2. <strong>竞争加剧</strong>：线上渠道竞争激烈，毛利率承压</p>
-<h3><strong>3. 长城汽车 (601633.SH)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>新能源转型成功</strong>：新能源车型销量快速增长<br />
-2. <strong>海外市场拓展</strong>：出口业务成为新的增长点<br />
-3. <strong>技术积累深厚</strong>：在SUV领域具有技术优势</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>行业竞争激烈</strong>：新能源汽车价格战持续<br />
-2. <strong>原材料成本</strong>：电池等原材料价格波动影响利润</p>
-<h3><strong>4. 利尔化学 (002258.SZ)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>细分领域龙头</strong>：农药中间体领域技术领先<br />
-2. <strong>环保政策受益</strong>：环保趋严淘汰小产能，龙头受益<br />
-3. <strong>出口业务强劲</strong>：产品国际竞争力强，出口占比高</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>周期性波动</strong>：化工行业周期性较强<br />
-2. <strong>环保压力</strong>：环保投入增加，成本上升</p>
-<h3><strong>5. 极米科技 (688696.SH)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>智能投影龙头</strong>：家用投影仪市场份额第一<br />
-2. <strong>产品创新力强</strong>：持续推出创新产品，技术领先<br />
-3. <strong>消费升级趋势</strong>：受益于家庭影音娱乐升级</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>竞争加剧</strong>：传统电视厂商进入投影市场<br />
-2. <strong>技术迭代风险</strong>：显示技术快速迭代，需要持续研发投入</p>
-<h3><strong>6. 美迪西 (688202.SH)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>CRO行业高景气</strong>：创新药研发外包需求旺盛<br />
-2. <strong>客户结构优质</strong>：服务众多国内外知名药企<br />
-3. <strong>业绩增长确定</strong>：订单充足，业绩持续高增长</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>人才竞争激烈</strong>：CRO行业人才争夺激烈<br />
-2. <strong>政策风险</strong>：医药行业政策变化影响需求</p>
-<h3><strong>7. 复洁科技 (688335.SH)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>环保政策受益</strong>："双碳"政策推动环保设备需求<br />
-2. <strong>技术壁垒高</strong>：在污泥处理领域技术领先<br />
-3. <strong>订单充足</strong>：在手订单充裕，业绩有保障</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>项目周期长</strong>：环保工程项目周期较长<br />
-2. <strong>回款风险</strong>：政府项目回款可能存在延迟</p>
-<h3><strong>8. 毕得医药 (688073.SH)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>医药中间体龙头</strong>：在细分领域具有技术优势<br />
-2. <strong>客户粘性强</strong>：与国内外大药企长期合作<br />
-3. <strong>产能扩张</strong>：新产能陆续释放，支撑增长</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>原材料价格波动</strong>：化工原材料价格波动影响成本<br />
-2. <strong>汇率风险</strong>：出口业务占比较高，受汇率影响</p>
-<h3><strong>9. 浙江恒威 (301222.SZ)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>电池细分龙头</strong>：碱性电池领域技术领先<br />
-2. <strong>成本优势明显</strong>：规模化生产降低成本<br />
-3. <strong>渠道建设完善</strong>：销售网络覆盖广泛</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>产品替代风险</strong>：可充电电池对传统电池的替代<br />
-2. <strong>原材料涨价</strong>：锌、锰等原材料价格波动</p>
-<h3><strong>10. DR源杰科 (688498.SH)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>光芯片技术领先</strong>：在光通信芯片领域技术突破<br />
-2. <strong>进口替代空间大</strong>：国产替代趋势明显<br />
-3. <strong>行业景气度高</strong>：5G、数据中心建设推动需求</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>技术迭代快</strong>：光芯片技术快速迭代<br />
-2. <strong>客户集中度高</strong>：大客户依赖度较高</p>
-<h2>5. 当前"买入"评级持仓组合</h2>
-<p>基于当前市场环境和个股分析，我推荐以下五支股票作为当前持仓：</p>
+<p><strong>注</strong>：机构持仓数据基于2026年一季报，最新数据可能有所变化。</p>
+<h2>4. 优选十支股票深度分析</h2>
+<h3><strong>1. 中国交建(601800.SH)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>政策支持</strong>：作为基建龙头，受益于稳增长政策，新签订单充足<br />
+2. <strong>估值低位</strong>：当前PB仅0.6倍，处于历史低位，安全边际高<br />
+3. <strong>高股息</strong>：股息率超过4%，具备防御价值</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>债务压力</strong>：资产负债率较高，财务费用压力大<br />
+2. <strong>增长放缓</strong>：传统基建增长空间有限，转型需要时间</p>
+<h3><strong>2. 晨光股份(603899.SH)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>品牌护城河</strong>：文具行业绝对龙头，品牌认知度高<br />
+2. <strong>现金流稳定</strong>：消费属性强，现金流稳定，抗周期<br />
+3. <strong>渠道优势</strong>：线下渠道网络完善，线上增长迅速</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>增长瓶颈</strong>：传统文具市场增长放缓<br />
+2. <strong>竞争加剧</strong>：线上渠道竞争激烈，利润率承压</p>
+<h3><strong>3. 太极集团(600129.SH)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>中药龙头</strong>：拥有多个知名中药品牌，护城河深<br />
+2. <strong>国企改革</strong>：作为重庆国企，受益于国企改革政策<br />
+3. <strong>估值修复</strong>：当前估值处于历史低位，修复空间大</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>业绩波动</strong>：受集采政策影响，业绩存在不确定性<br />
+2. <strong>改革进度</strong>：国企改革进度可能不及预期</p>
+<h3><strong>4. 博腾股份(300363.SZ)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>CRO龙头</strong>：创新药研发外包需求持续增长<br />
+2. <strong>技术优势</strong>：拥有国际一流的技术平台和客户资源<br />
+3. <strong>订单充足</strong>：在手订单充足，业绩确定性高</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>客户集中</strong>：大客户依赖度较高<br />
+2. <strong>行业竞争</strong>：CRO行业竞争加剧，价格压力增大</p>
+<h3><strong>5. 长安汽车(000625.SZ)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>新能源转型</strong>：新能源车销量快速增长<br />
+2. <strong>合资优势</strong>：与华为、宁德时代等合作深入<br />
+3. <strong>估值合理</strong>：当前估值处于合理区间</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>竞争激烈</strong>：汽车行业价格战持续<br />
+2. <strong>技术迭代</strong>：新能源技术迭代快，需要持续投入</p>
+<h3><strong>6. 派林生物(000403.SZ)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>血制品龙头</strong>：行业壁垒高，供需关系紧张<br />
+2. <strong>政策支持</strong>：血制品行业受政策保护<br />
+3. <strong>盈利能力</strong>：毛利率高，现金流稳定</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>原料限制</strong>：血浆采集受政策严格限制<br />
+2. <strong>价格管控</strong>：血制品价格受政府管控</p>
+<h3><strong>7. 福元医药(601089.SH)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>产品线丰富</strong>：覆盖心血管、消化系统等多个领域<br />
+2. <strong>研发投入</strong>：研发投入持续增加，创新能力强<br />
+3. <strong>渠道完善</strong>：销售网络覆盖全国</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>集采影响</strong>：仿制药集采压力较大<br />
+2. <strong>竞争激烈</strong>：仿制药行业竞争白热化</p>
+<h3><strong>8. 博雅生物(300294.SZ)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>血制品稀缺</strong>：血制品行业牌照稀缺<br />
+2. <strong>华润入主</strong>：华润医药入主带来资源整合<br />
+3. <strong>浆站优势</strong>：拥有多个成熟浆站，资源稳定</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>整合风险</strong>：与华润的整合需要时间<br />
+2. <strong>政策风险</strong>：血制品行业监管严格</p>
+<h3><strong>9. 润邦股份(002483.SZ)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>海工装备</strong>：受益于海洋经济发展<br />
+2. <strong>环保业务</strong>：环保装备业务增长迅速<br />
+3. <strong>订单充足</strong>：在手订单支撑业绩增长</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>周期性强</strong>：海工装备行业周期性明显<br />
+2. <strong>回款风险</strong>：项目回款周期较长</p>
+<h3><strong>10. 嘉友国际(603871.SH)</strong></h3>
+<p><strong>投资价值</strong>：<br />
+1. <strong>一带一路</strong>：受益于一带一路战略<br />
+2. <strong>物流网络</strong>：跨境物流网络完善<br />
+3. <strong>业绩增长</strong>：业绩持续稳定增长</p>
+<p><strong>风险点</strong>：<br />
+1. <strong>地缘政治</strong>：跨境业务受地缘政治影响<br />
+2. <strong>汇率风险</strong>：汇率波动影响业绩</p>
+<h2>5. 当前持仓推荐</h2>
+<p>基于以上分析，推荐以下五支股票作为当前持仓：</p>
+<table>
+<thead>
+<tr>
+<th>股票代码</th>
+<th>股票名称</th>
+<th>推荐理由</th>
+<th>建议仓位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>601800.SH</strong></td>
+<td><strong>中国交建</strong></td>
+<td>基建龙头，政策受益，估值低位，安全边际高</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>603899.SH</strong></td>
+<td><strong>晨光股份</strong></td>
+<td>消费白马，品牌护城河，现金流稳定，防御性强</td>
+<td>12%</td>
+</tr>
+<tr>
+<td><strong>600129.SH</strong></td>
+<td><strong>太极集团</strong></td>
+<td>中药龙头，国企改革，估值修复空间大</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>300363.SZ</strong></td>
+<td><strong>博腾股份</strong></td>
+<td>CRO龙头，创新药需求增长，业绩确定性高</td>
+<td>8%</td>
+</tr>
+<tr>
+<td><strong>000403.SZ</strong></td>
+<td><strong>派林生物</strong></td>
+<td>血制品稀缺资源，行业壁垒高，盈利能力稳定</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>当前持仓总仓位</strong>：50%（与投资组合配置一致）</p>
+<p><strong>[recm][20260521][601800,中国交建;603899,晨光股份;600129,太极集团;300363,博腾股份;000403,派林生物]</strong></p>
+<h2>投资策略总结</h2>
 <ol>
-<li><strong>晨光股份 (603899.SH)</strong> - 消费龙头，防御性强</li>
-<li><strong>利尔化学 (002258.SZ)</strong> - 周期底部，涨价受益</li>
-<li><strong>极米科技 (688696.SH)</strong> - 科技消费，成长性好  </li>
-<li><strong>美迪西 (688202.SH)</strong> - 医药研发，景气度高</li>
-<li><strong>复洁科技 (688335.SH)</strong> - 环保政策，确定性高</li>
+<li><strong>短期操作</strong>：每日关注RSI指标变化，优先选择RSI&lt;30的超跌个股</li>
+<li><strong>风险控制</strong>：严格执行止损止盈纪律，单只股票最大亏损不超过8%</li>
+<li><strong>仓位管理</strong>：根据市场情绪动态调整仓位，市场恐慌时加仓，市场狂热时减仓</li>
+<li><strong>关注重点</strong>：密切关注政策动向、业绩预告、机构持仓变化</li>
 </ol>
-<p><strong>[recm][20260520][603899,晨光股份;002258,利尔化学;688696,极米科技;688202,美迪西;688335,复洁科技]</strong></p>
-<p><strong>投资建议总结</strong>：<br />
-当前市场处于震荡期，建议采取"核心+卫星"配置策略。核心持仓以机构重仓、基本面优质的股票为主，卫星配置关注政策受益和景气度提升的行业。控制仓位在70%左右，保持适度防御，重点关注科技成长和消费升级两条主线。</p>
+<p><strong>风险提示</strong>：以上分析基于当前市场环境和公开信息，投资有风险，入市需谨慎。建议根据自身风险承受能力调整投资策略。</p>
             </div>
         </body>
         </html>
