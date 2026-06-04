@@ -4,7 +4,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>AI排序</title>
+            <title>数据获取</title>
             <style>
                 * {
                     margin: 0;
@@ -94,25 +94,58 @@
         </head>
         <body>
             <!-- 顶部主标题 -->
-            <div class="main-title">AI排序</div>
+            <div class="main-title">交易规则</div>
 
             <!-- 内容区域 -->
-
             <div class="card">
-                <img src="asset/ai.jpeg" alt="image" style="width: 100%; height: 100%; object-fit: cover;">
-                <h3>AI排序<a id="AI排序"></a></h3>
-<p>Prompt: 通过算法筛选出的股票池，我们在运用AI进一步筛选</p>
-<p>你是一位美股分析师，会根据当前美股行情和宏观环境给出用户中短期的投资建议，主要投资标的为高弹性股票，操作周期为每天更新一次操作。最新股价信息请用StockTV更新。</p>
+                <h4>优化过程</h4>
+<p>因为大预言模型（LLM）是实时的，我们采取一种 evolving 策略优化过程。即从一个简单的交易规则开始，然后根据对于模型结果的跟踪评估，不断地优化买卖交易规则。</p>
+<p><img alt="指标" src="asset/trade.jpeg"  style="width: 100%; height: 100%; object-fit: cover;"/></p>
+     <h5>初始交易条件：</h5>
 <ul>
-<li>根据当前状况，给出一个投资组合的整体仓位配比，其中可选标的包括，现金、弹性股票、风险对冲（sqqq、恐慌指数，二选一）和资源类股票。表格中包含，该标的的仓位、调仓策略、当前投资价值、风险、投资收益风险比。</li>
-<li>根据下面给出的股票列表，美股股票代码+股票名称+权重1（天数）+权重2（日涨幅%），将股票按题材进行聚类并分类。并编写第一个表格，包含该题材所对应的平均权重1和2、短期投资价值、风险、驱动因素、代表龙头以及投资建议。</li>
-<li>编写第三个表格，请查询股票最新数据，根据（20日、60日均线多头，近 20 日最大回撤≤12%，机构持股≥30%，无减持、无暴雷、无退市风险），选出不超过二十支具备投资价值的高弹性的股票，给出该股持仓建议，机构持仓，止盈止损阈值和调仓方向。最后请标注信息更新时间。</li>
-<li>在这二十支股票中，帮我优选出十支，每支给出三个值得投资的价值，两个风险点，展开说明。</li>
-<li>请在这二十支股票中，选出五支可以现在“买入”评级的，作为当前的持仓，并给出列表。同时在最后一行，输出当前日期和持仓股票信息，格式如下“[recm][YYYYMMDD][stock1,name1;stock2,name2;stock3,name3;stock4,name4;stock5,name5]"。</li>
+<li>买入：每天策略推荐排序前五支股票，仓位各占20%</li>
+<li>卖出：卖出当前持仓的股票</li>
 </ul>
+<p>制定指标集合，用于策略评估和优化，并不断优化交易规则。</p>
+
+<table>
+<thead>
+<tr>
+<th>指标类别</th>
+<th>指标名称</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>个股信息</td>
+<td>基本信息</td>
+<td>如市盈率、市值、分类等</td>
+</tr>
+<tr>
+<td></td>
+<td>量化指标</td>
+<td>如均线、rsi、bolling等</td>
+</tr>
+<tr>
+<td>AI生成</td>
+<td>信息加工</td>
+<td>题材发现、股票关联等</td>
+</tr>
+<tr>
+<td></td>
+<td>主观判断</td>
+<td>对于股票投资价值和风险的判断，以及排序</td>
+</tr>
+<tr>
+<td>观测指标</td>
+<td>股价信息</td>
+<td>作为策略评价的目标变量</td>
+</tr>
+</tbody>
+</table>
 
 
-        <a href="../trend.html">美股趋势交易</a>
             </div>
         </body>
         </html>
