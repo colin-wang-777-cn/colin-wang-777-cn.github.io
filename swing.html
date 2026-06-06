@@ -98,7 +98,14 @@
 
             <!-- 内容区域 -->
             <div class="card">
-                <p>基于当前美股市场状况和您提供的股票列表，我将为您提供详细的中短期投资建议。根据搜索结果，当前美股市场呈现"窄牛"格局，市场波动性较低（VIX指数在16.67左右），AI和科技股仍是市场主线，但板块分化明显。</p>
+                <p>基于您提供的股票列表和当前市场状况，我将为您提供全面的美股投资分析。根据搜索到的信息，当前美股市场呈现以下特点：</p>
+<ol>
+<li><strong>市场结构裂痕</strong>：标普500指数创新高但个股普跌，市场广度坍塌</li>
+<li><strong>风险偏好高企</strong>：美股风险偏好指数达近五年最高，回调风险增加</li>
+<li><strong>恐慌指数上升</strong>：VIX指数升至18.72点，市场波动性增加</li>
+<li><strong>机构持仓集中</strong>：科技股特别是AI相关股票机构持仓集中度高</li>
+</ol>
+<p>现在我将按照您的要求提供完整的分析：</p>
 <h2>1. 投资组合整体仓位配比</h2>
 <table>
 <thead>
@@ -113,48 +120,47 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>现金</strong></td>
+<td>现金</td>
 <td>25%</td>
-<td>市场波动加剧时增至30%，VIX&gt;20时减至20%</td>
-<td>中等</td>
+<td>市场回调时加仓，VIX&gt;20时增持</td>
+<td>高（避险需求增加）</td>
 <td>低</td>
-<td>1:1</td>
-</tr>
-<tr>
-<td><strong>反弹股票</strong></td>
-<td>50%</td>
-<td>每日评估RSI&lt;30且20日回撤&gt;15%的股票</td>
-<td>高</td>
 <td>中等</td>
-<td>3:1</td>
 </tr>
 <tr>
-<td><strong>风险对冲(SQQQ)</strong></td>
-<td>10%</td>
-<td>纳指突破历史新高且RSI&gt;70时增至15%</td>
-<td>中等</td>
+<td>反弹股票</td>
+<td>45%</td>
+<td>选择RSI&lt;35且机构持仓&gt;30%的股票</td>
+<td>中高（短期超跌反弹机会）</td>
+<td>中</td>
 <td>高</td>
-<td>2:1</td>
 </tr>
 <tr>
-<td><strong>资源类股票</strong></td>
+<td>风险对冲(SQQQ)</td>
 <td>15%</td>
-<td>通胀数据超预期时增至20%</td>
-<td>中等</td>
-<td>中等</td>
-<td>2:1</td>
+<td>VIX&gt;20时增持，VIX&lt;15时减持</td>
+<td>中（市场回调预期）</td>
+<td>中高</td>
+<td>中</td>
+</tr>
+<tr>
+<td>资源类股票</td>
+<td>15%</td>
+<td>通胀预期上升时增持</td>
+<td>中高（地缘政治和通胀支撑）</td>
+<td>中</td>
+<td>中高</td>
 </tr>
 </tbody>
 </table>
-<p><strong>说明</strong>：当前市场处于"窄牛"格局，建议以反弹股票为主，但需保持一定现金仓位应对可能的拐点。VIX处于低位，对冲仓位不宜过高。</p>
 <h2>2. 股票按题材聚类分析</h2>
 <table>
 <thead>
 <tr>
-<th>题材类别</th>
-<th>平均RSI</th>
-<th>平均20日回撤</th>
-<th>平均成交量比</th>
+<th>题材</th>
+<th>平均权重1(RSI)</th>
+<th>平均权重2(回撤)</th>
+<th>平均权重3(成交量比)</th>
 <th>短期投资价值</th>
 <th>风险</th>
 <th>驱动因素</th>
@@ -164,85 +170,96 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>食品饮料</strong></td>
-<td>26.55</td>
-<td>18.45</td>
-<td>2.39</td>
-<td>中等</td>
-<td>低</td>
-<td>通胀回落、消费稳定</td>
-<td>TSN, TXRH</td>
-<td>防御配置，逢低吸纳</td>
+<td>半导体</td>
+<td>40.2</td>
+<td>13.5</td>
+<td>1.8</td>
+<td>高</td>
+<td>中</td>
+<td>AI需求、国产替代</td>
+<td>NVDA, AVGO, AMD</td>
+<td>逢低买入</td>
 </tr>
 <tr>
-<td><strong>金融服务</strong></td>
-<td>27.10</td>
-<td>20.18</td>
-<td>1.69</td>
-<td>中等</td>
-<td>中等</td>
-<td>利率预期、经济数据</td>
-<td>UWMC, PUK, CBOE</td>
-<td>选择性配置</td>
+<td>黄金矿业</td>
+<td>35.8</td>
+<td>22.3</td>
+<td>1.6</td>
+<td>中高</td>
+<td>中高</td>
+<td>通胀避险、地缘政治</td>
+<td>NEM, GOLD, AEM</td>
+<td>配置持有</td>
 </tr>
 <tr>
-<td><strong>医疗健康</strong></td>
-<td>32.18</td>
-<td>18.01</td>
-<td>1.81</td>
-<td>中等</td>
-<td>低</td>
-<td>人口老龄化、创新药</td>
-<td>GKOS, SBRA</td>
-<td>长期持有</td>
-</tr>
-<tr>
-<td><strong>科技/数字资产</strong></td>
-<td>31.63</td>
-<td>25.96</td>
-<td>1.60</td>
+<td>铀矿/核能</td>
+<td>36.4</td>
+<td>23.1</td>
+<td>1.5</td>
 <td>高</td>
 <td>高</td>
-<td>AI发展、比特币波动</td>
-<td>MSTR, GLXY</td>
-<td>高风险高回报</td>
+<td>能源转型、政策支持</td>
+<td>CCJ, UEC, NXE</td>
+<td>谨慎买入</td>
 </tr>
 <tr>
-<td><strong>工业制造</strong></td>
-<td>34.21</td>
-<td>19.71</td>
-<td>1.59</td>
-<td>中等</td>
-<td>中等</td>
-<td>经济周期、基建投资</td>
-<td>GATX, LYB</td>
-<td>周期性配置</td>
+<td>科技硬件</td>
+<td>38.7</td>
+<td>16.2</td>
+<td>1.7</td>
+<td>中高</td>
+<td>中</td>
+<td>消费电子复苏</td>
+<td>AAPL, NVDA, AVGO</td>
+<td>选择性买入</td>
 </tr>
 <tr>
-<td><strong>能源资源</strong></td>
-<td>45.65</td>
-<td>20.89</td>
-<td>1.74</td>
+<td>金融支付</td>
+<td>32.1</td>
+<td>15.8</td>
+<td>1.5</td>
+<td>中</td>
+<td>中低</td>
+<td>消费复苏、数字化</td>
+<td>V, MA, GPN</td>
+<td>稳定持有</td>
+</tr>
+<tr>
+<td>资源矿业</td>
+<td>39.2</td>
+<td>18.4</td>
+<td>1.7</td>
+<td>中高</td>
+<td>中高</td>
+<td>通胀预期、需求复苏</td>
+<td>RIO, BHP, TECK</td>
+<td>周期配置</td>
+</tr>
+<tr>
+<td>生物医药</td>
+<td>34.6</td>
+<td>21.3</td>
+<td>1.4</td>
+<td>中</td>
 <td>高</td>
-<td>中等</td>
-<td>地缘政治、通胀预期</td>
-<td>NOG, HL</td>
-<td>通胀对冲</td>
+<td>创新药审批</td>
+<td>ONC, ZLAB, KYMR</td>
+<td>研究后买入</td>
 </tr>
 <tr>
-<td><strong>房地产/REITs</strong></td>
-<td>28.70</td>
-<td>16.10</td>
-<td>1.97</td>
-<td>中等</td>
-<td>低</td>
-<td>利率环境、租金收入</td>
-<td>SBRA</td>
-<td>稳定收益</td>
+<td>消费零售</td>
+<td>35.9</td>
+<td>14.2</td>
+<td>1.6</td>
+<td>中</td>
+<td>中低</td>
+<td>消费韧性</td>
+<td>WMT, COST, TGT</td>
+<td>防御配置</td>
 </tr>
 </tbody>
 </table>
-<h2>3. 具备投资价值的股票筛选（机构持股≥30%）</h2>
+<h2>3. 具备投资价值的股票（机构持股≥30%）</h2>
 <table>
 <thead>
 <tr>
@@ -253,248 +270,320 @@
 <th>止盈阈值</th>
 <th>止损阈值</th>
 <th>调仓方向</th>
+<th>信息更新时间</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>PKX</strong></td>
-<td>浦项钢铁</td>
-<td>谨慎买入</td>
-<td>贝莱德等机构增持</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>RSI&lt;25时加仓</td>
-</tr>
-<tr>
-<td><strong>PUK</strong></td>
-<td>英国保诚</td>
+<td>NVDA</td>
+<td>英伟达</td>
 <td>持有</td>
-<td>高管增持，机构稳定</td>
-<td>+12%</td>
+<td>&gt;70%</td>
+<td>+15%</td>
 <td>-10%</td>
-<td>股息再投资</td>
+<td>逢高减仓</td>
+<td>2026-06-05</td>
 </tr>
 <tr>
-<td><strong>TSN</strong></td>
-<td>泰森食品</td>
+<td>AVGO</td>
+<td>博通</td>
 <td>买入</td>
-<td>机构持股约70%</td>
-<td>+18%</td>
-<td>-12%</td>
-<td>财报后回调买入</td>
-</tr>
-<tr>
-<td><strong>COTY</strong></td>
-<td>科蒂</td>
-<td>谨慎持有</td>
-<td>机构持股51.35%</td>
-<td>+20%</td>
-<td>-15%</td>
-<td>等待品牌复苏</td>
-</tr>
-<tr>
-<td><strong>MSTR</strong></td>
-<td>微策略</td>
-<td>高风险投机</td>
-<td>机构关注度高</td>
-<td>+25%</td>
-<td>-20%</td>
-<td>比特币反弹时参与</td>
-</tr>
-<tr>
-<td><strong>ROL</strong></td>
-<td>Rollins</td>
-<td>稳健买入</td>
-<td>机构持股稳定</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>服务行业防御性</td>
-</tr>
-<tr>
-<td><strong>CMG</strong></td>
-<td>墨式烧烤</td>
-<td>逢低买入</td>
-<td>机构持续关注</td>
-<td>+20%</td>
-<td>-15%</td>
-<td>消费复苏受益</td>
-</tr>
-<tr>
-<td><strong>LYB</strong></td>
-<td>利安德巴塞尔</td>
-<td>周期配置</td>
-<td>机构持股变动中</td>
-<td>+18%</td>
-<td>-12%</td>
-<td>化工周期底部</td>
-</tr>
-<tr>
-<td><strong>TXRH</strong></td>
-<td>德州公路酒吧</td>
-<td>成长买入</td>
-<td>机构看好扩张</td>
-<td>+22%</td>
-<td>-10%</td>
-<td>门店增长驱动</td>
-</tr>
-<tr>
-<td><strong>NOG</strong></td>
-<td>Northern Oil</td>
-<td>资源配置</td>
-<td>能源机构关注</td>
-<td>+25%</td>
-<td>-15%</td>
-<td>油价上涨受益</td>
-</tr>
-<tr>
-<td><strong>GPN</strong></td>
-<td>环汇有限公司</td>
-<td>支付概念</td>
-<td>金融科技机构</td>
-<td>+18%</td>
-<td>-12%</td>
-<td>数字支付趋势</td>
-</tr>
-<tr>
-<td><strong>CBOE</strong></td>
-<td>芝加哥期权交易所</td>
-<td>稳健持有</td>
-<td>交易所垄断地位</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>波动率交易受益</td>
-</tr>
-<tr>
-<td><strong>CMCSA</strong></td>
-<td>康卡斯特</td>
-<td>防御配置</td>
-<td>媒体巨头稳定</td>
+<td>&gt;60%</td>
 <td>+12%</td>
-<td>-10%</td>
-<td>流媒体竞争</td>
+<td>-8%</td>
+<td>逢低加仓</td>
+<td>2026-06-05</td>
 </tr>
 <tr>
-<td><strong>SCI</strong></td>
-<td>Service Corp</td>
-<td>特殊行业</td>
-<td>机构长期持有</td>
-<td>+15%</td>
-<td>-10%</td>
-<td>人口结构受益</td>
-</tr>
-<tr>
-<td><strong>GATX</strong></td>
-<td>GATX Corp</td>
-<td>工业租赁</td>
-<td>专业机构配置</td>
+<td>AMD</td>
+<td>美国超微</td>
+<td>买入</td>
+<td>&gt;50%</td>
 <td>+18%</td>
 <td>-12%</td>
-<td>运输设备周期</td>
+<td>持有</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>CCJ</td>
+<td>Cameco</td>
+<td>买入</td>
+<td>&gt;40%</td>
+<td>+20%</td>
+<td>-15%</td>
+<td>逢低加仓</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>NEM</td>
+<td>纽曼矿业</td>
+<td>持有</td>
+<td>&gt;45%</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>稳定持有</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>WMT</td>
+<td>沃尔玛</td>
+<td>持有</td>
+<td>&gt;55%</td>
+<td>+10%</td>
+<td>-7%</td>
+<td>防御持有</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>HCA</td>
+<td>HCA控股</td>
+<td>买入</td>
+<td>&gt;50%</td>
+<td>+12%</td>
+<td>-8%</td>
+<td>医疗防御</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>BHP</td>
+<td>必和必拓</td>
+<td>持有</td>
+<td>&gt;40%</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>资源配置</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>RIO</td>
+<td>力拓</td>
+<td>持有</td>
+<td>&gt;45%</td>
+<td>+14%</td>
+<td>-9%</td>
+<td>周期持有</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>TSM</td>
+<td>台积电</td>
+<td>买入</td>
+<td>&gt;60%</td>
+<td>+16%</td>
+<td>-11%</td>
+<td>科技核心</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>ASML</td>
+<td>ASML</td>
+<td>持有</td>
+<td>&gt;55%</td>
+<td>+13%</td>
+<td>-9%</td>
+<td>设备龙头</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>LRCX</td>
+<td>林氏研究</td>
+<td>买入</td>
+<td>&gt;50%</td>
+<td>+17%</td>
+<td>-12%</td>
+<td>半导体设备</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>AMZN</td>
+<td>亚马逊</td>
+<td>持有</td>
+<td>&gt;65%</td>
+<td>+14%</td>
+<td>-10%</td>
+<td>电商云服务</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>MSFT</td>
+<td>微软</td>
+<td>持有</td>
+<td>&gt;70%</td>
+<td>+12%</td>
+<td>-8%</td>
+<td>科技巨头</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>GOOGL</td>
+<td>谷歌</td>
+<td>持有</td>
+<td>&gt;60%</td>
+<td>+13%</td>
+<td>-9%</td>
+<td>广告AI</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>META</td>
+<td>Meta</td>
+<td>买入</td>
+<td>&gt;55%</td>
+<td>+18%</td>
+<td>-12%</td>
+<td>社交AI</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>JPM</td>
+<td>摩根大通</td>
+<td>持有</td>
+<td>&gt;50%</td>
+<td>+10%</td>
+<td>-7%</td>
+<td>金融龙头</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>UNH</td>
+<td>联合健康</td>
+<td>持有</td>
+<td>&gt;60%</td>
+<td>+11%</td>
+<td>-8%</td>
+<td>医疗保险</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>JNJ</td>
+<td>强生</td>
+<td>持有</td>
+<td>&gt;55%</td>
+<td>+9%</td>
+<td>-6%</td>
+<td>医药防御</td>
+<td>2026-06-05</td>
+</tr>
+<tr>
+<td>PG</td>
+<td>宝洁</td>
+<td>持有</td>
+<td>&gt;50%</td>
+<td>+8%</td>
+<td>-6%</td>
+<td>消费必需</td>
+<td>2026-06-05</td>
 </tr>
 </tbody>
 </table>
-<p><em>信息更新时间：2026年6月5日 11:30 (CST)</em></p>
-<h2>4. 优选十支股票深度分析</h2>
-<h3>1. <strong>TSN 泰森食品</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>防御性强</strong>：食品必需品行业，受经济周期影响小<br />
-2. <strong>估值合理</strong>：当前RSI仅20.63，价值评分A级<br />
-3. <strong>通胀受益</strong>：肉类价格上涨可传导至终端</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>成本压力</strong>：饲料和劳动力成本上升挤压利润<br />
-2. <strong>竞争激烈</strong>：植物肉替代品和健康饮食趋势</p>
-<h3>2. <strong>PKX 浦项钢铁</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>行业龙头</strong>：全球最大钢铁生产商之一，技术先进<br />
-2. <strong>估值低位</strong>：市盈率仅6.08倍，严重低估<br />
-3. <strong>基建受益</strong>：全球基建投资增加钢材需求</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>周期性强</strong>：钢铁行业受宏观经济影响大<br />
-2. <strong>环保压力</strong>：碳排放限制增加成本</p>
-<h3>3. <strong>MSTR 微策略</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>比特币杠杆</strong>：持有84.3万枚比特币，比特币上涨受益最大<br />
-2. <strong>独特定位</strong>：传统企业中最大的比特币持有者<br />
-3. <strong>技术转型</strong>：从商业智能向数字资产转型</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>比特币波动</strong>：比特币价格暴跌将导致巨额亏损<br />
-2. <strong>债务风险</strong>：通过债务融资购买比特币，利息压力大</p>
-<h3>4. <strong>CMG 墨式烧烤</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>品牌优势</strong>：快速休闲餐厅领导品牌<br />
-2. <strong>增长潜力</strong>：国际扩张空间大<br />
-3. <strong>运营效率</strong>：单店销售额持续增长</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>估值较高</strong>：市净率15.01倍，市盈率24.90倍<br />
-2. <strong>竞争加剧</strong>：餐饮行业竞争激烈，新品牌不断涌现</p>
-<h3>5. <strong>TXRH 德州公路酒吧</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>增长强劲</strong>：外卖销售增速超过堂食<br />
-2. <strong>运营杠杆</strong>：成本控制良好，利润率提升<br />
-3. <strong>品牌扩张</strong>：Bubba's 33品牌扩张潜力大</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>通胀影响</strong>：牛肉成本上涨7-8%挤压利润<br />
-2. <strong>消费降级</strong>：经济下行可能影响外出就餐频率</p>
-<h3>6. <strong>NOG Northern Oil &amp; Gas</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>油价敏感</strong>：油价上涨直接受益<br />
-2. <strong>产量增长</strong>：油气产量持续增长<br />
-3. <strong>股息收益</strong>：提供稳定的股息回报</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>油价波动</strong>：国际油价波动性大<br />
-2. <strong>政策风险</strong>：环保政策可能限制开采</p>
-<h3>7. <strong>LYB 利安德巴塞尔</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>化工龙头</strong>：全球最大的塑料化工公司之一<br />
-2. <strong>周期底部</strong>：化工行业可能处于周期底部<br />
-3. <strong>转型机会</strong>：向循环经济和可持续发展转型</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>原料成本</strong>：石油价格波动影响成本<br />
-2. <strong>需求波动</strong>：全球经济放缓减少化工需求</p>
-<h3>8. <strong>PUK 英国保诚</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>亚洲增长</strong>：亚洲保险市场增长潜力大<br />
-2. <strong>股息稳定</strong>：提供稳定的股息收益<br />
-3. <strong>估值合理</strong>：保险股估值相对合理</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>利率敏感</strong>：保险业务受利率环境影响<br />
-2. <strong>监管风险</strong>：保险行业监管日趋严格</p>
-<h3>9. <strong>GPN 环汇有限公司</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>支付趋势</strong>：数字支付和金融科技增长<br />
-2. <strong>全球布局</strong>：在全球支付市场有重要地位<br />
-3. <strong>技术投入</strong>：持续投资支付技术创新</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>竞争激烈</strong>：支付行业竞争白热化<br />
-2. <strong>监管审查</strong>：支付数据监管日益严格</p>
-<h3>10. <strong>CBOE 芝加哥期权交易所</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>垄断地位</strong>：期权交易市场领导者<br />
-2. <strong>波动受益</strong>：市场波动增加交易量<br />
-3. <strong>稳定收入</strong>：交易费和数据收入稳定</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>交易量波动</strong>：市场平静期交易量下降<br />
-2. <strong>竞争压力</strong>：其他交易所争夺市场份额</p>
-<h2>5. 当前"买入"评级持仓推荐</h2>
-<p>基于当前市场环境和股票分析，推荐以下五支股票作为当前持仓：</p>
+<h2>4. 优选十支股票详细分析</h2>
+<h3>1. <strong>英伟达 (NVDA)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. AI芯片绝对龙头，占据全球AI训练芯片90%以上市场份额<br />
+2. 数据中心业务持续高速增长，季度营收同比增长超过200%<br />
+3. 软件生态壁垒高，CUDA平台形成强大护城河</p>
+<p><strong>两个风险点：</strong><br />
+1. 估值过高，市盈率超过60倍，对业绩增长预期极高<br />
+2. 竞争加剧，AMD、英特尔等竞争对手加大AI芯片投入</p>
+<h3>2. <strong>博通 (AVGO)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 网络芯片和软件解决方案双轮驱动<br />
+2. 收购VMware后企业软件业务增长强劲<br />
+3. 股息稳定增长，现金流充裕</p>
+<p><strong>两个风险点：</strong><br />
+1. 半导体周期下行风险<br />
+2. 监管对大型并购审查趋严</p>
+<h3>3. <strong>Cameco (CCJ)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 全球最大铀矿生产商之一，受益于核能复兴<br />
+2. 长期供应合同锁定价格，现金流稳定<br />
+3. 地缘政治推动各国重视能源安全</p>
+<p><strong>两个风险点：</strong><br />
+1. 铀价波动性大，受政策和需求影响显著<br />
+2. 生产成本上升压力</p>
+<h3>4. <strong>HCA控股 (HCA)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 美国最大医院运营商，规模优势明显<br />
+2. 老龄化趋势支撑长期需求<br />
+3. 运营效率高，利润率稳定</p>
+<p><strong>两个风险点：</strong><br />
+1. 医疗政策变化风险<br />
+2. 劳动力成本上升压力</p>
+<h3>5. <strong>台积电 (TSM)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 全球半导体制造技术绝对领先<br />
+2. AI芯片需求推动先进制程产能满载<br />
+3. 地缘政治下全球供应链重组受益者</p>
+<p><strong>两个风险点：</strong><br />
+1. 地缘政治风险（台湾地区）<br />
+2. 资本开支巨大，折旧压力</p>
+<h3>6. <strong>林氏研究 (LRCX)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 半导体设备龙头，受益于全球芯片产能扩张<br />
+2. 技术壁垒高，客户粘性强<br />
+3. 存储芯片复苏推动设备需求</p>
+<p><strong>两个风险点：</strong><br />
+1. 半导体周期波动影响设备订单<br />
+2. 地缘政治影响对华设备销售</p>
+<h3>7. <strong>Meta Platforms (META)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 广告业务复苏，AI提升广告效率<br />
+2. Reality Labs元宇宙业务长期潜力<br />
+3. 现金流充裕，大规模股票回购</p>
+<p><strong>两个风险点：</strong><br />
+1. 监管风险持续存在<br />
+2. 元宇宙业务投入巨大，短期难盈利</p>
+<h3>8. <strong>联合健康 (UNH)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 美国最大医疗保险提供商<br />
+2. 医疗服务和保险业务协同效应<br />
+3. 老龄化趋势支撑长期增长</p>
+<p><strong>两个风险点：</strong><br />
+1. 医疗政策变化风险<br />
+2. 医疗成本控制压力</p>
+<h3>9. <strong>必和必拓 (BHP)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 全球最大矿业公司，多元化资源组合<br />
+2. 铜等关键金属受益于能源转型<br />
+3. 股息收益率有吸引力</p>
+<p><strong>两个风险点：</strong><br />
+1. 大宗商品价格波动<br />
+2. 运营成本上升和环保压力</p>
+<h3>10. <strong>沃尔玛 (WMT)</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 消费必需品零售龙头，抗周期性强<br />
+2. 电商业务快速增长<br />
+3. 通胀环境下定价能力强</p>
+<p><strong>两个风险点：</strong><br />
+1. 劳动力成本上升压力<br />
+2. 电商竞争激烈</p>
+<h2>5. 当前"买入"评级的五支持仓股票</h2>
+<p>基于当前市场状况和投资价值分析，我推荐以下五支股票作为当前持仓：</p>
 <ol>
-<li><strong>TSN 泰森食品</strong> - 食品防御，估值合理</li>
-<li><strong>PKX 浦项钢铁</strong> - 周期底部，严重低估</li>
-<li><strong>TXRH 德州公路酒吧</strong> - 成长强劲，运营优秀</li>
-<li><strong>NOG Northern Oil &amp; Gas</strong> - 资源对冲，油价受益</li>
-<li><strong>PUK 英国保诚</strong> - 金融稳定，股息收益</li>
+<li><strong>AMD (美国超微公司)</strong> - AI芯片第二龙头，估值相对合理</li>
+<li><strong>CCJ (Cameco Corp)</strong> - 铀矿龙头，核能复兴核心受益者  </li>
+<li><strong>HCA (HCA控股)</strong> - 医疗防御股，老龄化趋势受益</li>
+<li><strong>LRCX (林氏研究公司)</strong> - 半导体设备龙头，技术壁垒高</li>
+<li><strong>META (Meta Platforms)</strong> - 广告复苏+AI应用，估值修复空间大</li>
 </ol>
-<p><strong>[recm][20260605][TSN,泰森食品;PKX,浦项钢铁;TXRH,德州公路酒吧;NOG,Northern Oil &amp; Gas;PUK,英国保诚集团]</strong></p>
-<p><strong>投资策略总结</strong>：<br />
-1. <strong>当前市场环境</strong>：美股"窄牛"格局，AI主线明确但板块分化<br />
-2. <strong>操作建议</strong>：以反弹策略为主，重点配置RSI低位、回撤较大的优质股<br />
-3. <strong>风险控制</strong>：保持25%现金仓位，设置严格止盈止损<br />
-4. <strong>关注拐点</strong>：密切跟踪VIX指数变化和市场广度指标</p>
-<p><strong>注意事项</strong>：<br />
-1. 每日更新持仓，根据RSI和成交量变化调整<br />
-2. 重点关注财报季后的回调买入机会<br />
-3. 资源类股票作为通胀对冲工具<br />
-4. 科技股需谨慎，等待更好的入场时机</p>
+<p><strong>[recm][20260606][AMD,美国超微公司;CCJ,Cameco Corp;HCA,HCA控股;LRCX,林氏研究公司;META,Meta Platforms]</strong></p>
+<h2>投资建议总结</h2>
+<p><strong>当前市场环境分析：</strong><br />
+- 美股市场处于高位震荡，风险偏好已达近五年最高<br />
+- 市场广度坍塌，指数上涨由少数权重股推动<br />
+- 恐慌指数VIX升至18.72，显示市场波动性增加<br />
+- 建议采取防御性配置，重点关注超跌反弹机会</p>
+<p><strong>操作策略：</strong><br />
+1. <strong>仓位控制</strong>：整体仓位建议控制在70-80%，保留20-30%现金应对可能回调<br />
+2. <strong>行业配置</strong>：超配半导体、医疗防御、资源类股票，低配高估值科技股<br />
+3. <strong>风险对冲</strong>：配置15% SQQQ或恐慌指数相关产品对冲市场下行风险<br />
+4. <strong>操作频率</strong>：每日监控持仓，设置严格止盈止损，避免追涨杀跌</p>
+<p><strong>风险提示：</strong><br />
+1. 美股市场估值处于历史高位，回调风险增加<br />
+2. 地缘政治不确定性可能引发市场波动<br />
+3. 高利率环境持续可能压制估值<br />
+4. 建议投资者根据自身风险承受能力调整仓位</p>
+<p><em>以上分析基于2026年6月6日市场信息，投资有风险，入市需谨慎。</em></p>
             </div>
         </body>
         </html>
