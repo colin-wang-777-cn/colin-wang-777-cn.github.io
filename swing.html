@@ -98,19 +98,13 @@
 
             <!-- 内容区域 -->
             <div class="card">
-                <p>基于当前美股市场状况和您提供的股票列表，我将为您提供全面的投资分析建议。首先，让我根据当前市场环境给出整体投资组合建议：</p>
-<h2>1. 整体投资组合配置建议</h2>
-<p><strong>当前市场环境分析：</strong><br />
-- 美股整体处于历史高位附近，道指创历史新高，标普和纳指逼近历史高点<br />
-- 就业数据走弱，加息预期降温，流动性压力缓解<br />
-- AI产业趋势未变，但部分科技股估值偏高<br />
-- 资源类股票受益于通胀预期和地缘政治因素</p>
-<p><strong>投资组合仓位配比：</strong></p>
+                <p>基于当前美股市场状况和您提供的股票列表，我为您提供以下详细分析和投资建议：</p>
+<h2>1. 投资组合整体仓位配比</h2>
 <table>
 <thead>
 <tr>
-<th>投资标的</th>
-<th>仓位配比</th>
+<th>标的</th>
+<th>仓位</th>
 <th>调仓策略</th>
 <th>当前投资价值</th>
 <th>风险</th>
@@ -121,51 +115,46 @@
 <tr>
 <td>现金</td>
 <td>20%</td>
-<td>市场回调时加仓</td>
-<td>高（等待机会）</td>
+<td>保持流动性，等待市场调整机会</td>
+<td>高（避险）</td>
 <td>低</td>
-<td>中等</td>
+<td>1:1（保值）</td>
 </tr>
 <tr>
 <td>反弹股票</td>
 <td>50%</td>
-<td>分批建仓，设置止损</td>
-<td>中等偏高</td>
-<td>中等</td>
-<td>较高</td>
+<td>分批建仓，RSI&lt;35优先，止损-8%</td>
+<td>中高（短期反弹机会）</td>
+<td>中</td>
+<td>2:1</td>
 </tr>
 <tr>
-<td>SQQQ（风险对冲）</td>
-<td>10%</td>
-<td>市场过热时增持</td>
-<td>中等</td>
+<td>风险对冲（SQQQ）</td>
+<td>15%</td>
+<td>科技股回调时增持，反弹时减持</td>
+<td>中（市场轮动）</td>
 <td>高</td>
-<td>中等</td>
+<td>1.5:1</td>
 </tr>
 <tr>
 <td>资源类股票</td>
-<td>20%</td>
-<td>长期持有，逢低加仓</td>
-<td>高</td>
-<td>中等</td>
-<td>高</td>
+<td>15%</td>
+<td>关注能源、贵金属，分批布局</td>
+<td>中（通胀对冲）</td>
+<td>中</td>
+<td>1.8:1</td>
 </tr>
 </tbody>
 </table>
-<p><strong>投资逻辑：</strong><br />
-- 现金仓位用于应对市场可能的技术性回调<br />
-- 反弹股票选择超跌且有基本面支撑的标的<br />
-- SQQQ作为对冲工具，应对科技股可能的回调<br />
-- 资源类股票受益于通胀和地缘政治因素</p>
-<h2>2. 股票题材聚类分析</h2>
-<p>根据您提供的股票列表，我将股票按题材进行分类：</p>
+<p><strong>整体策略</strong>：以反弹股票为主（50%），现金储备20%应对不确定性，风险对冲15%防范科技股回调，资源类15%对冲通胀风险。</p>
+<h2>2. 股票按题材聚类分析</h2>
 <table>
 <thead>
 <tr>
-<th>题材类别</th>
-<th>平均权重1(RSI)</th>
-<th>平均权重2(回撤)</th>
-<th>平均权重3(成交量比)</th>
+<th>题材</th>
+<th>平均RSI</th>
+<th>平均回撤</th>
+<th>平均成交量比</th>
 <th>短期投资价值</th>
 <th>风险</th>
 <th>驱动因素</th>
@@ -175,75 +164,63 @@
 </thead>
 <tbody>
 <tr>
-<td>科技/半导体</td>
-<td>38.2</td>
-<td>25.6</td>
-<td>1.45</td>
-<td>中等</td>
-<td>中等偏高</td>
-<td>AI需求、国产替代</td>
-<td>ORCL, GFS, MTSI</td>
-<td>谨慎配置，关注估值</td>
+<td><strong>能源/资源</strong></td>
+<td>34.2</td>
+<td>16.5</td>
+<td>1.6</td>
+<td>中高</td>
+<td>中</td>
+<td>油价波动、通胀预期</td>
+<td>CRGY, SM, YPF</td>
+<td>分批买入，关注油价走势</td>
 </tr>
 <tr>
-<td>能源/资源</td>
-<td>37.8</td>
-<td>20.3</td>
-<td>1.42</td>
-<td>高</td>
-<td>中等</td>
-<td>通胀预期、地缘政治</td>
-<td>CNQ, E, BTE</td>
-<td>重点配置，逢低加仓</td>
-</tr>
-<tr>
-<td>工业/材料</td>
-<td>36.5</td>
-<td>19.8</td>
-<td>1.38</td>
-<td>中等</td>
-<td>中等</td>
+<td><strong>工业/制造</strong></td>
+<td>33.5</td>
+<td>17.2</td>
+<td>1.4</td>
+<td>中</td>
+<td>中低</td>
 <td>经济复苏、基建投资</td>
-<td>LYB, MT, HP</td>
-<td>适度配置，关注周期</td>
+<td>SAIA, MLI, TS</td>
+<td>谨慎布局，关注经济数据</td>
 </tr>
 <tr>
-<td>医疗/生物</td>
-<td>42.5</td>
-<td>20.1</td>
-<td>1.85</td>
-<td>中等偏高</td>
-<td>中等</td>
-<td>创新药、老龄化</td>
-<td>AUPH, CMPS</td>
-<td>选择性配置</td>
+<td><strong>科技/半导体</strong></td>
+<td>35.7</td>
+<td>22.6</td>
+<td>1.5</td>
+<td>中高</td>
+<td>高</td>
+<td>AI需求、行业轮动</td>
+<td>CRUS, SWKS, AKAM</td>
+<td>等待回调，分批建仓</td>
 </tr>
 <tr>
-<td>新能源/清洁</td>
-<td>34.6</td>
-<td>36.4</td>
-<td>1.72</td>
-<td>中等</td>
-<td>偏高</td>
-<td>政策支持、技术突破</td>
-<td>PLUG, ENVX, EOSE</td>
-<td>谨慎配置，关注政策</td>
-</tr>
-<tr>
-<td>金融/通信</td>
-<td>35.4</td>
-<td>15.5</td>
-<td>1.32</td>
-<td>中等</td>
+<td><strong>公用事业/基建</strong></td>
+<td>34.4</td>
+<td>13.5</td>
+<td>1.3</td>
+<td>中</td>
 <td>低</td>
-<td>利率环境、5G建设</td>
-<td>RCI, VZ</td>
-<td>稳健配置</td>
+<td>稳定收益、通胀对冲</td>
+<td>BEP, IRM, WCC</td>
+<td>防御配置，稳定持有</td>
+</tr>
+<tr>
+<td><strong>新兴科技</strong></td>
+<td>37.3</td>
+<td>25.4</td>
+<td>1.7</td>
+<td>高</td>
+<td>高</td>
+<td>创新驱动、政策支持</td>
+<td>FLNC, CORZ, WULF</td>
+<td>小仓位博弈，严格止损</td>
 </tr>
 </tbody>
 </table>
-<h2>3. 具备投资价值的股票筛选</h2>
-<p>根据（机构持股≥30%，无减持、无暴雷、无退市风险）标准，筛选出以下股票：</p>
+<h2>3. 具备投资价值的20支股票筛选</h2>
 <table>
 <thead>
 <tr>
@@ -259,335 +236,305 @@
 </thead>
 <tbody>
 <tr>
-<td>ORCL</td>
-<td>甲骨文公司</td>
-<td>买入</td>
-<td>43.71%</td>
-<td>+15%</td>
+<td>SAIA</td>
+<td>SaiaInc.</td>
+<td>谨慎买入</td>
+<td>33.92%</td>
+<td>+12%</td>
 <td>-8%</td>
-<td>逢低加仓</td>
-<td>2026-06-11</td>
+<td>RSI&lt;30加仓</td>
+<td>2026-07-09</td>
 </tr>
 <tr>
-<td>CNQ</td>
-<td>加拿大自然资源公司</td>
+<td>BEP</td>
+<td>BrookfieldRenewable</td>
 <td>买入</td>
-<td>&gt;35%</td>
-<td>+20%</td>
+<td>39.26%</td>
+<td>+15%</td>
 <td>-10%</td>
 <td>长期持有</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>LYB</td>
-<td>利安德巴塞尔公司</td>
-<td>买入</td>
-<td>&gt;30%</td>
-<td>+18%</td>
-<td>-8%</td>
-<td>逢低加仓</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>MT</td>
-<td>安赛乐米塔尔</td>
-<td>买入</td>
-<td>&gt;30%</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>适度配置</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>GFS</td>
-<td>GLOBALFOUNDRIES</td>
-<td>持有</td>
-<td>&gt;30%</td>
-<td>+12%</td>
-<td>-10%</td>
-<td>观望</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>MTSI</td>
-<td>MACOM科技</td>
-<td>持有</td>
-<td>&gt;30%</td>
-<td>+15%</td>
-<td>-12%</td>
-<td>逢高减仓</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>RCI</td>
-<td>罗杰斯通信</td>
-<td>买入</td>
-<td>&gt;30%</td>
-<td>+10%</td>
-<td>-5%</td>
-<td>稳健配置</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>NOVT</td>
-<td>Novanta公司</td>
-<td>买入</td>
-<td>&gt;30%</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>逢低加仓</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>TFII</td>
-<td>TFI国际</td>
-<td>买入</td>
-<td>&gt;30%</td>
-<td>+12%</td>
-<td>-6%</td>
-<td>长期持有</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>HRI</td>
-<td>Herc控股</td>
-<td>买入</td>
-<td>&gt;30%</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>适度配置</td>
-<td>2026-07-07</td>
+<td>2026-07-09</td>
 </tr>
 <tr>
 <td>IRM</td>
 <td>铁山公司</td>
 <td>买入</td>
-<td>&gt;30%</td>
-<td>+10%</td>
-<td>-5%</td>
-<td>稳健配置</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>PLXS</td>
-<td>普雷克萨斯</td>
-<td>持有</td>
-<td>&gt;30%</td>
-<td>+12%</td>
-<td>-10%</td>
-<td>观望</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>AAON</td>
-<td>艾伦建材</td>
-<td>买入</td>
-<td>&gt;30%</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>逢低加仓</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>BG</td>
-<td>邦吉</td>
-<td>买入</td>
-<td>&gt;30%</td>
+<td>机构主导</td>
 <td>+18%</td>
+<td>-8%</td>
+<td>股息再投资</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>WCC</td>
+<td>西科国际</td>
+<td>买入</td>
+<td>机构主导</td>
+<td>+15%</td>
 <td>-10%</td>
-<td>长期持有</td>
-<td>2026-07-07</td>
+<td>分批建仓</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>CRUS</td>
+<td>凌云半导体</td>
+<td>谨慎买入</td>
+<td>45.80%</td>
+<td>+20%</td>
+<td>-12%</td>
+<td>回调买入</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>SWKS</td>
+<td>思佳讯</td>
+<td>观望</td>
+<td>机构主导</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>RSI&lt;30买入</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>SAP</td>
+<td>SAP</td>
+<td>买入</td>
+<td>机构主导</td>
+<td>+12%</td>
+<td>-8%</td>
+<td>长期配置</td>
+<td>2026-07-09</td>
 </tr>
 <tr>
 <td>SM</td>
-<td>SM能源</td>
+<td>SMEnergyCo.</td>
 <td>买入</td>
-<td>&gt;30%</td>
-<td>+20%</td>
-<td>-12%</td>
-<td>逢低加仓</td>
-<td>2026-07-07</td>
+<td>44.56%</td>
+<td>+25%</td>
+<td>-15%</td>
+<td>油价相关</td>
+<td>2026-07-09</td>
 </tr>
 <tr>
-<td>E</td>
-<td>埃尼石油</td>
-<td>买入</td>
-<td>&gt;30%</td>
+<td>MLI</td>
+<td>木勒工业</td>
+<td>谨慎买入</td>
+<td>机构主导</td>
 <td>+15%</td>
-<td>-8%</td>
-<td>适度配置</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>EQNR</td>
-<td>Equinor</td>
-<td>买入</td>
-<td>&gt;30%</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>逢低加仓</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>OLN</td>
-<td>欧林</td>
-<td>持有</td>
-<td>&gt;30%</td>
-<td>+12%</td>
 <td>-10%</td>
-<td>观望</td>
-<td>2026-07-07</td>
+<td>经济复苏</td>
+<td>2026-07-09</td>
 </tr>
 <tr>
-<td>UMC</td>
-<td>联华电子</td>
-<td>持有</td>
-<td>&gt;30%</td>
-<td>+10%</td>
-<td>-8%</td>
-<td>逢高减仓</td>
-<td>2026-07-07</td>
-</tr>
-<tr>
-<td>ZETA</td>
-<td>Zeta全球</td>
+<td>AMN</td>
+<td>AMNHealthcare</td>
 <td>买入</td>
-<td>&gt;30%</td>
+<td>机构主导</td>
+<td>+18%</td>
+<td>-10%</td>
+<td>医疗刚需</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>ERIC</td>
+<td>爱立信</td>
+<td>观望</td>
+<td>机构主导</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>5G周期</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>RCI</td>
+<td>罗杰斯通信</td>
+<td>买入</td>
+<td>机构主导</td>
+<td>+12%</td>
+<td>-8%</td>
+<td>防御配置</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>TX</td>
+<td>特尔尼翁钢铁</td>
+<td>谨慎买入</td>
+<td>机构主导</td>
 <td>+20%</td>
 <td>-12%</td>
-<td>逢低加仓</td>
-<td>2026-07-07</td>
+<td>基建投资</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>BKR</td>
+<td>BakerHughes</td>
+<td>买入</td>
+<td>机构主导</td>
+<td>+18%</td>
+<td>-10%</td>
+<td>能源服务</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>PRLB</td>
+<td>ProtoLabs</td>
+<td>观望</td>
+<td>机构主导</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>3D打印</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>FLNC</td>
+<td>FluenceEnergy</td>
+<td>高风险买入</td>
+<td>机构主导</td>
+<td>+30%</td>
+<td>-20%</td>
+<td>AI电力基建</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>CORZ</td>
+<td>CoreScientific</td>
+<td>高风险观望</td>
+<td>机构主导</td>
+<td>+40%</td>
+<td>-25%</td>
+<td>加密货币</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>VIST</td>
+<td>VistaEnergy</td>
+<td>买入</td>
+<td>机构主导</td>
+<td>+25%</td>
+<td>-15%</td>
+<td>拉美能源</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>SNX</td>
+<td>新聚思</td>
+<td>谨慎买入</td>
+<td>机构主导</td>
+<td>+15%</td>
+<td>-10%</td>
+<td>供应链</td>
+<td>2026-07-09</td>
+</tr>
+<tr>
+<td>FPS</td>
+<td>ForgentPower</td>
+<td>高风险观望</td>
+<td>机构主导</td>
+<td>+30%</td>
+<td>-20%</td>
+<td>电力设备</td>
+<td>2026-07-09</td>
 </tr>
 </tbody>
 </table>
-<p><em>注：机构持仓数据基于公开信息估算，具体以最新财报为准</em></p>
-<h2>4. 优选十支股票深度分析</h2>
-<h3>1. <strong>ORCL（甲骨文公司）</strong></h3>
+<h2>4. 优选10支股票详细分析</h2>
+<h3>1. <strong>BEP - Brookfield Renewable Partners LP</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. AI云基础设施业务爆发式增长，Q4营收同比增长93%<br />
-2. 待履约收入(RPO)达6380亿美元，锁定未来数年高确定性收入<br />
-3. 机构持股比例高，流动性好，股息收益率1.04%</p>
+1. <strong>稳定现金流</strong>：可再生能源项目提供长期稳定现金流，股息收益率有吸引力<br />
+2. <strong>行业龙头地位</strong>：全球领先的可再生能源平台，项目储备丰富<br />
+3. <strong>政策支持</strong>：全球能源转型趋势下的核心受益者</p>
 <p><strong>两个风险点：</strong><br />
-1. 自由现金流为负237亿美元，融资需求大可能稀释股东权益<br />
-2. 估值偏高，对AI业务预期已充分反映</p>
-<h3>2. <strong>CNQ（加拿大自然资源公司）</strong></h3>
+1. <strong>利率敏感</strong>：高负债结构对利率变化敏感<br />
+2. <strong>项目开发风险</strong>：新项目审批和建设存在不确定性</p>
+<h3>2. <strong>IRM - 铁山公司</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. 受益于能源价格上涨，通胀环境下资源股有优势<br />
-2. 现金流强劲，股息政策稳定<br />
-3. 机构持股比例高，估值相对合理</p>
+1. <strong>数字化转型</strong>：从传统存储向数据服务转型，增长空间大<br />
+2. <strong>稳定现金流</strong>：传统业务提供稳定现金流，支持转型投资<br />
+3. <strong>数据中心业务</strong>：AI驱动下数据中心需求旺盛</p>
 <p><strong>两个风险点：</strong><br />
-1. 能源价格波动风险<br />
-2. ESG政策压力可能影响长期发展</p>
-<h3>3. <strong>LYB（利安德巴塞尔公司）</strong></h3>
+1. <strong>转型执行风险</strong>：数字化转型需要时间和资本投入<br />
+2. <strong>竞争加剧</strong>：数据中心市场竞争激烈</p>
+<h3>3. <strong>WCC - 西科国际有限公司</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. 全球化工龙头，受益于经济复苏<br />
-2. 成本控制能力强，利润率稳定<br />
-3. 机构持股比例高，股息有保障</p>
+1. <strong>供应链优势</strong>：工业分销龙头，受益于制造业复苏<br />
+2. <strong>稳定增长</strong>：过去几年保持稳定增长<br />
+3. <strong>分析师看好</strong>：11位分析师中9位给予买入评级</p>
 <p><strong>两个风险点：</strong><br />
-1. 化工行业周期性风险<br />
-2. 原材料价格波动影响成本</p>
-<h3>4. <strong>MT（安赛乐米塔尔）</strong></h3>
+1. <strong>经济周期敏感</strong>：工业品需求与经济周期高度相关<br />
+2. <strong>利润率压力</strong>：分销行业竞争激烈</p>
+<h3>4. <strong>SM - SM Energy Co.</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. 全球钢铁龙头，受益于基建投资<br />
-2. 估值相对合理，机构持股比例高<br />
-3. 行业整合能力强，市场地位稳固</p>
+1. <strong>油价敏感度高</strong>：油价上涨时弹性大<br />
+2. <strong>成本控制良好</strong>：运营效率较高<br />
+3. <strong>机构持仓集中</strong>：BlackRock等大机构重仓</p>
 <p><strong>两个风险点：</strong><br />
-1. 钢铁行业周期性明显<br />
-2. 环保政策压力</p>
-<h3>5. <strong>BG（邦吉）</strong></h3>
+1. <strong>油价波动风险</strong>：业绩高度依赖油价<br />
+2. <strong>环保压力</strong>：传统能源面临转型压力</p>
+<h3>5. <strong>CRUS - 凌云半导体</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. 全球农业巨头，受益于粮食价格上涨<br />
-2. 通胀环境下农产品有天然对冲作用<br />
-3. 机构持股比例高，业务稳定</p>
+1. <strong>智能手机周期</strong>：受益于智能手机升级周期<br />
+2. <strong>音频芯片龙头</strong>：在音频芯片领域有技术优势<br />
+3. <strong>估值相对合理</strong>：相比其他半导体公司估值较低</p>
 <p><strong>两个风险点：</strong><br />
-1. 天气因素影响农产品产量<br />
-2. 国际贸易政策风险</p>
-<h3>6. <strong>SM（SM能源）</strong></h3>
+1. <strong>客户集中度高</strong>：依赖少数大客户<br />
+2. <strong>行业竞争激烈</strong>：半导体行业技术迭代快</p>
+<h3>6. <strong>SAIA - SaiaInc.</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. 美国页岩油生产商，受益于油价上涨<br />
-2. 成本控制能力强，生产效率高<br />
-3. 机构持股比例高，估值有吸引力</p>
+1. <strong>物流需求稳定</strong>：电商发展推动物流需求<br />
+2. <strong>区域优势</strong>：在美国特定区域有竞争优势<br />
+3. <strong>机构认可</strong>：多家知名机构持仓</p>
 <p><strong>两个风险点：</strong><br />
-1. 油价波动风险大<br />
-2. 页岩油开采成本较高</p>
-<h3>7. <strong>NOVT（Novanta公司）</strong></h3>
+1. <strong>经济放缓影响</strong>：经济衰退时物流需求下降<br />
+2. <strong>成本压力</strong>：燃料和人工成本上涨</p>
+<h3>7. <strong>AMN - AMN Healthcare Services Inc.</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. 精密运动控制技术领先，受益于工业自动化趋势<br />
-2. 毛利率高，技术壁垒强<br />
-3. 机构持股比例高，成长性确定</p>
+1. <strong>医疗刚需</strong>：医疗人员短缺提供持续需求<br />
+2. <strong>行业整合者</strong>：医疗人力资源行业龙头<br />
+3. <strong>稳定增长</strong>：过去几年保持稳定增长</p>
 <p><strong>两个风险点：</strong><br />
-1. 估值偏高<br />
-2. 下游需求波动风险</p>
-<h3>8. <strong>TFII（TFI国际）</strong></h3>
+1. <strong>政策风险</strong>：医疗政策变化影响需求<br />
+2. <strong>竞争加剧</strong>：行业进入门槛相对较低</p>
+<h3>8. <strong>FLNC - Fluence Energy Inc.</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. 北美物流龙头，受益于电商发展<br />
-2. 并购整合能力强，市场份额提升<br />
-3. 机构持股比例高，现金流稳定</p>
+1. <strong>AI电力基建</strong>：AI数据中心电力稳定需求<br />
+2. <strong>技术合作</strong>：与西门子、英伟达深度合作<br />
+3. <strong>行业增长</strong>：储能市场快速增长</p>
 <p><strong>两个风险点：</strong><br />
-1. 经济周期影响物流需求<br />
-2. 燃料成本波动风险</p>
-<h3>9. <strong>HRI（Herc控股）</strong></h3>
+1. <strong>尚未盈利</strong>：公司目前仍处于亏损状态<br />
+2. <strong>竞争激烈</strong>：储能行业竞争白热化</p>
+<h3>9. <strong>VIST - Vista Energy SAB de CV</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. 设备租赁龙头，受益于基建投资<br />
-2. 轻资产模式，ROE高<br />
-3. 机构持股比例高，股息稳定</p>
+1. <strong>拉美能源机会</strong>：拉美地区能源需求增长<br />
+2. <strong>资源丰富</strong>：在阿根廷有丰富油气资源<br />
+3. <strong>估值优势</strong>：相比国际同行有估值优势</p>
 <p><strong>两个风险点：</strong><br />
-1. 设备更新周期风险<br />
-2. 利率上升增加融资成本</p>
-<h3>10. <strong>ZETA（Zeta全球）</strong></h3>
+1. <strong>政治风险</strong>：拉美地区政治环境不稳定<br />
+2. <strong>汇率风险</strong>：当地货币波动影响业绩</p>
+<h3>10. <strong>BKR - Baker Hughes Co.</strong></h3>
 <p><strong>三个投资价值：</strong><br />
-1. 营销科技领先，受益于数字化转型<br />
-2. 增长速度快，市场份额提升<br />
-3. 机构持股比例高，估值有提升空间</p>
+1. <strong>能源服务龙头</strong>：全球领先的能源技术服务商<br />
+2. <strong>能源转型布局</strong>：在新能源领域有技术储备<br />
+3. <strong>现金流稳定</strong>：服务业务提供稳定现金流</p>
 <p><strong>两个风险点：</strong><br />
-1. 竞争激烈，技术更新快<br />
-2. 客户集中度风险</p>
-<h2>5. 当前"买入"评级持仓推荐</h2>
-<p>基于当前市场状况和股票分析，推荐以下五支股票作为当前持仓：</p>
-<table>
-<thead>
-<tr>
-<th>股票代码</th>
-<th>股票名称</th>
-<th>推荐理由</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CNQ</td>
-<td>加拿大自然资源公司</td>
-<td>资源股龙头，通胀对冲，机构持股高</td>
-</tr>
-<tr>
-<td>LYB</td>
-<td>利安德巴塞尔公司</td>
-<td>化工龙头，经济复苏受益，估值合理</td>
-</tr>
-<tr>
-<td>BG</td>
-<td>邦吉</td>
-<td>农业巨头，粮食安全概念，抗通胀</td>
-</tr>
-<tr>
-<td>TFII</td>
-<td>TFI国际</td>
-<td>物流龙头，电商受益，现金流稳定</td>
-</tr>
-<tr>
-<td>HRI</td>
-<td>Herc控股</td>
-<td>设备租赁龙头，基建受益，ROE高</td>
-</tr>
-</tbody>
-</table>
-<p><strong>[recm][20260708][CNQ,加拿大自然资源公司;LYB,利安德巴塞尔公司;BG,邦吉;TFII,TFI国际;HRI,Herc控股]</strong></p>
+1. <strong>油价周期敏感</strong>：业绩受油气投资周期影响<br />
+2. <strong>转型挑战</strong>：传统能源向新能源转型需要时间</p>
+<h2>5. 当前"买入"评级五支持仓股票</h2>
+<p>基于当前市场状况和股票分析，我推荐以下五支股票作为当前持仓：</p>
+<ol>
+<li><strong>BEP - Brookfield Renewable Partners LP</strong>（可再生能源，稳定收益）</li>
+<li><strong>IRM - 铁山公司</strong>（数字化转型，稳定现金流）</li>
+<li><strong>WCC - 西科国际有限公司</strong>（工业复苏，分析师看好）</li>
+<li><strong>SM - SM Energy Co.</strong>（能源板块，油价弹性）</li>
+<li><strong>AMN - AMN Healthcare Services Inc.</strong>（医疗刚需，稳定增长）</li>
+</ol>
+<p><strong>[recm][20260709][BEP,BrookfieldRenewablePartnersLP;IRM,铁山公司;WCC,西科国际有限公司;SM,SMEnergyCo.;AMN,AMNHealthcareServicesInc.]</strong></p>
 <p><strong>投资建议总结：</strong><br />
-1. 当前市场处于高位，建议保持谨慎乐观态度<br />
-2. 重点关注资源类和价值型股票，对冲通胀风险<br />
-3. 科技股建议等待更好的入场时机<br />
-4. 严格控制仓位，设置止损止盈<br />
-5. 每日关注市场动态，灵活调整持仓</p>
-<p><strong>风险提示：</strong> 股市有风险，投资需谨慎。以上分析仅供参考，不构成投资建议。</p>
+1. 当前市场处于板块轮动阶段，建议分散配置<br />
+2. 重点关注有稳定现金流和机构持仓的股票<br />
+3. 设置严格的止盈止损，控制风险<br />
+4. 保持20%现金仓位，等待更好的入场机会<br />
+5. 每日关注市场变化，及时调整仓位</p>
+<p><strong>风险提示：</strong> 美股市场波动较大，建议投资者根据自身风险承受能力调整仓位，以上建议仅供参考，不构成投资建议。</p>
             </div>
         </body>
         </html>
