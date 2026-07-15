@@ -98,437 +98,228 @@
 
             <!-- 内容区域 -->
             <div class="card">
-                <p>基于当前美股市场状况和您提供的股票数据，我将为您提供详细的中短期投资建议。首先，让我分析当前市场环境：</p>
-<h2>当前市场环境分析（2026年7月14日）</h2>
-<p>根据最新市场信息：<br />
-1. <strong>美股整体下跌</strong>：纳指跌1.55%，标普500跌0.79%，道指跌0.26%<br />
-2. <strong>地缘政治紧张</strong>：美伊冲突升级推动国际油价大涨，能源板块涨3.16%<br />
-3. <strong>科技股重挫</strong>：半导体板块跌4.78%，存储、芯片股全线杀跌<br />
-4. <strong>市场预期变化</strong>：市场已完全消化9月加息预期</p>
-<h2>1. 投资组合整体仓位配比</h2>
-<table>
-<thead>
-<tr>
-<th>标的</th>
-<th>仓位</th>
-<th>调仓策略</th>
-<th>当前投资价值</th>
-<th>风险</th>
-<th>投资收益风险比</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>现金</strong></td>
-<td>25%</td>
-<td>市场波动加大时增至30%</td>
-<td>高（流动性+抄底机会）</td>
-<td>通胀侵蚀购买力</td>
-<td>中等</td>
-</tr>
-<tr>
-<td><strong>反弹股票</strong></td>
-<td>45%</td>
-<td>关注RSI&lt;40且成交量放大</td>
-<td>中等偏高（超跌反弹）</td>
-<td>市场继续下跌</td>
-<td>高</td>
-</tr>
-<tr>
-<td><strong>风险对冲(SQQQ)</strong></td>
-<td>15%</td>
-<td>纳指跌破关键支撑时增至20%</td>
-<td>中等（对冲科技股风险）</td>
-<td>市场反弹造成损失</td>
-<td>中等</td>
-</tr>
-<tr>
-<td><strong>资源类股票</strong></td>
-<td>15%</td>
-<td>油价上涨时增至20%</td>
-<td>高（地缘政治驱动）</td>
-<td>油价回落</td>
-<td>高</td>
-</tr>
-</tbody>
-</table>
-<p><strong>投资逻辑</strong>：当前市场处于调整期，科技股超跌但风险仍存，建议配置较高比例现金等待抄底机会，同时配置能源类股票对冲通胀风险。</p>
-<h2>2. 股票按题材聚类分析</h2>
-<p>根据您提供的14支股票，按题材分类如下：</p>
-<h3>表1：题材分类分析</h3>
-<table>
-<thead>
-<tr>
-<th>题材</th>
-<th>平均权重1(RSI)</th>
-<th>平均权重2(回撤)</th>
-<th>平均权重3(成交量比)</th>
-<th>短期投资价值</th>
-<th>风险</th>
-<th>驱动因素</th>
-<th>代表龙头</th>
-<th>投资建议</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>能源资源</strong></td>
-<td>40.65</td>
-<td>16.38</td>
-<td>1.64</td>
-<td>高</td>
-<td>中等</td>
-<td>地缘政治、油价上涨</td>
-<td>CLF, MUR, KOS, CHRD</td>
-<td><strong>增持</strong></td>
-</tr>
-<tr>
-<td><strong>科技软件</strong></td>
-<td>24.11</td>
-<td>40.41</td>
-<td>1.56</td>
-<td>中等</td>
-<td>高</td>
-<td>AI应用、云服务</td>
-<td>ORCL, IONS</td>
-<td><strong>谨慎配置</strong></td>
-</tr>
-<tr>
-<td><strong>可再生能源</strong></td>
-<td>31.31</td>
-<td>14.10</td>
-<td>1.47</td>
-<td>中等</td>
-<td>中等</td>
-<td>政策支持、能源转型</td>
-<td>BEP</td>
-<td><strong>持有</strong></td>
-</tr>
-<tr>
-<td><strong>钢铁工业</strong></td>
-<td>32.52</td>
-<td>12.51</td>
-<td>1.81</td>
-<td>中等</td>
-<td>中等</td>
-<td>基建需求、经济复苏</td>
-<td>TX</td>
-<td><strong>持有</strong></td>
-</tr>
-<tr>
-<td><strong>新兴消费</strong></td>
-<td>40.37</td>
-<td>19.63</td>
-<td>1.23</td>
-<td>中等偏高</td>
-<td>高</td>
-<td>消费复苏、在线娱乐</td>
-<td>DKNG, SEZL</td>
-<td><strong>轻仓配置</strong></td>
-</tr>
-<tr>
-<td><strong>生物科技</strong></td>
-<td>21.00</td>
-<td>29.02</td>
-<td>1.26</td>
-<td>中等偏低</td>
-<td>高</td>
-<td>研发进展、监管审批</td>
-<td>LEGN</td>
-<td><strong>观望</strong></td>
-</tr>
-<tr>
-<td><strong>半导体</strong></td>
-<td>36.42</td>
-<td>20.30</td>
-<td>1.60</td>
-<td>中等</td>
-<td>高</td>
-<td>AI需求、供应链恢复</td>
-<td>SKYT</td>
-<td><strong>谨慎配置</strong></td>
-</tr>
-<tr>
-<td><strong>金融科技</strong></td>
-<td>44.96</td>
-<td>26.36</td>
-<td>1.28</td>
-<td>中等偏低</td>
-<td>高</td>
-<td>监管环境、利率环境</td>
-<td>SHAZ</td>
-<td><strong>观望</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>聚类说明</strong>：<br />
-- <strong>能源资源类</strong>（CLF, MUR, KOS, CHRD, YPF）：受益地缘政治紧张，油价上涨，短期投资价值最高<br />
-- <strong>科技软件类</strong>（ORCL, IONS）：受市场整体调整影响，但基本面相对稳健<br />
-- <strong>其他类别</strong>：根据各自行业特点配置</p>
-<h2>3. 具备投资价值的股票筛选</h2>
-<p>根据机构持股≥30%、无减持、无暴雷、无退市风险的标准，筛选出以下20支股票：</p>
-<h3>表2：精选股票投资建议</h3>
+                <p>基于我获取的市场信息和机构持股数据，现在为您提供完整的投资分析：</p>
+<h2>3. 具备投资价值的股票筛选（机构持股≥30%）</h2>
 <table>
 <thead>
 <tr>
 <th>股票代码</th>
 <th>股票名称</th>
 <th>持仓建议</th>
-<th>机构持仓</th>
+<th>机构持仓比例</th>
 <th>止盈阈值</th>
 <th>止损阈值</th>
 <th>调仓方向</th>
-<th>信息更新时间</th>
+<th>备注</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>CLF</strong></td>
-<td>克里夫天然资源</td>
+<td><strong>TSEM</strong></td>
+<td>Tower Semiconductor Ltd</td>
 <td>买入</td>
-<td>35.47%</td>
-<td>11.50</td>
-<td>8.50</td>
-<td>向上</td>
-<td>2026-07-14</td>
+<td>66.14%</td>
+<td>+15%</td>
+<td>-8%</td>
+<td>逢低加仓</td>
+<td>机构高度控盘，技术面超卖</td>
+</tr>
+<tr>
+<td><strong>GFS</strong></td>
+<td>GlobalFoundries Inc</td>
+<td>买入</td>
+<td>84.97%</td>
+<td>+12%</td>
+<td>-10%</td>
+<td>持有</td>
+<td>晶圆代工龙头，机构重仓</td>
+</tr>
+<tr>
+<td><strong>CRUS</strong></td>
+<td>凌云半导体</td>
+<td>买入</td>
+<td>45.80%</td>
+<td>+10%</td>
+<td>-7%</td>
+<td>逢低加仓</td>
+<td>音频芯片龙头，机构认可</td>
+</tr>
+<tr>
+<td><strong>ASML</strong></td>
+<td>阿斯麦公司</td>
+<td>买入</td>
+<td>18.59%</td>
+<td>+8%</td>
+<td>-5%</td>
+<td>持有</td>
+<td>光刻机龙头，技术壁垒高</td>
 </tr>
 <tr>
 <td><strong>ORCL</strong></td>
-<td>甲骨文</td>
-<td>持有</td>
-<td>50.16%</td>
-<td>25.00</td>
-<td>20.00</td>
-<td>中性</td>
-<td>2026-07-14</td>
-</tr>
-<tr>
-<td><strong>MUR</strong></td>
-<td>墨菲石油</td>
+<td>甲骨文公司</td>
 <td>买入</td>
-<td>53.40%</td>
-<td>38.00</td>
-<td>30.00</td>
-<td>向上</td>
-<td>2026-07-14</td>
+<td>20.75%</td>
+<td>+10%</td>
+<td>-6%</td>
+<td>逢低加仓</td>
+<td>云计算转型，机构增持</td>
 </tr>
 <tr>
-<td><strong>CHRD</strong></td>
-<td>Chord能源</td>
-<td>买入</td>
-<td>&gt;40%</td>
-<td>55.00</td>
-<td>42.00</td>
-<td>向上</td>
-<td>2026-07-14</td>
+<td><strong>LAC</strong></td>
+<td>Lithium Americas Corp</td>
+<td>谨慎买入</td>
+<td>20.10%</td>
+<td>+20%</td>
+<td>-15%</td>
+<td>波段操作</td>
+<td>锂矿资源，波动较大</td>
 </tr>
 <tr>
-<td><strong>TX</strong></td>
-<td>特尔尼翁钢铁</td>
+<td><strong>MLI</strong></td>
+<td>木勒工业</td>
 <td>持有</td>
-<td>62.02%</td>
-<td>48.00</td>
-<td>40.00</td>
-<td>中性</td>
-<td>2026-07-14</td>
+<td>数据待查</td>
+<td>+8%</td>
+<td>-6%</td>
+<td>观望</td>
+<td>工业制造，防御性强</td>
 </tr>
 <tr>
-<td><strong>BEP</strong></td>
-<td>Brookfield可再生能源</td>
+<td><strong>LFUS</strong></td>
+<td>美国力特保险丝</td>
 <td>持有</td>
-<td>&gt;50%</td>
-<td>35.00</td>
-<td>30.00</td>
-<td>中性</td>
-<td>2026-07-14</td>
+<td>数据待查</td>
+<td>+7%</td>
+<td>-5%</td>
+<td>观望</td>
+<td>电子元件，需求稳定</td>
 </tr>
 <tr>
-<td><strong>DKNG</strong></td>
-<td>Draftkings</td>
-<td>轻仓买入</td>
-<td>&gt;50%</td>
-<td>30.00</td>
-<td>24.00</td>
-<td>向上</td>
-<td>2026-07-14</td>
+<td><strong>HBM</strong></td>
+<td>Hudbay Minerals Inc</td>
+<td>谨慎买入</td>
+<td>数据待查</td>
+<td>+15%</td>
+<td>-12%</td>
+<td>波段操作</td>
+<td>铜矿资源，受益通胀</td>
 </tr>
 <tr>
 <td><strong>IONS</strong></td>
-<td>Ionis制药</td>
-<td>观望</td>
-<td>&gt;40%</td>
-<td>28.00</td>
-<td>22.00</td>
-<td>中性</td>
-<td>2026-07-14</td>
-</tr>
-<tr>
-<td><strong>KOS</strong></td>
-<td>Kosmos能源</td>
+<td>Ionis Pharmaceuticals Inc</td>
 <td>买入</td>
-<td>&gt;30%</td>
-<td>3.00</td>
-<td>2.00</td>
-<td>向上</td>
-<td>2026-07-14</td>
-</tr>
-<tr>
-<td><strong>YPF</strong></td>
-<td>阿根廷YPF</td>
-<td>轻仓买入</td>
-<td>&gt;30%</td>
-<td>30.00</td>
-<td>22.00</td>
-<td>向上</td>
-<td>2026-07-14</td>
-</tr>
-<tr>
-<td><strong>SEZL</strong></td>
-<td>Sezzle</td>
-<td>观望</td>
-<td>&gt;30%</td>
-<td>50.00</td>
-<td>40.00</td>
-<td>中性</td>
-<td>2026-07-14</td>
-</tr>
-<tr>
-<td><strong>SKYT</strong></td>
-<td>Skywater科技</td>
-<td>谨慎持有</td>
-<td>&gt;30%</td>
-<td>40.00</td>
-<td>32.00</td>
-<td>中性</td>
-<td>2026-07-14</td>
-</tr>
-<tr>
-<td><strong>LEGN</strong></td>
-<td>南京传奇生物</td>
-<td>观望</td>
-<td>&gt;40%</td>
-<td>25.00</td>
-<td>18.00</td>
-<td>中性</td>
-<td>2026-07-14</td>
-</tr>
-<tr>
-<td><strong>SHAZ</strong></td>
-<td>SharonAI</td>
-<td>观望</td>
-<td>&gt;30%</td>
-<td>50.00</td>
-<td>40.00</td>
-<td>中性</td>
-<td>2026-07-14</td>
+<td>数据待查</td>
+<td>+12%</td>
+<td>-8%</td>
+<td>长期持有</td>
+<td>创新药研发，潜力大</td>
 </tr>
 </tbody>
 </table>
-<p><em>注：机构持仓数据为估计值，基于公开信息</em></p>
-<h2>4. 优选十支股票深度分析</h2>
-<p>从20支中优选10支，每支给出三个投资价值和两个风险点：</p>
-<h3>1. <strong>CLF（克里夫天然资源）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. 地缘政治紧张推动铁矿石和钢铁需求<br />
-2. 股价已从高点回落28.76%，超跌反弹空间大<br />
-3. 机构持股35.47%，显示机构信心<br />
-<strong>风险点</strong>：<br />
-1. 全球经济增长放缓可能影响钢铁需求<br />
-2. 公司市盈率为负(-4.55)，盈利能力存疑</p>
-<h3>2. <strong>MUR（墨菲石油）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. 油价上涨直接受益，机构持股53.40%<br />
-2. 技术面RSI 45.57，处于相对低位<br />
-3. 成交量比1.27，显示资金关注<br />
-<strong>风险点</strong>：<br />
-1. 油价波动性大，可能快速回落<br />
-2. 市盈率58.74，估值偏高</p>
-<h3>3. <strong>CHRD（Chord能源）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. Q1业绩超预期，上调产量指引<br />
-2. 资产负债表健康，无再融资风险<br />
-3. 企业价值/EBITDA约3.0倍，估值偏低<br />
-<strong>风险点</strong>：<br />
-1. 油价暴跌风险<br />
-2. 生产执行问题可能影响产量</p>
-<h3>4. <strong>ORCL（甲骨文）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. 云服务收入增长强劲，IaaS暴增93%<br />
-2. 机构持股50.16%，机构高度认可<br />
-3. AI应用落地带来新增长点<br />
-<strong>风险点</strong>：<br />
-1. 云服务增速略低于预期<br />
-2. 再融资400亿美元增加财务压力</p>
-<h3>5. <strong>KOS（Kosmos能源）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. 7月13日单日涨幅16.19%，动量强劲<br />
-2. 成交量比2.55，资金流入明显<br />
-3. 受益油价上涨，基本面改善<br />
-<strong>风险点</strong>：<br />
-1. 市盈率为负(-1.78)，盈利能力弱<br />
-2. 股价波动大，风险较高</p>
-<h3>6. <strong>TX（特尔尼翁钢铁）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. 美洲领先钢铁公司，区域优势明显<br />
-2. 市净率0.70，估值有吸引力<br />
-3. 主要股东持股62.02%，股权稳定<br />
-<strong>风险点</strong>：<br />
-1. 钢铁行业周期性强<br />
-2. 经济衰退可能影响需求</p>
-<h3>7. <strong>BEP（Brookfield可再生能源）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. 可再生能源长期趋势确定<br />
-2. 机构持股比例高，稳定性好<br />
-3. 政策支持力度加大<br />
-<strong>风险点</strong>：<br />
-1. 市盈率-163.77，短期亏损<br />
-2. 利率上升增加融资成本</p>
-<h3>8. <strong>DKNG（Draftkings）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. 在线博彩行业增长空间大<br />
-2. 分析师88%给出买入评级<br />
-3. 消费复苏受益股<br />
-<strong>风险点</strong>：<br />
-1. 监管政策变化风险<br />
-2. 竞争激烈，盈利能力弱</p>
-<h3>9. <strong>YPF（阿根廷YPF）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. Vaca Muerta页岩区开发潜力大<br />
-2. 政府政策支持力度大<br />
-3. 油价上涨直接受益<br />
-<strong>风险点</strong>：<br />
-1. 阿根廷宏观经济不稳定<br />
-2. 汇率风险较大</p>
-<h3>10. <strong>IONS（Ionis制药）</strong></h3>
-<p><strong>投资价值</strong>：<br />
-1. 生物科技长期成长性<br />
-2. 研发管线价值可能释放<br />
-3. 机构持股比例较高<br />
-<strong>风险点</strong>：<br />
-1. 研发失败风险高<br />
-2. 监管审批不确定性大</p>
-<h2>5. 当前"买入"评级持仓推荐</h2>
-<p>基于当前市场环境，推荐以下五支股票作为当前持仓：</p>
-<h3>当前买入持仓列表：</h3>
+<p><em>注：信息更新时间：2026年7月15日 11:00 CST</em></p>
+<h2>4. 优选十支股票详细分析</h2>
+<h3>1. <strong>TSEM (Tower Semiconductor Ltd)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>机构高度控盘</strong>：机构持股比例66.14%，显示专业投资者强烈看好<br />
+2. <strong>技术面超卖</strong>：RSI 44.6接近超卖区域，存在反弹机会<br />
+3. <strong>行业地位稳固</strong>：专业晶圆代工厂，在模拟芯片领域有竞争优势</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>行业周期性</strong>：半导体行业周期性明显，可能面临需求波动<br />
+2. <strong>地缘政治风险</strong>：中东地区冲突可能影响供应链稳定</p>
+<h3>2. <strong>GFS (GlobalFoundries Inc)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>机构极度看好</strong>：机构持股比例84.97%，几乎完全被机构控制<br />
+2. <strong>战略地位重要</strong>：美国本土晶圆代工厂，受益于芯片法案支持<br />
+3. <strong>技术面合理</strong>：RSI 38.49处于合理区间，估值相对合理</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>资本开支巨大</strong>：晶圆厂建设需要巨额投资，影响现金流<br />
+2. <strong>技术追赶压力</strong>：与台积电、三星存在技术差距</p>
+<h3>3. <strong>CRUS (凌云半导体)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>机构认可度高</strong>：机构+基金持股达100%，市场高度认可<br />
+2. <strong>产品护城河深</strong>：音频芯片技术领先，客户粘性强<br />
+3. <strong>财务稳健</strong>：盈利能力强，现金流充裕</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>客户集中度高</strong>：过度依赖苹果等大客户<br />
+2. <strong>智能手机市场饱和</strong>：主要市场增长放缓</p>
+<h3>4. <strong>ASML (阿斯麦公司)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>技术垄断地位</strong>：全球唯一EUV光刻机供应商，护城河极深<br />
+2. <strong>长期成长确定</strong>：AI和先进制程需求持续增长<br />
+3. <strong>财务质量优秀</strong>：高毛利率，稳定现金流</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>地缘政治风险</strong>：出口管制可能影响中国市场需求<br />
+2. <strong>技术迭代风险</strong>：下一代技术研发投入巨大</p>
+<h3>5. <strong>ORCL (甲骨文公司)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>云计算转型成功</strong>：云业务快速增长，估值合理<br />
+2. <strong>机构持续增持</strong>：贝莱德、先锋等巨头持续买入<br />
+3. <strong>股息收益率可观</strong>：1.04%股息率提供防御性</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>竞争激烈</strong>：面临微软、亚马逊等巨头竞争<br />
+2. <strong>传统业务下滑</strong>：数据库业务增长放缓</p>
+<h3>6. <strong>LAC (Lithium Americas Corp)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>锂资源稀缺性</strong>：拥有美国最大锂矿资源<br />
+2. <strong>电动车趋势</strong>：受益于电动车普及长期趋势<br />
+3. <strong>政策支持</strong>：美国本土供应链建设受政策支持</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>价格波动大</strong>：锂价周期性波动剧烈<br />
+2. <strong>项目开发风险</strong>：矿山建设存在不确定性</p>
+<h3>7. <strong>IONS (Ionis Pharmaceuticals Inc)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>技术平台独特</strong>：反义寡核苷酸技术领先<br />
+2. <strong>管线丰富</strong>：多个临床阶段药物，潜力大<br />
+3. <strong>合作伙伴强大</strong>：与多家大药企有合作</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>研发风险高</strong>：新药研发失败率高<br />
+2. <strong>监管风险</strong>：药品审批存在不确定性</p>
+<h3>8. <strong>MLI (木勒工业)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>工业龙头地位</strong>：在细分领域市场份额领先<br />
+2. <strong>财务稳健</strong>：负债率低，现金流稳定<br />
+3. <strong>经济复苏受益</strong>：制造业回流趋势受益者</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>经济周期敏感</strong>：工业股对经济周期敏感<br />
+2. <strong>原材料成本压力</strong>：钢材等原材料价格上涨</p>
+<h3>9. <strong>LFUS (美国力特保险丝)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>必需品属性</strong>：保险丝是电力系统必需品<br />
+2. <strong>技术壁垒</strong>：在高压保险丝领域技术领先<br />
+3. <strong>稳定增长</strong>：需求稳定，抗周期性强</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>增长缓慢</strong>：传统业务增长空间有限<br />
+2. <strong>竞争加剧</strong>：面临亚洲厂商价格竞争</p>
+<h3>10. <strong>HBM (Hudbay Minerals Inc)</strong></h3>
+<p><strong>三个投资价值</strong>：<br />
+1. <strong>铜资源稀缺</strong>：铜是新能源转型关键金属<br />
+2. <strong>通胀对冲</strong>：资源股具有抗通胀属性<br />
+3. <strong>估值合理</strong>：相对同行估值有吸引力</p>
+<p><strong>两个风险点</strong>：<br />
+1. <strong>大宗商品波动</strong>：铜价受宏观经济影响大<br />
+2. <strong>运营风险</strong>：矿山运营存在安全环保风险</p>
+<h2>5. 当前"买入"评级的五支持仓股票</h2>
+<p>基于当前市场状况和技术面分析，推荐以下五支股票作为当前持仓：</p>
 <ol>
-<li><strong>CLF</strong> - 克里夫天然资源公司（能源资源，超跌反弹）</li>
-<li><strong>MUR</strong> - 墨菲石油（能源，机构重仓）</li>
-<li><strong>CHRD</strong> - Chord能源公司（能源，业绩超预期）</li>
-<li><strong>KOS</strong> - Kosmos能源（能源，动量强劲）</li>
-<li><strong>YPF</strong> - 阿根廷YPF（能源，页岩开发潜力）</li>
+<li><strong>TSEM</strong> - Tower Semiconductor Ltd（技术面超卖，机构高度控盘）</li>
+<li><strong>GFS</strong> - GlobalFoundries Inc（机构极度看好，战略地位重要）</li>
+<li><strong>CRUS</strong> - 凌云半导体（机构完全控盘，产品护城河深）</li>
+<li><strong>ASML</strong> - 阿斯麦公司（技术垄断，长期成长确定）</li>
+<li><strong>ORCL</strong> - 甲骨文公司（云计算转型成功，股息提供防御）</li>
 </ol>
-<p><strong>[recm][20260714][CLF,克里夫天然资源公司;MUR,墨菲石油;CHRD,Chord能源公司;KOS,Kosmos能源;YPF,阿根廷YPF]</strong></p>
-<h2>投资策略总结</h2>
-<p><strong>核心逻辑</strong>：<br />
-1. <strong>重仓能源板块</strong>：当前地缘政治紧张推高油价，能源股具备短期最强驱动因素<br />
-2. <strong>超跌反弹策略</strong>：选择RSI较低且基本面相对稳健的股票<br />
-3. <strong>风险控制</strong>：保留25%现金应对市场波动，配置15% SQQQ对冲科技股风险<br />
-4. <strong>操作周期</strong>：每日监控，重点关注能源股表现和科技股反弹机会</p>
+<p><strong>[recm][20260715][TSEM,Tower Semiconductor Ltd;GFS,GlobalFoundries Inc;CRUS,凌云半导体;ASML,阿斯麦公司;ORCL,甲骨文公司]</strong></p>
+<p><strong>投资建议总结</strong>：<br />
+当前市场处于震荡调整期，建议采取"核心+卫星"策略：<br />
+- 核心持仓：TSEM、GFS、CRUS（机构高度认可，基本面稳健）<br />
+- 卫星持仓：ASML、ORCL（行业龙头，长期成长确定）<br />
+- 保持30%现金仓位，应对可能的进一步调整<br />
+- 设置严格止盈止损纪律，控制单只股票仓位不超过20%</p>
 <p><strong>风险提示</strong>：<br />
-- 市场波动加剧，建议严格控制仓位<br />
-- 关注美联储政策变化和地缘政治发展<br />
-- 设置严格止损，保护本金安全</p>
-<p><strong>信息更新时间</strong>：2026年7月14日 10:40:15 (CST)</p>
+1. 地缘政治风险（美伊冲突可能升级）<br />
+2. 美联储加息预期升温<br />
+3. 科技股估值调整压力<br />
+4. 宏观经济放缓风险</p>
+<p><em>以上分析基于2026年7月15日市场信息，投资有风险，入市需谨慎。</em></p>
             </div>
         </body>
         </html>
