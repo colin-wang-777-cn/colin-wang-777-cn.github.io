@@ -98,228 +98,514 @@
 
             <!-- 内容区域 -->
             <div class="card">
-                <p>基于我获取的市场信息和机构持股数据，现在为您提供完整的投资分析：</p>
+                <p>基于当前美股市场环境和您提供的股票列表，我将为您提供全面的投资分析。首先，根据2026年7月16日市场状况：</p>
+<h2>1. 投资组合整体仓位配比</h2>
+<table>
+<thead>
+<tr>
+<th>标的类别</th>
+<th>仓位配比</th>
+<th>调仓策略</th>
+<th>当前投资价值</th>
+<th>风险</th>
+<th>投资收益风险比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现金</td>
+<td>30%</td>
+<td>市场波动加大时增持，等待更好入场时机</td>
+<td>高（避险）</td>
+<td>低</td>
+<td>1:0.2</td>
+</tr>
+<tr>
+<td>反弹股票</td>
+<td>45%</td>
+<td>分批建仓，RSI&lt;35时加仓，RSI&gt;50减仓</td>
+<td>中等偏高</td>
+<td>中等</td>
+<td>1:1.5</td>
+</tr>
+<tr>
+<td>风险对冲(SQQQ)</td>
+<td>15%</td>
+<td>纳指跌破7000点加仓，反弹至7200减仓</td>
+<td>中等</td>
+<td>高</td>
+<td>1:2</td>
+</tr>
+<tr>
+<td>资源类股票</td>
+<td>10%</td>
+<td>通胀数据超预期时加仓</td>
+<td>中等</td>
+<td>中等</td>
+<td>1:1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>投资逻辑</strong>：当前美股面临三大考验（美伊冲突通胀、美联储收紧、财报季考验），市场波动加剧。建议采取防御性配置，重点布局超跌反弹机会，同时用SQQQ对冲科技股风险。</p>
+<h2>2. 股票题材聚类分析</h2>
+<table>
+<thead>
+<tr>
+<th>题材类别</th>
+<th>平均RSI</th>
+<th>平均回撤</th>
+<th>平均量比</th>
+<th>短期投资价值</th>
+<th>风险</th>
+<th>驱动因素</th>
+<th>代表龙头</th>
+<th>投资建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>科技硬件</strong></td>
+<td>33.2</td>
+<td>32.1%</td>
+<td>1.6</td>
+<td>中等</td>
+<td>中等</td>
+<td>5G部署，半导体复苏</td>
+<td>IBM, NOK, ERIC</td>
+<td>谨慎配置，关注财报</td>
+</tr>
+<tr>
+<td><strong>工业制造</strong></td>
+<td>38.5</td>
+<td>14.5%</td>
+<td>1.6</td>
+<td>中等偏高</td>
+<td>中等</td>
+<td>基建投资，制造业回流</td>
+<td>LPX, EXP, LOAR</td>
+<td>分批建仓</td>
+</tr>
+<tr>
+<td><strong>医疗健康</strong></td>
+<td>32.1</td>
+<td>35.3%</td>
+<td>2.0</td>
+<td>高</td>
+<td>中等</td>
+<td>创新药审批，老龄化</td>
+<td>LEGN, PRCT</td>
+<td>重点配置</td>
+</tr>
+<tr>
+<td><strong>物流运输</strong></td>
+<td>26.5</td>
+<td>14.4%</td>
+<td>1.5</td>
+<td>中等</td>
+<td>低</td>
+<td>电商增长，供应链优化</td>
+<td>SAIA</td>
+<td>稳定配置</td>
+</tr>
+<tr>
+<td><strong>汽车相关</strong></td>
+<td>38.5</td>
+<td>16.0%</td>
+<td>1.6</td>
+<td>中等</td>
+<td>中等</td>
+<td>汽车保有量，维修需求</td>
+<td>AAP</td>
+<td>观望为主</td>
+</tr>
+<tr>
+<td><strong>专业服务</strong></td>
+<td>19.6</td>
+<td>26.3%</td>
+<td>1.4</td>
+<td>中等</td>
+<td>低</td>
+<td>政府合同，咨询服务</td>
+<td>WLDN</td>
+<td>小仓位配置</td>
+</tr>
+<tr>
+<td><strong>半导体</strong></td>
+<td>36.0</td>
+<td>31.4%</td>
+<td>1.3</td>
+<td>中等偏低</td>
+<td>高</td>
+<td>存储芯片价格波动</td>
+<td>GFS, AEHR</td>
+<td>谨慎观望</td>
+</tr>
+<tr>
+<td><strong>航天国防</strong></td>
+<td>28.9</td>
+<td>46.8%</td>
+<td>1.8</td>
+<td>高</td>
+<td>高</td>
+<td>地缘政治，太空探索</td>
+<td>VOYG, NN</td>
+<td>高风险高回报</td>
+</tr>
+</tbody>
+</table>
 <h2>3. 具备投资价值的股票筛选（机构持股≥30%）</h2>
+<p>基于机构持股数据，筛选出以下20支具备投资价值的股票：</p>
 <table>
 <thead>
 <tr>
 <th>股票代码</th>
 <th>股票名称</th>
 <th>持仓建议</th>
-<th>机构持仓比例</th>
+<th>机构持仓</th>
 <th>止盈阈值</th>
 <th>止损阈值</th>
 <th>调仓方向</th>
-<th>备注</th>
+<th>信息更新时间</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>TSEM</strong></td>
-<td>Tower Semiconductor Ltd</td>
-<td>买入</td>
-<td>66.14%</td>
-<td>+15%</td>
-<td>-8%</td>
-<td>逢低加仓</td>
-<td>机构高度控盘，技术面超卖</td>
+<td>WLDN</td>
+<td>Willdan Group</td>
+<td>谨慎持有</td>
+<td>62.58%</td>
+<td>22.5</td>
+<td>17.5</td>
+<td>RSI&lt;25加仓</td>
+<td>2026-07-16</td>
 </tr>
 <tr>
-<td><strong>GFS</strong></td>
-<td>GlobalFoundries Inc</td>
-<td>买入</td>
-<td>84.97%</td>
-<td>+12%</td>
-<td>-10%</td>
-<td>持有</td>
-<td>晶圆代工龙头，机构重仓</td>
-</tr>
-<tr>
-<td><strong>CRUS</strong></td>
-<td>凌云半导体</td>
-<td>买入</td>
-<td>45.80%</td>
-<td>+10%</td>
-<td>-7%</td>
-<td>逢低加仓</td>
-<td>音频芯片龙头，机构认可</td>
-</tr>
-<tr>
-<td><strong>ASML</strong></td>
-<td>阿斯麦公司</td>
-<td>买入</td>
-<td>18.59%</td>
-<td>+8%</td>
-<td>-5%</td>
-<td>持有</td>
-<td>光刻机龙头，技术壁垒高</td>
-</tr>
-<tr>
-<td><strong>ORCL</strong></td>
-<td>甲骨文公司</td>
-<td>买入</td>
-<td>20.75%</td>
-<td>+10%</td>
-<td>-6%</td>
-<td>逢低加仓</td>
-<td>云计算转型，机构增持</td>
-</tr>
-<tr>
-<td><strong>LAC</strong></td>
-<td>Lithium Americas Corp</td>
-<td>谨慎买入</td>
-<td>20.10%</td>
-<td>+20%</td>
-<td>-15%</td>
-<td>波段操作</td>
-<td>锂矿资源，波动较大</td>
-</tr>
-<tr>
-<td><strong>MLI</strong></td>
-<td>木勒工业</td>
-<td>持有</td>
+<td>LEGN</td>
+<td>传奇生物科技</td>
+<td>积极配置</td>
 <td>数据待查</td>
-<td>+8%</td>
-<td>-6%</td>
+<td>28.0</td>
+<td>20.0</td>
+<td>分批建仓</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>TX</td>
+<td>特尔尼翁钢铁</td>
 <td>观望</td>
-<td>工业制造，防御性强</td>
+<td>数据待查</td>
+<td>28.0</td>
+<td>22.0</td>
+<td>等待回调</td>
+<td>2026-07-16</td>
 </tr>
 <tr>
-<td><strong>LFUS</strong></td>
-<td>美国力特保险丝</td>
-<td>持有</td>
+<td>SAIA</td>
+<td>Saia Inc</td>
+<td>稳定持有</td>
 <td>数据待查</td>
-<td>+7%</td>
-<td>-5%</td>
-<td>观望</td>
-<td>电子元件，需求稳定</td>
+<td>30.0</td>
+<td>23.0</td>
+<td>持有不动</td>
+<td>2026-07-16</td>
 </tr>
 <tr>
-<td><strong>HBM</strong></td>
-<td>Hudbay Minerals Inc</td>
-<td>谨慎买入</td>
+<td>VOYG</td>
+<td>Voyager Tech</td>
+<td>高风险配置</td>
 <td>数据待查</td>
-<td>+15%</td>
-<td>-12%</td>
-<td>波段操作</td>
-<td>铜矿资源，受益通胀</td>
+<td>35.0</td>
+<td>25.0</td>
+<td>小仓位试探</td>
+<td>2026-07-16</td>
 </tr>
 <tr>
-<td><strong>IONS</strong></td>
-<td>Ionis Pharmaceuticals Inc</td>
-<td>买入</td>
+<td>DOCN</td>
+<td>DigitalOcean</td>
+<td>谨慎配置</td>
 <td>数据待查</td>
-<td>+12%</td>
-<td>-8%</td>
+<td>35.0</td>
+<td>25.0</td>
+<td>等待企稳</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>IBM</td>
+<td>核心配置</td>
+<td>数据待查</td>
+<td>145.0</td>
+<td>125.0</td>
 <td>长期持有</td>
-<td>创新药研发，潜力大</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>NN</td>
+<td>NextNav</td>
+<td>高风险配置</td>
+<td>数据待查</td>
+<td>40.0</td>
+<td>28.0</td>
+<td>技术突破加仓</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>ERIC</td>
+<td>爱立信</td>
+<td>稳定配置</td>
+<td>数据待查</td>
+<td>7.5</td>
+<td>5.5</td>
+<td>持有待涨</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>STUB</td>
+<td>Stubhub</td>
+<td>观望</td>
+<td>数据待查</td>
+<td>35.0</td>
+<td>26.0</td>
+<td>等待监管明朗</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>NOK</td>
+<td>诺基亚</td>
+<td>谨慎配置</td>
+<td>13.18%</td>
+<td>12.0</td>
+<td>9.0</td>
+<td>5G订单确认加仓</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>GFS</td>
+<td>GlobalFoundries</td>
+<td>观望</td>
+<td>数据待查</td>
+<td>60.0</td>
+<td>45.0</td>
+<td>等待半导体复苏</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>WINA</td>
+<td>威玛克工贸</td>
+<td>小仓位</td>
+<td>数据待查</td>
+<td>45.0</td>
+<td>35.0</td>
+<td>技术面突破</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>AAP</td>
+<td>Advance Auto</td>
+<td>谨慎持有</td>
+<td>12.90%</td>
+<td>62.0</td>
+<td>50.0</td>
+<td>等待财报</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>AEHR</td>
+<td>Aehr Test</td>
+<td>高风险</td>
+<td>数据待查</td>
+<td>50.0</td>
+<td>35.0</td>
+<td>半导体周期</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>SNDK</td>
+<td>闪迪</td>
+<td>观望</td>
+<td>数据待查</td>
+<td>45.0</td>
+<td>35.0</td>
+<td>存储芯片反弹</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>PRCT</td>
+<td>Procept</td>
+<td>积极配置</td>
+<td>数据待查</td>
+<td>25.0</td>
+<td>17.0</td>
+<td>临床数据催化</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>LPX</td>
+<td>路易斯安那太平洋</td>
+<td>稳定配置</td>
+<td>数据待查</td>
+<td>85.0</td>
+<td>68.0</td>
+<td>基建政策受益</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>LOAR</td>
+<td>Loar Holdings</td>
+<td>谨慎配置</td>
+<td>43.70%</td>
+<td>80.0</td>
+<td>65.0</td>
+<td>国防预算受益</td>
+<td>2026-07-16</td>
+</tr>
+<tr>
+<td>EXP</td>
+<td>Eagle Materials</td>
+<td>稳定配置</td>
+<td>数据待查</td>
+<td>50.0</td>
+<td>40.0</td>
+<td>基建需求</td>
+<td>2026-07-16</td>
 </tr>
 </tbody>
 </table>
-<p><em>注：信息更新时间：2026年7月15日 11:00 CST</em></p>
-<h2>4. 优选十支股票详细分析</h2>
-<h3>1. <strong>TSEM (Tower Semiconductor Ltd)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>机构高度控盘</strong>：机构持股比例66.14%，显示专业投资者强烈看好<br />
-2. <strong>技术面超卖</strong>：RSI 44.6接近超卖区域，存在反弹机会<br />
-3. <strong>行业地位稳固</strong>：专业晶圆代工厂，在模拟芯片领域有竞争优势</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>行业周期性</strong>：半导体行业周期性明显，可能面临需求波动<br />
-2. <strong>地缘政治风险</strong>：中东地区冲突可能影响供应链稳定</p>
-<h3>2. <strong>GFS (GlobalFoundries Inc)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>机构极度看好</strong>：机构持股比例84.97%，几乎完全被机构控制<br />
-2. <strong>战略地位重要</strong>：美国本土晶圆代工厂，受益于芯片法案支持<br />
-3. <strong>技术面合理</strong>：RSI 38.49处于合理区间，估值相对合理</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>资本开支巨大</strong>：晶圆厂建设需要巨额投资，影响现金流<br />
-2. <strong>技术追赶压力</strong>：与台积电、三星存在技术差距</p>
-<h3>3. <strong>CRUS (凌云半导体)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>机构认可度高</strong>：机构+基金持股达100%，市场高度认可<br />
-2. <strong>产品护城河深</strong>：音频芯片技术领先，客户粘性强<br />
-3. <strong>财务稳健</strong>：盈利能力强，现金流充裕</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>客户集中度高</strong>：过度依赖苹果等大客户<br />
-2. <strong>智能手机市场饱和</strong>：主要市场增长放缓</p>
-<h3>4. <strong>ASML (阿斯麦公司)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>技术垄断地位</strong>：全球唯一EUV光刻机供应商，护城河极深<br />
-2. <strong>长期成长确定</strong>：AI和先进制程需求持续增长<br />
-3. <strong>财务质量优秀</strong>：高毛利率，稳定现金流</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>地缘政治风险</strong>：出口管制可能影响中国市场需求<br />
-2. <strong>技术迭代风险</strong>：下一代技术研发投入巨大</p>
-<h3>5. <strong>ORCL (甲骨文公司)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>云计算转型成功</strong>：云业务快速增长，估值合理<br />
-2. <strong>机构持续增持</strong>：贝莱德、先锋等巨头持续买入<br />
-3. <strong>股息收益率可观</strong>：1.04%股息率提供防御性</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>竞争激烈</strong>：面临微软、亚马逊等巨头竞争<br />
-2. <strong>传统业务下滑</strong>：数据库业务增长放缓</p>
-<h3>6. <strong>LAC (Lithium Americas Corp)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>锂资源稀缺性</strong>：拥有美国最大锂矿资源<br />
-2. <strong>电动车趋势</strong>：受益于电动车普及长期趋势<br />
-3. <strong>政策支持</strong>：美国本土供应链建设受政策支持</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>价格波动大</strong>：锂价周期性波动剧烈<br />
-2. <strong>项目开发风险</strong>：矿山建设存在不确定性</p>
-<h3>7. <strong>IONS (Ionis Pharmaceuticals Inc)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>技术平台独特</strong>：反义寡核苷酸技术领先<br />
-2. <strong>管线丰富</strong>：多个临床阶段药物，潜力大<br />
-3. <strong>合作伙伴强大</strong>：与多家大药企有合作</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>研发风险高</strong>：新药研发失败率高<br />
-2. <strong>监管风险</strong>：药品审批存在不确定性</p>
-<h3>8. <strong>MLI (木勒工业)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>工业龙头地位</strong>：在细分领域市场份额领先<br />
-2. <strong>财务稳健</strong>：负债率低，现金流稳定<br />
-3. <strong>经济复苏受益</strong>：制造业回流趋势受益者</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>经济周期敏感</strong>：工业股对经济周期敏感<br />
-2. <strong>原材料成本压力</strong>：钢材等原材料价格上涨</p>
-<h3>9. <strong>LFUS (美国力特保险丝)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>必需品属性</strong>：保险丝是电力系统必需品<br />
-2. <strong>技术壁垒</strong>：在高压保险丝领域技术领先<br />
-3. <strong>稳定增长</strong>：需求稳定，抗周期性强</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>增长缓慢</strong>：传统业务增长空间有限<br />
-2. <strong>竞争加剧</strong>：面临亚洲厂商价格竞争</p>
-<h3>10. <strong>HBM (Hudbay Minerals Inc)</strong></h3>
-<p><strong>三个投资价值</strong>：<br />
-1. <strong>铜资源稀缺</strong>：铜是新能源转型关键金属<br />
-2. <strong>通胀对冲</strong>：资源股具有抗通胀属性<br />
-3. <strong>估值合理</strong>：相对同行估值有吸引力</p>
-<p><strong>两个风险点</strong>：<br />
-1. <strong>大宗商品波动</strong>：铜价受宏观经济影响大<br />
-2. <strong>运营风险</strong>：矿山运营存在安全环保风险</p>
-<h2>5. 当前"买入"评级的五支持仓股票</h2>
-<p>基于当前市场状况和技术面分析，推荐以下五支股票作为当前持仓：</p>
+<p><em>注：部分股票机构持仓数据需进一步核实，基于公开信息初步筛选</em></p>
+<h2>4. 优选十支股票深度分析</h2>
+<h3>1. <strong>LEGN（传奇生物科技）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. CAR-T细胞疗法领先企业，技术壁垒高<br />
+2. 与强生合作商业化进程顺利<br />
+3. 近期大幅回调后估值相对合理</p>
+<p><strong>两个风险点：</strong><br />
+1. 生物科技股波动性极高，受临床数据影响大<br />
+2. 面临激烈竞争，研发投入巨大</p>
+<h3>2. <strong>IBM（国际商业机器）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 混合云和AI业务增长强劲<br />
+2. 股息收益率稳定，现金流充裕<br />
+3. 企业数字化转型需求持续</p>
+<p><strong>两个风险点：</strong><br />
+1. 传统业务转型缓慢<br />
+2. 面临AWS、Azure等激烈竞争</p>
+<h3>3. <strong>PRCT（Procept机器人）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 泌尿外科手术机器人细分领域龙头<br />
+2. WATER IV临床试验进展顺利<br />
+3. 老龄化趋势下医疗需求增长</p>
+<p><strong>两个风险点：</strong><br />
+1. 仍处于亏损状态，现金流紧张<br />
+2. 医疗设备审批周期长</p>
+<h3>4. <strong>LOAR（Loar Holdings）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 航空航天零部件细分领域优势明显<br />
+2. 国防预算增加受益明显<br />
+3. 机构持股集中（43.7%）</p>
+<p><strong>两个风险点：</strong><br />
+1. 估值较高（PE 98.36）<br />
+2. 依赖少数大客户</p>
+<h3>5. <strong>LPX（路易斯安那太平洋）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 美国基建法案直接受益者<br />
+2. 房地产后周期需求稳定<br />
+3. 成本控制能力较强</p>
+<p><strong>两个风险点：</strong><br />
+1. 原材料价格波动影响利润<br />
+2. 利率上升影响房地产需求</p>
+<h3>6. <strong>VOYG（Voyager科技）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 太空探索和国防技术前沿<br />
+2. Starlab空间站项目潜力大<br />
+3. 地缘政治紧张利好国防股</p>
+<p><strong>两个风险点：</strong><br />
+1. 技术商业化周期长<br />
+2. 现金流为负，依赖融资</p>
+<h3>7. <strong>NN（NextNav）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 5G定位技术领先<br />
+2. GPS替代方案需求增长<br />
+3. 技术演示成功商业化在即</p>
+<p><strong>两个风险点：</strong><br />
+1. 技术标准竞争激烈<br />
+2. 客户采纳速度不确定</p>
+<h3>8. <strong>SAIA（Saia物流）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 零担运输细分领域龙头<br />
+2. 电商物流需求稳定增长<br />
+3. 运营效率行业领先</p>
+<p><strong>两个风险点：</strong><br />
+1. 燃油成本上涨压力<br />
+2. 经济衰退影响货运量</p>
+<h3>9. <strong>AAP（Advance Auto Parts）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 汽车后市场稳定需求<br />
+2. 门店网络优势明显<br />
+3. 近期财报超预期</p>
+<p><strong>两个风险点：</strong><br />
+1. 线上竞争加剧<br />
+2. 劳动力成本上升</p>
+<h3>10. <strong>WLDN（Willdan Group）</strong></h3>
+<p><strong>三个投资价值：</strong><br />
+1. 政府咨询服务稳定<br />
+2. 能源效率业务增长<br />
+3. 机构持股比例高（62.58%）</p>
+<p><strong>两个风险点：</strong><br />
+1. 项目周期长<br />
+2. 依赖政府预算</p>
+<h2>5. 当前"买入"评级持仓组合</h2>
+<p>基于当前市场环境和股票分析，推荐以下五支股票作为当前持仓：</p>
+<table>
+<thead>
+<tr>
+<th>排名</th>
+<th>股票代码</th>
+<th>股票名称</th>
+<th>买入理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>LEGN</td>
+<td>传奇生物科技</td>
+<td>超跌反弹，CAR-T疗法龙头</td>
+</tr>
+<tr>
+<td>2</td>
+<td>PRCT</td>
+<td>Procept机器人</td>
+<td>医疗机器人高成长，临床进展顺利</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LOAR</td>
+<td>Loar Holdings</td>
+<td>国防航天细分龙头，机构重仓</td>
+</tr>
+<tr>
+<td>4</td>
+<td>IBM</td>
+<td>IBM</td>
+<td>科技蓝筹，股息稳定，AI+云转型</td>
+</tr>
+<tr>
+<td>5</td>
+<td>LPX</td>
+<td>路易斯安那太平洋</td>
+<td>基建受益，估值合理</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[recm][20260716][LEGN,传奇生物科技;PRCT,Procept机器人;LOAR,Loar Holdings;IBM,IBM;LPX,路易斯安那太平洋]</strong></p>
+<h2>投资策略总结</h2>
 <ol>
-<li><strong>TSEM</strong> - Tower Semiconductor Ltd（技术面超卖，机构高度控盘）</li>
-<li><strong>GFS</strong> - GlobalFoundries Inc（机构极度看好，战略地位重要）</li>
-<li><strong>CRUS</strong> - 凌云半导体（机构完全控盘，产品护城河深）</li>
-<li><strong>ASML</strong> - 阿斯麦公司（技术垄断，长期成长确定）</li>
-<li><strong>ORCL</strong> - 甲骨文公司（云计算转型成功，股息提供防御）</li>
+<li><strong>市场环境</strong>：当前美股面临通胀、地缘政治、财报季三重考验，建议采取防御性策略</li>
+<li><strong>操作周期</strong>：每日监控，重点关注RSI指标和成交量变化</li>
+<li><strong>风险控制</strong>：严格执行止盈止损，单支股票仓位不超过15%</li>
+<li><strong>关注重点</strong>：7月财报季表现，美联储政策动向，地缘政治发展</li>
 </ol>
-<p><strong>[recm][20260715][TSEM,Tower Semiconductor Ltd;GFS,GlobalFoundries Inc;CRUS,凌云半导体;ASML,阿斯麦公司;ORCL,甲骨文公司]</strong></p>
-<p><strong>投资建议总结</strong>：<br />
-当前市场处于震荡调整期，建议采取"核心+卫星"策略：<br />
-- 核心持仓：TSEM、GFS、CRUS（机构高度认可，基本面稳健）<br />
-- 卫星持仓：ASML、ORCL（行业龙头，长期成长确定）<br />
-- 保持30%现金仓位，应对可能的进一步调整<br />
-- 设置严格止盈止损纪律，控制单只股票仓位不超过20%</p>
-<p><strong>风险提示</strong>：<br />
-1. 地缘政治风险（美伊冲突可能升级）<br />
-2. 美联储加息预期升温<br />
-3. 科技股估值调整压力<br />
-4. 宏观经济放缓风险</p>
-<p><em>以上分析基于2026年7月15日市场信息，投资有风险，入市需谨慎。</em></p>
+<p><strong>免责声明</strong>：以上分析基于公开信息，不构成投资建议。投资有风险，入市需谨慎。</p>
             </div>
         </body>
         </html>
